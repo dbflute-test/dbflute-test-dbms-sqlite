@@ -61,10 +61,10 @@ public class VendorCheckDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnVendorCheckId = cci("VENDOR_CHECK_ID", "VENDOR_CHECK_ID", null, null, Integer.class, "vendorCheckId", null, true, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfText = cci("TYPE_OF_TEXT", "TYPE_OF_TEXT", null, null, String.class, "typeOfText", null, false, false, false, "TEXT", 2000000000, 10, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfInteger = cci("TYPE_OF_INTEGER", "TYPE_OF_INTEGER", null, null, Integer.class, "typeOfInteger", null, false, false, false, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfReal = cci("TYPE_OF_REAL", "TYPE_OF_REAL", null, null, String.class, "typeOfReal", null, false, false, false, "REAL", 2000000000, 10, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnVendorCheckId = cci("VENDOR_CHECK_ID", "VENDOR_CHECK_ID", null, null, Integer.class, "vendorCheckId", null, true, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfText = cci("TYPE_OF_TEXT", "TYPE_OF_TEXT", null, null, String.class, "typeOfText", null, false, false, false, "TEXT", 2000000000, 10, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInteger = cci("TYPE_OF_INTEGER", "TYPE_OF_INTEGER", null, null, Integer.class, "typeOfInteger", null, false, false, false, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfReal = cci("TYPE_OF_REAL", "TYPE_OF_REAL", null, null, String.class, "typeOfReal", null, false, false, false, "REAL", 2000000000, 10, null, false, null, null, null, null, null, false);
 
     /**
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}

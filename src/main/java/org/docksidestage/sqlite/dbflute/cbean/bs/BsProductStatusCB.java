@@ -61,17 +61,14 @@ public class BsProductStatusCB extends AbstractConditionBean {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider(); // as default
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "PRODUCT_STATUS";
     }
 
@@ -292,6 +289,11 @@ public class BsProductStatusCB extends AbstractConditionBean {
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusName() { return doColumn("PRODUCT_STATUS_NAME"); }
+        /**
+         * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnDisplayOrder() { return doColumn("DISPLAY_ORDER"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override

@@ -18,7 +18,7 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  *     MEMBER_ID
  * 
  * [column]
- *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
+ *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
  * 
  * [sequence]
  *     
@@ -47,6 +47,7 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  * String loginPassword = entity.getLoginPassword();
  * String reminderQuestion = entity.getReminderQuestion();
  * String reminderAnswer = entity.getReminderAnswer();
+ * Integer reminderUseCount = entity.getReminderUseCount();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerProcess = entity.getRegisterProcess();
  * String registerUser = entity.getRegisterUser();
@@ -58,6 +59,7 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  * entity.setLoginPassword(loginPassword);
  * entity.setReminderQuestion(reminderQuestion);
  * entity.setReminderAnswer(reminderAnswer);
+ * entity.setReminderUseCount(reminderUseCount);
  * entity.setRegisterDatetime(registerDatetime);
  * entity.setRegisterProcess(registerProcess);
  * entity.setRegisterUser(registerUser);
@@ -92,6 +94,9 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     /** REMINDER_ANSWER: {NotNull, TEXT(2000000000, 10)} */
     protected String _reminderAnswer;
 
+    /** REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)} */
+    protected Integer _reminderUseCount;
+
     /** REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)} */
     protected java.time.LocalDateTime _registerDatetime;
 
@@ -114,24 +119,16 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     protected Integer _versionNo;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "MEMBER_SECURITY";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "memberSecurity";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -191,7 +188,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         return hs;
     }
@@ -214,6 +211,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
         sb.append(dm).append(xfND(_loginPassword));
         sb.append(dm).append(xfND(_reminderQuestion));
         sb.append(dm).append(xfND(_reminderAnswer));
+        sb.append(dm).append(xfND(_reminderUseCount));
         sb.append(dm).append(xfND(_registerDatetime));
         sb.append(dm).append(xfND(_registerProcess));
         sb.append(dm).append(xfND(_registerUser));
@@ -317,6 +315,24 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     public void setReminderAnswer(String reminderAnswer) {
         registerModifiedProperty("reminderAnswer");
         _reminderAnswer = reminderAnswer;
+    }
+
+    /**
+     * [get] REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)} <br>
+     * @return The value of the column 'REMINDER_USE_COUNT'. (basically NotNull if selected: for the constraint)
+     */
+    public Integer getReminderUseCount() {
+        checkSpecifiedProperty("reminderUseCount");
+        return _reminderUseCount;
+    }
+
+    /**
+     * [set] REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)} <br>
+     * @param reminderUseCount The value of the column 'REMINDER_USE_COUNT'. (basically NotNull if update: for the constraint)
+     */
+    public void setReminderUseCount(Integer reminderUseCount) {
+        registerModifiedProperty("reminderUseCount");
+        _reminderUseCount = reminderUseCount;
     }
 
     /**

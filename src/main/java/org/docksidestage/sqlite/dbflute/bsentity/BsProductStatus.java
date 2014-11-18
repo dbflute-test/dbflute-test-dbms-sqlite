@@ -16,7 +16,7 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  *     PRODUCT_STATUS_CODE
  * 
  * [column]
- *     PRODUCT_STATUS_CODE, PRODUCT_STATUS_NAME
+ *     PRODUCT_STATUS_CODE, PRODUCT_STATUS_NAME, DISPLAY_ORDER
  * 
  * [sequence]
  *     
@@ -43,8 +43,10 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * String productStatusCode = entity.getProductStatusCode();
  * String productStatusName = entity.getProductStatusName();
+ * Integer displayOrder = entity.getDisplayOrder();
  * entity.setProductStatusCode(productStatusCode);
  * entity.setProductStatusName(productStatusName);
+ * entity.setDisplayOrder(displayOrder);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
@@ -66,25 +68,20 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     /** PRODUCT_STATUS_NAME: {NotNull, TEXT(2000000000, 10)} */
     protected String _productStatusName;
 
+    /** DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)} */
+    protected Integer _displayOrder;
+
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "PRODUCT_STATUS";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "productStatus";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -163,7 +160,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productStatusCode);
         return hs;
     }
@@ -183,6 +180,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_productStatusCode));
         sb.append(dm).append(xfND(_productStatusName));
+        sb.append(dm).append(xfND(_displayOrder));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -245,5 +243,23 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     public void setProductStatusName(String productStatusName) {
         registerModifiedProperty("productStatusName");
         _productStatusName = productStatusName;
+    }
+
+    /**
+     * [get] DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)} <br>
+     * @return The value of the column 'DISPLAY_ORDER'. (basically NotNull if selected: for the constraint)
+     */
+    public Integer getDisplayOrder() {
+        checkSpecifiedProperty("displayOrder");
+        return _displayOrder;
+    }
+
+    /**
+     * [set] DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)} <br>
+     * @param displayOrder The value of the column 'DISPLAY_ORDER'. (basically NotNull if update: for the constraint)
+     */
+    public void setDisplayOrder(Integer displayOrder) {
+        registerModifiedProperty("displayOrder");
+        _displayOrder = displayOrder;
     }
 }

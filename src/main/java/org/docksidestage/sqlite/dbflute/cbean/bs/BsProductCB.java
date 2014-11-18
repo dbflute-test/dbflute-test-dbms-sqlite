@@ -61,17 +61,14 @@ public class BsProductCB extends AbstractConditionBean {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider(); // as default
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "PRODUCT";
     }
 
@@ -319,10 +316,20 @@ public class BsProductCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnProductHandleCode() { return doColumn("PRODUCT_HANDLE_CODE"); }
         /**
+         * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnProductCategoryCode() { return doColumn("PRODUCT_CATEGORY_CODE"); }
+        /**
          * PRODUCT_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to PRODUCT_STATUS}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }
+        /**
+         * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnRegularPrice() { return doColumn("REGULAR_PRICE"); }
         /**
          * REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)}
          * @return The information object of specified column. (NotNull)

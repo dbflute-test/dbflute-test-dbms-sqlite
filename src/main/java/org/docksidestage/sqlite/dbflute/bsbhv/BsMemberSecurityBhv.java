@@ -26,7 +26,7 @@ import org.docksidestage.sqlite.dbflute.cbean.*;
  *     MEMBER_ID
  *
  * [column]
- *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
+ *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
  *
  * [sequence]
  *     
@@ -60,10 +60,12 @@ public abstract class BsMemberSecurityBhv extends AbstractBehaviorWritable<Membe
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public MemberSecurityDbm getDBMeta() { return MemberSecurityDbm.getInstance(); }
+    public MemberSecurityDbm asDBMeta() { return MemberSecurityDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "MEMBER_SECURITY"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -408,7 +410,7 @@ public abstract class BsMemberSecurityBhv extends AbstractBehaviorWritable<Membe
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

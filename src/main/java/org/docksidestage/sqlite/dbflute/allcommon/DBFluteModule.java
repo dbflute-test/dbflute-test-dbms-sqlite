@@ -123,6 +123,11 @@ public class DBFluteModule extends AbstractModule {
             bind(PurchaseBhv.class).toInstance(bhv);
         }
         {
+            PurchasePaymentBhv bhv = new PurchasePaymentBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(PurchasePaymentBhv.class).toInstance(bhv);
+        }
+        {
             RegionBhv bhv = new RegionBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(RegionBhv.class).toInstance(bhv);

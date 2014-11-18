@@ -29,17 +29,14 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "MEMBER_SECURITY";
     }
 
@@ -458,6 +455,110 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
 
     protected void regReminderAnswer(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReminderAnswer(), "REMINDER_ANSWER"); }
     protected abstract ConditionValue xgetCValueReminderAnswer();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param reminderUseCount The value of reminderUseCount as equal. (NullAllowed: if null, no condition)
+     */
+    public void setReminderUseCount_Equal(Integer reminderUseCount) {
+        doSetReminderUseCount_Equal(reminderUseCount);
+    }
+
+    protected void doSetReminderUseCount_Equal(Integer reminderUseCount) {
+        regReminderUseCount(CK_EQ, reminderUseCount);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param reminderUseCount The value of reminderUseCount as greaterThan. (NullAllowed: if null, no condition)
+     */
+    public void setReminderUseCount_GreaterThan(Integer reminderUseCount) {
+        regReminderUseCount(CK_GT, reminderUseCount);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param reminderUseCount The value of reminderUseCount as lessThan. (NullAllowed: if null, no condition)
+     */
+    public void setReminderUseCount_LessThan(Integer reminderUseCount) {
+        regReminderUseCount(CK_LT, reminderUseCount);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param reminderUseCount The value of reminderUseCount as greaterEqual. (NullAllowed: if null, no condition)
+     */
+    public void setReminderUseCount_GreaterEqual(Integer reminderUseCount) {
+        regReminderUseCount(CK_GE, reminderUseCount);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param reminderUseCount The value of reminderUseCount as lessEqual. (NullAllowed: if null, no condition)
+     */
+    public void setReminderUseCount_LessEqual(Integer reminderUseCount) {
+        regReminderUseCount(CK_LE, reminderUseCount);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param minNumber The min number of reminderUseCount. (NullAllowed: if null, no from-condition)
+     * @param maxNumber The max number of reminderUseCount. (NullAllowed: if null, no to-condition)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setReminderUseCount_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setReminderUseCount_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param minNumber The min number of reminderUseCount. (NullAllowed: if null, no from-condition)
+     * @param maxNumber The max number of reminderUseCount. (NullAllowed: if null, no to-condition)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    public void setReminderUseCount_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueReminderUseCount(), "REMINDER_USE_COUNT", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param reminderUseCountList The collection of reminderUseCount as inScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setReminderUseCount_InScope(Collection<Integer> reminderUseCountList) {
+        doSetReminderUseCount_InScope(reminderUseCountList);
+    }
+
+    protected void doSetReminderUseCount_InScope(Collection<Integer> reminderUseCountList) {
+        regINS(CK_INS, cTL(reminderUseCountList), xgetCValueReminderUseCount(), "REMINDER_USE_COUNT");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+     * @param reminderUseCountList The collection of reminderUseCount as notInScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setReminderUseCount_NotInScope(Collection<Integer> reminderUseCountList) {
+        doSetReminderUseCount_NotInScope(reminderUseCountList);
+    }
+
+    protected void doSetReminderUseCount_NotInScope(Collection<Integer> reminderUseCountList) {
+        regINS(CK_NINS, cTL(reminderUseCountList), xgetCValueReminderUseCount(), "REMINDER_USE_COUNT");
+    }
+
+    protected void regReminderUseCount(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueReminderUseCount(), "REMINDER_USE_COUNT"); }
+    protected abstract ConditionValue xgetCValueReminderUseCount();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>

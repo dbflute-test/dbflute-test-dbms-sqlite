@@ -62,17 +62,14 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider(); // as default
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "MEMBER_SECURITY";
     }
 
@@ -330,6 +327,11 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnReminderAnswer() { return doColumn("REMINDER_ANSWER"); }
+        /**
+         * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnReminderUseCount() { return doColumn("REMINDER_USE_COUNT"); }
         /**
          * REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)}
          * @return The information object of specified column. (NotNull)

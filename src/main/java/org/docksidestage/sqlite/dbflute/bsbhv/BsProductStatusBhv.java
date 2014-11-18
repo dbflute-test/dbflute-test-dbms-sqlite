@@ -26,7 +26,7 @@ import org.docksidestage.sqlite.dbflute.cbean.*;
  *     PRODUCT_STATUS_CODE
  *
  * [column]
- *     PRODUCT_STATUS_CODE, PRODUCT_STATUS_NAME
+ *     PRODUCT_STATUS_CODE, PRODUCT_STATUS_NAME, DISPLAY_ORDER
  *
  * [sequence]
  *     
@@ -60,10 +60,12 @@ public abstract class BsProductStatusBhv extends AbstractBehaviorWritable<Produc
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public ProductStatusDbm getDBMeta() { return ProductStatusDbm.getInstance(); }
+    public ProductStatusDbm asDBMeta() { return ProductStatusDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "PRODUCT_STATUS"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -408,7 +410,7 @@ public abstract class BsProductStatusBhv extends AbstractBehaviorWritable<Produc
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

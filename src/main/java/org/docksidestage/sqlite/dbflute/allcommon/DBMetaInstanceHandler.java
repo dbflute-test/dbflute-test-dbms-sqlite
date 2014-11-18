@@ -42,6 +42,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("PRODUCT_CATEGORY", "org.docksidestage.sqlite.dbflute.bsentity.dbmeta.ProductCategoryDbm");
         tmpMap.put("PRODUCT_STATUS", "org.docksidestage.sqlite.dbflute.bsentity.dbmeta.ProductStatusDbm");
         tmpMap.put("PURCHASE", "org.docksidestage.sqlite.dbflute.bsentity.dbmeta.PurchaseDbm");
+        tmpMap.put("PURCHASE_PAYMENT", "org.docksidestage.sqlite.dbflute.bsentity.dbmeta.PurchasePaymentDbm");
         tmpMap.put("REGION", "org.docksidestage.sqlite.dbflute.bsentity.dbmeta.RegionDbm");
         tmpMap.put("SERVICE_RANK", "org.docksidestage.sqlite.dbflute.bsentity.dbmeta.ServiceRankDbm");
         tmpMap.put("SUMMARY_PRODUCT", "org.docksidestage.sqlite.dbflute.bsentity.dbmeta.SummaryProductDbm");
@@ -276,7 +277,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
             }
             if (Entity.class.isAssignableFrom(entityType)) { // required
                 Entity entity = newEntity(entityType);
-                dbmeta = getCachedDBMeta(entity.getTableDbName());
+                dbmeta = getCachedDBMeta(entity.asTableDbName());
             }
             if (dbmeta == null) {
                 return null;

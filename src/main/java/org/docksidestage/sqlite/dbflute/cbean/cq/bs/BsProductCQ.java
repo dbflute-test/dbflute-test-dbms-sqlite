@@ -147,6 +147,26 @@ public class BsProductCQ extends AbstractBsProductCQ {
      */
     public BsProductCQ addOrderBy_ProductHandleCode_Desc() { regOBD("PRODUCT_HANDLE_CODE"); return this; }
 
+    protected ConditionValue _productCategoryCode;
+    public ConditionValue xdfgetProductCategoryCode()
+    { if (_productCategoryCode == null) { _productCategoryCode = nCV(); }
+      return _productCategoryCode; }
+    protected ConditionValue xgetCValueProductCategoryCode() { return xdfgetProductCategoryCode(); }
+
+    /** 
+     * Add order-by as ascend. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+     * @return this. (NotNull)
+     */
+    public BsProductCQ addOrderBy_ProductCategoryCode_Asc() { regOBA("PRODUCT_CATEGORY_CODE"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+     * @return this. (NotNull)
+     */
+    public BsProductCQ addOrderBy_ProductCategoryCode_Desc() { regOBD("PRODUCT_CATEGORY_CODE"); return this; }
+
     protected ConditionValue _productStatusCode;
     public ConditionValue xdfgetProductStatusCode()
     { if (_productStatusCode == null) { _productStatusCode = nCV(); }
@@ -166,6 +186,26 @@ public class BsProductCQ extends AbstractBsProductCQ {
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }
+
+    protected ConditionValue _regularPrice;
+    public ConditionValue xdfgetRegularPrice()
+    { if (_regularPrice == null) { _regularPrice = nCV(); }
+      return _regularPrice; }
+    protected ConditionValue xgetCValueRegularPrice() { return xdfgetRegularPrice(); }
+
+    /** 
+     * Add order-by as ascend. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @return this. (NotNull)
+     */
+    public BsProductCQ addOrderBy_RegularPrice_Asc() { regOBA("REGULAR_PRICE"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @return this. (NotNull)
+     */
+    public BsProductCQ addOrderBy_RegularPrice_Desc() { regOBD("REGULAR_PRICE"); return this; }
 
     protected ConditionValue _registerDatetime;
     public ConditionValue xdfgetRegisterDatetime()
