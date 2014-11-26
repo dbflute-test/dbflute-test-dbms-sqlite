@@ -18,7 +18,7 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  *     PRODUCT_ID
  * 
  * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, UPDATE_PROCESS, VERSION_NO
+ *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, UPDATE_PROCESS, VERSION_NO
  * 
  * [sequence]
  *     
@@ -46,7 +46,9 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  * Integer productId = entity.getProductId();
  * String productName = entity.getProductName();
  * String productHandleCode = entity.getProductHandleCode();
+ * String productCategoryCode = entity.getProductCategoryCode();
  * String productStatusCode = entity.getProductStatusCode();
+ * Integer regularPrice = entity.getRegularPrice();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
  * String registerProcess = entity.getRegisterProcess();
@@ -57,7 +59,9 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  * entity.setProductId(productId);
  * entity.setProductName(productName);
  * entity.setProductHandleCode(productHandleCode);
+ * entity.setProductCategoryCode(productCategoryCode);
  * entity.setProductStatusCode(productStatusCode);
+ * entity.setRegularPrice(regularPrice);
  * entity.setRegisterDatetime(registerDatetime);
  * entity.setRegisterUser(registerUser);
  * entity.setRegisterProcess(registerProcess);
@@ -89,8 +93,14 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     /** PRODUCT_HANDLE_CODE: {NotNull, TEXT(2000000000, 10)} */
     protected String _productHandleCode;
 
+    /** PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)} */
+    protected String _productCategoryCode;
+
     /** PRODUCT_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to PRODUCT_STATUS} */
     protected String _productStatusCode;
+
+    /** REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)} */
+    protected Integer _regularPrice;
 
     /** REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)} */
     protected java.time.LocalDateTime _registerDatetime;
@@ -114,24 +124,16 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     protected Integer _versionNo;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "PRODUCT";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "product";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -211,7 +213,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productId);
         return hs;
     }
@@ -235,7 +237,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
         sb.append(dm).append(xfND(_productId));
         sb.append(dm).append(xfND(_productName));
         sb.append(dm).append(xfND(_productHandleCode));
+        sb.append(dm).append(xfND(_productCategoryCode));
         sb.append(dm).append(xfND(_productStatusCode));
+        sb.append(dm).append(xfND(_regularPrice));
         sb.append(dm).append(xfND(_registerDatetime));
         sb.append(dm).append(xfND(_registerUser));
         sb.append(dm).append(xfND(_registerProcess));
@@ -326,6 +330,24 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
+     * [get] PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)} <br>
+     * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if selected: for the constraint)
+     */
+    public String getProductCategoryCode() {
+        checkSpecifiedProperty("productCategoryCode");
+        return _productCategoryCode;
+    }
+
+    /**
+     * [set] PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)} <br>
+     * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if update: for the constraint)
+     */
+    public void setProductCategoryCode(String productCategoryCode) {
+        registerModifiedProperty("productCategoryCode");
+        _productCategoryCode = productCategoryCode;
+    }
+
+    /**
      * [get] PRODUCT_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to PRODUCT_STATUS} <br>
      * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
@@ -341,6 +363,24 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     public void setProductStatusCode(String productStatusCode) {
         registerModifiedProperty("productStatusCode");
         _productStatusCode = productStatusCode;
+    }
+
+    /**
+     * [get] REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)} <br>
+     * @return The value of the column 'REGULAR_PRICE'. (basically NotNull if selected: for the constraint)
+     */
+    public Integer getRegularPrice() {
+        checkSpecifiedProperty("regularPrice");
+        return _regularPrice;
+    }
+
+    /**
+     * [set] REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)} <br>
+     * @param regularPrice The value of the column 'REGULAR_PRICE'. (basically NotNull if update: for the constraint)
+     */
+    public void setRegularPrice(Integer regularPrice) {
+        registerModifiedProperty("regularPrice");
+        _regularPrice = regularPrice;
     }
 
     /**

@@ -29,17 +29,14 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "PRODUCT_STATUS";
     }
 
@@ -401,6 +398,110 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
 
     protected void regProductStatusName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductStatusName(), "PRODUCT_STATUS_NAME"); }
     protected abstract ConditionValue xgetCValueProductStatusName();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param displayOrder The value of displayOrder as equal. (NullAllowed: if null, no condition)
+     */
+    public void setDisplayOrder_Equal(Integer displayOrder) {
+        doSetDisplayOrder_Equal(displayOrder);
+    }
+
+    protected void doSetDisplayOrder_Equal(Integer displayOrder) {
+        regDisplayOrder(CK_EQ, displayOrder);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param displayOrder The value of displayOrder as greaterThan. (NullAllowed: if null, no condition)
+     */
+    public void setDisplayOrder_GreaterThan(Integer displayOrder) {
+        regDisplayOrder(CK_GT, displayOrder);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param displayOrder The value of displayOrder as lessThan. (NullAllowed: if null, no condition)
+     */
+    public void setDisplayOrder_LessThan(Integer displayOrder) {
+        regDisplayOrder(CK_LT, displayOrder);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param displayOrder The value of displayOrder as greaterEqual. (NullAllowed: if null, no condition)
+     */
+    public void setDisplayOrder_GreaterEqual(Integer displayOrder) {
+        regDisplayOrder(CK_GE, displayOrder);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param displayOrder The value of displayOrder as lessEqual. (NullAllowed: if null, no condition)
+     */
+    public void setDisplayOrder_LessEqual(Integer displayOrder) {
+        regDisplayOrder(CK_LE, displayOrder);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param minNumber The min number of displayOrder. (NullAllowed: if null, no from-condition)
+     * @param maxNumber The max number of displayOrder. (NullAllowed: if null, no to-condition)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setDisplayOrder_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param minNumber The min number of displayOrder. (NullAllowed: if null, no from-condition)
+     * @param maxNumber The max number of displayOrder. (NullAllowed: if null, no to-condition)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    public void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueDisplayOrder(), "DISPLAY_ORDER", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param displayOrderList The collection of displayOrder as inScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setDisplayOrder_InScope(Collection<Integer> displayOrderList) {
+        doSetDisplayOrder_InScope(displayOrderList);
+    }
+
+    protected void doSetDisplayOrder_InScope(Collection<Integer> displayOrderList) {
+        regINS(CK_INS, cTL(displayOrderList), xgetCValueDisplayOrder(), "DISPLAY_ORDER");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
+     * @param displayOrderList The collection of displayOrder as notInScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setDisplayOrder_NotInScope(Collection<Integer> displayOrderList) {
+        doSetDisplayOrder_NotInScope(displayOrderList);
+    }
+
+    protected void doSetDisplayOrder_NotInScope(Collection<Integer> displayOrderList) {
+        regINS(CK_NINS, cTL(displayOrderList), xgetCValueDisplayOrder(), "DISPLAY_ORDER");
+    }
+
+    protected void regDisplayOrder(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDisplayOrder(), "DISPLAY_ORDER"); }
+    protected abstract ConditionValue xgetCValueDisplayOrder();
 
     // ===================================================================================
     //                                                                     ScalarCondition

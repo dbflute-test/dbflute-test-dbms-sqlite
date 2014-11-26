@@ -29,17 +29,14 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "PRODUCT";
     }
 
@@ -435,6 +432,105 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+     * @param productCategoryCode The value of productCategoryCode as equal. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductCategoryCode_Equal(String productCategoryCode) {
+        doSetProductCategoryCode_Equal(fRES(productCategoryCode));
+    }
+
+    protected void doSetProductCategoryCode_Equal(String productCategoryCode) {
+        regProductCategoryCode(CK_EQ, productCategoryCode);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+     * @param productCategoryCode The value of productCategoryCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductCategoryCode_NotEqual(String productCategoryCode) {
+        doSetProductCategoryCode_NotEqual(fRES(productCategoryCode));
+    }
+
+    protected void doSetProductCategoryCode_NotEqual(String productCategoryCode) {
+        regProductCategoryCode(CK_NES, productCategoryCode);
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+     * @param productCategoryCodeList The collection of productCategoryCode as inScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductCategoryCode_InScope(Collection<String> productCategoryCodeList) {
+        doSetProductCategoryCode_InScope(productCategoryCodeList);
+    }
+
+    protected void doSetProductCategoryCode_InScope(Collection<String> productCategoryCodeList) {
+        regINS(CK_INS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+     * @param productCategoryCodeList The collection of productCategoryCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductCategoryCode_NotInScope(Collection<String> productCategoryCodeList) {
+        doSetProductCategoryCode_NotInScope(productCategoryCodeList);
+    }
+
+    protected void doSetProductCategoryCode_NotInScope(Collection<String> productCategoryCodeList) {
+        regINS(CK_NINS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)} <br>
+     * <pre>e.g. setProductCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param productCategoryCode The value of productCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setProductCategoryCode_LikeSearch(String productCategoryCode, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setProductCategoryCode_LikeSearch(productCategoryCode, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)} <br>
+     * <pre>e.g. setProductCategoryCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param productCategoryCode The value of productCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    public void setProductCategoryCode_LikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+     * @param productCategoryCode The value of productCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setProductCategoryCode_NotLikeSearch(String productCategoryCode, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setProductCategoryCode_NotLikeSearch(productCategoryCode, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_CATEGORY_CODE: {NotNull, CHAR(3)(2000000000, 10)}
+     * @param productCategoryCode The value of productCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    public void setProductCategoryCode_NotLikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE", likeSearchOption);
+    }
+
+    protected void regProductCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE"); }
+    protected abstract ConditionValue xgetCValueProductCategoryCode();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to PRODUCT_STATUS}
      * @param productStatusCode The value of productStatusCode as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -531,6 +627,110 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     protected void regProductStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductStatusCode(), "PRODUCT_STATUS_CODE"); }
     protected abstract ConditionValue xgetCValueProductStatusCode();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param regularPrice The value of regularPrice as equal. (NullAllowed: if null, no condition)
+     */
+    public void setRegularPrice_Equal(Integer regularPrice) {
+        doSetRegularPrice_Equal(regularPrice);
+    }
+
+    protected void doSetRegularPrice_Equal(Integer regularPrice) {
+        regRegularPrice(CK_EQ, regularPrice);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param regularPrice The value of regularPrice as greaterThan. (NullAllowed: if null, no condition)
+     */
+    public void setRegularPrice_GreaterThan(Integer regularPrice) {
+        regRegularPrice(CK_GT, regularPrice);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param regularPrice The value of regularPrice as lessThan. (NullAllowed: if null, no condition)
+     */
+    public void setRegularPrice_LessThan(Integer regularPrice) {
+        regRegularPrice(CK_LT, regularPrice);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param regularPrice The value of regularPrice as greaterEqual. (NullAllowed: if null, no condition)
+     */
+    public void setRegularPrice_GreaterEqual(Integer regularPrice) {
+        regRegularPrice(CK_GE, regularPrice);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param regularPrice The value of regularPrice as lessEqual. (NullAllowed: if null, no condition)
+     */
+    public void setRegularPrice_LessEqual(Integer regularPrice) {
+        regRegularPrice(CK_LE, regularPrice);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param minNumber The min number of regularPrice. (NullAllowed: if null, no from-condition)
+     * @param maxNumber The max number of regularPrice. (NullAllowed: if null, no to-condition)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setRegularPrice_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setRegularPrice_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param minNumber The min number of regularPrice. (NullAllowed: if null, no from-condition)
+     * @param maxNumber The max number of regularPrice. (NullAllowed: if null, no to-condition)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    public void setRegularPrice_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueRegularPrice(), "REGULAR_PRICE", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param regularPriceList The collection of regularPrice as inScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setRegularPrice_InScope(Collection<Integer> regularPriceList) {
+        doSetRegularPrice_InScope(regularPriceList);
+    }
+
+    protected void doSetRegularPrice_InScope(Collection<Integer> regularPriceList) {
+        regINS(CK_INS, cTL(regularPriceList), xgetCValueRegularPrice(), "REGULAR_PRICE");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * REGULAR_PRICE: {NotNull, INTEGER(2000000000, 10)}
+     * @param regularPriceList The collection of regularPrice as notInScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setRegularPrice_NotInScope(Collection<Integer> regularPriceList) {
+        doSetRegularPrice_NotInScope(regularPriceList);
+    }
+
+    protected void doSetRegularPrice_NotInScope(Collection<Integer> regularPriceList) {
+        regINS(CK_NINS, cTL(regularPriceList), xgetCValueRegularPrice(), "REGULAR_PRICE");
+    }
+
+    protected void regRegularPrice(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegularPrice(), "REGULAR_PRICE"); }
+    protected abstract ConditionValue xgetCValueRegularPrice();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
