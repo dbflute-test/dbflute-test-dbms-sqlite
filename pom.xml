@@ -118,6 +118,14 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.seasar.dbflute</groupId>
+				<artifactId>dbflute-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<clientProject>maihamadb</clientProject>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
