@@ -21,6 +21,8 @@ public class DBCurrent {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    protected final String _projectName = "maihamadb";
+
     protected DBDef _currentDBDef;
     {
         _currentDBDef = DBDef.codeOf("sqlite");
@@ -50,6 +52,17 @@ public class DBCurrent {
     }
 
     // ===================================================================================
+    //                                                                        Project Name
+    //                                                                        ============
+    /**
+     * Get project name of the database (DBFlute client) for the table.
+     * @return The project name e.g. maihamadb (NotNull)
+     */
+    public String projectName() {
+        return _projectName;
+    }
+
+    // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
     public void initializeCurrentDBDef(DBDef currentDBDef) {
@@ -63,10 +76,19 @@ public class DBCurrent {
         _currentDBDef = currentDBDef;
     }
 
+    /**
+     * Get current DB definition saved in this object.
+     * @return The object of DB definition. (NotNull)
+     */
     public DBDef currentDBDef() {
         return _currentDBDef;
     }
 
+    /**
+     * Is the current DB specified DB?
+     * @param currentDBDef The DB definition of current DB. (NullAllowed: if null, returns false)
+     * @return The determination, true or false.
+     */
     public boolean isCurrentDBDef(DBDef currentDBDef) {
 	    return _currentDBDef.equals(currentDBDef);
     }
