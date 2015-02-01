@@ -29,6 +29,9 @@ public class MemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -44,12 +47,12 @@ public class MemberDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((Member)et).getMemberName(), (et, vl) -> ((Member)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((Member)et).getMemberAccount(), (et, vl) -> ((Member)et).setMemberAccount((String)vl), "memberAccount");
         setupEpg(_epgMap, et -> ((Member)et).getMemberStatusCode(), (et, vl) -> ((Member)et).setMemberStatusCode((String)vl), "memberStatusCode");
-        setupEpg(_epgMap, et -> ((Member)et).getFormalizedDatetime(), (et, vl) -> ((Member)et).setFormalizedDatetime((java.time.LocalDateTime)vl), "formalizedDatetime");
-        setupEpg(_epgMap, et -> ((Member)et).getBirthdate(), (et, vl) -> ((Member)et).setBirthdate((java.time.LocalDate)vl), "birthdate");
-        setupEpg(_epgMap, et -> ((Member)et).getMemberRegisterDatetime(), (et, vl) -> ((Member)et).setMemberRegisterDatetime((java.time.LocalDateTime)vl), "memberRegisterDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getFormalizedDatetime(), (et, vl) -> ((Member)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getBirthdate(), (et, vl) -> ((Member)et).setBirthdate(ctld(vl)), "birthdate");
+        setupEpg(_epgMap, et -> ((Member)et).getMemberRegisterDatetime(), (et, vl) -> ((Member)et).setMemberRegisterDatetime(ctldt(vl)), "memberRegisterDatetime");
         setupEpg(_epgMap, et -> ((Member)et).getMemberRegisterUser(), (et, vl) -> ((Member)et).setMemberRegisterUser((String)vl), "memberRegisterUser");
         setupEpg(_epgMap, et -> ((Member)et).getMemberRegisterProcess(), (et, vl) -> ((Member)et).setMemberRegisterProcess((String)vl), "memberRegisterProcess");
-        setupEpg(_epgMap, et -> ((Member)et).getMemberUpdateDatetime(), (et, vl) -> ((Member)et).setMemberUpdateDatetime((java.time.LocalDateTime)vl), "memberUpdateDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getMemberUpdateDatetime(), (et, vl) -> ((Member)et).setMemberUpdateDatetime(ctldt(vl)), "memberUpdateDatetime");
         setupEpg(_epgMap, et -> ((Member)et).getMemberUpdateUser(), (et, vl) -> ((Member)et).setMemberUpdateUser((String)vl), "memberUpdateUser");
         setupEpg(_epgMap, et -> ((Member)et).getMemberUpdateProcess(), (et, vl) -> ((Member)et).setMemberUpdateProcess((String)vl), "memberUpdateProcess");
         setupEpg(_epgMap, et -> ((Member)et).getVersionNo(), (et, vl) -> ((Member)et).setVersionNo(cti(vl)), "versionNo");
@@ -76,10 +79,12 @@ public class MemberDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "MEMBER";
+    protected final String _tableDispName = "MEMBER";
     protected final String _tablePropertyName = "member";
     protected final TableSqlName _tableSqlName = new TableSqlName("MEMBER", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -195,6 +200,11 @@ public class MemberDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnMemberId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnMemberAccount()); }
 
     // ===================================================================================
     //                                                                       Relation Info

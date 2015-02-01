@@ -29,6 +29,9 @@ public class PurchaseDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -43,7 +46,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseId(), (et, vl) -> ((Purchase)et).setPurchaseId(cti(vl)), "purchaseId");
         setupEpg(_epgMap, et -> ((Purchase)et).getMemberId(), (et, vl) -> ((Purchase)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((Purchase)et).getProductId(), (et, vl) -> ((Purchase)et).setProductId(cti(vl)), "productId");
-        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseDatetime(), (et, vl) -> ((Purchase)et).setPurchaseDatetime((java.time.LocalDateTime)vl), "purchaseDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseDatetime(), (et, vl) -> ((Purchase)et).setPurchaseDatetime(ctldt(vl)), "purchaseDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseCount(), (et, vl) -> ((Purchase)et).setPurchaseCount(cti(vl)), "purchaseCount");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchasePrice(), (et, vl) -> ((Purchase)et).setPurchasePrice(cti(vl)), "purchasePrice");
         setupEpg(_epgMap, et -> ((Purchase)et).getPaymentCompleteFlg(), (et, vl) -> {
@@ -56,10 +59,10 @@ public class PurchaseDbm extends AbstractDBMeta {
                 ((Purchase)et).mynativeMappingPaymentCompleteFlg(ctn(vl, Integer.class));
             }
         }, "paymentCompleteFlg");
-        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseRegisterDatetime(), (et, vl) -> ((Purchase)et).setPurchaseRegisterDatetime((java.time.LocalDateTime)vl), "purchaseRegisterDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseRegisterDatetime(), (et, vl) -> ((Purchase)et).setPurchaseRegisterDatetime(ctldt(vl)), "purchaseRegisterDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseRegisterUser(), (et, vl) -> ((Purchase)et).setPurchaseRegisterUser((String)vl), "purchaseRegisterUser");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseRegisterProcess(), (et, vl) -> ((Purchase)et).setPurchaseRegisterProcess((String)vl), "purchaseRegisterProcess");
-        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseUpdateDatetime(), (et, vl) -> ((Purchase)et).setPurchaseUpdateDatetime((java.time.LocalDateTime)vl), "purchaseUpdateDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseUpdateDatetime(), (et, vl) -> ((Purchase)et).setPurchaseUpdateDatetime(ctldt(vl)), "purchaseUpdateDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseUpdateUser(), (et, vl) -> ((Purchase)et).setPurchaseUpdateUser((String)vl), "purchaseUpdateUser");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseUpdateProcess(), (et, vl) -> ((Purchase)et).setPurchaseUpdateProcess((String)vl), "purchaseUpdateProcess");
         setupEpg(_epgMap, et -> ((Purchase)et).getVersionNo(), (et, vl) -> ((Purchase)et).setVersionNo(cti(vl)), "versionNo");
@@ -85,10 +88,12 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "PURCHASE";
+    protected final String _tableDispName = "PURCHASE";
     protected final String _tablePropertyName = "purchase";
     protected final TableSqlName _tableSqlName = new TableSqlName("PURCHASE", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
