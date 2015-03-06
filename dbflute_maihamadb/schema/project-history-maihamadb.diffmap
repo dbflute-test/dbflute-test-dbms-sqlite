@@ -1,4 +1,60 @@
 map:{
+    ; 2015/03/05 19:00:55 = map:{
+        ; diffDate = 2015/03/05 19:00:55
+        ; tableCount = map:{
+            ; next = 18
+            ; previous = 17
+        }
+        ; tableDiff = map:{
+            ; WHITE_TARGET_DOC_ONLY = map:{
+                ; tableName = WHITE_TARGET_DOC_ONLY
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2015/03/05 18:51:05 = map:{
+        ; diffDate = 2015/03/05 18:51:05
+        ; tableCount = map:{
+            ; next = 17
+            ; previous = 16
+        }
+        ; tableDiff = map:{
+            ; VENDOR_CHECK = map:{
+                ; tableName = VENDOR_CHECK
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2015/03/05 18:49:54 = map:{
+        ; diffDate = 2015/03/05 18:49:54
+        ; tableCount = map:{
+            ; next = 16
+            ; previous = 15
+        }
+        ; tableDiff = map:{
+            ; SUMMARY_PRODUCT = map:{
+                ; tableName = SUMMARY_PRODUCT
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2015/03/05 18:49:01 = map:{
+        ; diffDate = 2015/03/05 18:49:01
+        ; tableCount = map:{
+            ; next = 15
+            ; previous = 17
+        }
+        ; tableDiff = map:{
+            ; SUMMARY_PRODUCT = map:{
+                ; tableName = SUMMARY_PRODUCT
+                ; diffType = DELETE
+            }
+            ; VENDOR_CHECK = map:{
+                ; tableName = VENDOR_CHECK
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2014/11/12 23:12:13 = map:{
         ; diffDate = 2014/11/12 23:12:13
         ; tableCount = map:{
