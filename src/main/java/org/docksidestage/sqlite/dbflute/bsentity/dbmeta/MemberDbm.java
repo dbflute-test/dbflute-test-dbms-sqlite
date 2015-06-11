@@ -100,7 +100,7 @@ public class MemberDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnMemberRegisterDatetime = cci("MEMBER_REGISTER_DATETIME", "MEMBER_REGISTER_DATETIME", null, null, java.time.LocalDateTime.class, "memberRegisterDatetime", null, false, false, true, "DATETIME", 2000000000, 10, null, true, null, null, null, null, null, false);
     protected final ColumnInfo _columnMemberRegisterUser = cci("MEMBER_REGISTER_USER", "MEMBER_REGISTER_USER", null, null, String.class, "memberRegisterUser", null, false, false, true, "TEXT", 2000000000, 10, null, true, null, null, null, null, null, false);
     protected final ColumnInfo _columnMemberRegisterProcess = cci("MEMBER_REGISTER_PROCESS", "MEMBER_REGISTER_PROCESS", null, null, String.class, "memberRegisterProcess", null, false, false, true, "TEXT", 2000000000, 10, null, true, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMemberUpdateDatetime = cci("MEMBER_UPDATE_DATETIME", "MEMBER_UPDATE_DATETIME", null, null, java.time.LocalDateTime.class, "memberUpdateDatetime", null, false, false, true, "DATETIME", 2000000000, 10, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberUpdateDatetime = cci("MEMBER_UPDATE_DATETIME", "MEMBER_UPDATE_DATETIME", null, null, java.time.LocalDateTime.class, "memberUpdateDatetime", null, false, false, true, "DATETIME", 2000000000, 10, null, true, OptimisticLockType.UPDATE_DATE, null, null, null, null, false);
     protected final ColumnInfo _columnMemberUpdateUser = cci("MEMBER_UPDATE_USER", "MEMBER_UPDATE_USER", null, null, String.class, "memberUpdateUser", null, false, false, true, "TEXT", 2000000000, 10, null, true, null, null, null, null, null, false);
     protected final ColumnInfo _columnMemberUpdateProcess = cci("MEMBER_UPDATE_PROCESS", "MEMBER_UPDATE_PROCESS", null, null, String.class, "memberUpdateProcess", null, false, false, true, "TEXT", 2000000000, 10, null, true, null, null, null, null, null, false);
     protected final ColumnInfo _columnVersionNo = cci("VERSION_NO", "VERSION_NO", null, null, Integer.class, "versionNo", null, false, false, true, "INTEGER", 2000000000, 10, null, false, OptimisticLockType.VERSION_NO, null, null, null, null, false);
@@ -289,6 +289,8 @@ public class MemberDbm extends AbstractDBMeta {
     public boolean hasIdentity() { return true; }
     public boolean hasVersionNo() { return true; }
     public ColumnInfo getVersionNoColumnInfo() { return _columnVersionNo; }
+    public boolean hasUpdateDate() { return true; }
+    public ColumnInfo getUpdateDateColumnInfo() { return _columnMemberUpdateDatetime; }
     public boolean hasCommonColumn() { return true; }
     public List<ColumnInfo> getCommonColumnInfoList()
     { return newArrayList(columnMemberRegisterDatetime(), columnMemberRegisterUser(), columnMemberRegisterProcess(), columnMemberUpdateDatetime(), columnMemberUpdateUser(), columnMemberUpdateProcess()); }

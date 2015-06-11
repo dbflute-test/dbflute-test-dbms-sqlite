@@ -3,13 +3,13 @@ package org.docksidestage.sqlite.dbflute.whitebox;
 import org.docksidestage.sqlite.dbflute.cbean.MemberCB;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberBhv;
 import org.docksidestage.sqlite.dbflute.exentity.Member;
-import org.docksidestage.sqlite.unit.AppContainerTestCase;
+import org.docksidestage.sqlite.unit.UnitContainerTestCase;
 
 /**
  * @author jflute
  * @since 0.9.6.9 (2010/05/12 Wednesday)
  */
-public class WxEmptyStringTest extends AppContainerTestCase {
+public class WxEmptyStringTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute

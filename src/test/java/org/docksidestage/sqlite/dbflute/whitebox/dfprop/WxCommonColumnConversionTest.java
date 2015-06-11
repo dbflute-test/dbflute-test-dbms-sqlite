@@ -5,13 +5,13 @@ import java.util.List;
 import org.dbflute.dbmeta.info.ColumnInfo;
 import org.docksidestage.sqlite.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.sqlite.dbflute.bsentity.dbmeta.PurchaseDbm;
-import org.docksidestage.sqlite.unit.AppContainerTestCase;
+import org.docksidestage.sqlite.unit.UnitContainerTestCase;
 
 /**
  * @author jflute
  * @since 0.9.6.9 (2010/05/12 Wednesday)
  */
-public class WxCommonColumnConversionTest extends AppContainerTestCase {
+public class WxCommonColumnConversionTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute

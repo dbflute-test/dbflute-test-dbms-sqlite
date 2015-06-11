@@ -1565,6 +1565,9 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     @Override
     protected boolean hasVersionNoValue(Entity et) { return downcast(et).getVersionNo() != null; }
 
+    @Override
+    protected boolean hasUpdateDateValue(Entity et) { return downcast(et).getMemberUpdateDatetime() != null; }
+
     // ===================================================================================
     //                                                                         Type Helper
     //                                                                         ===========

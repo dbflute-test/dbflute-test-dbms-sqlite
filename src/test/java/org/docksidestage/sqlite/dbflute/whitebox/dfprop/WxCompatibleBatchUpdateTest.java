@@ -11,12 +11,12 @@ import org.dbflute.util.Srl;
 import org.docksidestage.sqlite.dbflute.cbean.MemberCB;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberBhv;
 import org.docksidestage.sqlite.dbflute.exentity.Member;
-import org.docksidestage.sqlite.unit.AppContainerTestCase;
+import org.docksidestage.sqlite.unit.UnitContainerTestCase;
 
 /**
  * @author jflute
  */
-public class WxCompatibleBatchUpdateTest extends AppContainerTestCase {
+public class WxCompatibleBatchUpdateTest extends UnitContainerTestCase {
 
     private MemberBhv memberBhv;
 

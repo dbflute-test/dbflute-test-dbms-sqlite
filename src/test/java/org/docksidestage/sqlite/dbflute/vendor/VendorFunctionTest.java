@@ -11,13 +11,13 @@ import org.docksidestage.sqlite.dbflute.cbean.MemberLoginCB;
 import org.docksidestage.sqlite.dbflute.cbean.PurchaseCB;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberBhv;
 import org.docksidestage.sqlite.dbflute.exentity.Member;
-import org.docksidestage.sqlite.unit.AppContainerTestCase;
+import org.docksidestage.sqlite.unit.UnitContainerTestCase;
 
 /**
  * @author jflute
  * @since 0.9.7.4 (2010/09/11 Saturday)
  */
-public class VendorFunctionTest extends AppContainerTestCase {
+public class VendorFunctionTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute

@@ -12,12 +12,12 @@ import org.docksidestage.sqlite.dbflute.exbhv.MemberBhv;
 import org.docksidestage.sqlite.dbflute.exbhv.pmbean.SimpleMemberPmb;
 import org.docksidestage.sqlite.dbflute.exentity.Member;
 import org.docksidestage.sqlite.dbflute.exentity.customize.SimpleMember;
-import org.docksidestage.sqlite.unit.AppContainerTestCase;
+import org.docksidestage.sqlite.unit.UnitContainerTestCase;
 
 /**
  * @author jflute
  */
-public class VendorCheckTest extends AppContainerTestCase {
+public class VendorCheckTest extends UnitContainerTestCase {
 
     private MemberBhv memberBhv;
 
