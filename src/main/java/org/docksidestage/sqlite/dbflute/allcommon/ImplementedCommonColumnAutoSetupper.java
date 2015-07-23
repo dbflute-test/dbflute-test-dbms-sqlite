@@ -64,7 +64,7 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
     }
 
     protected void doHandleCommonColumnOfUpdateIfNeeds(EntityDefinedCommonColumn entity) {
-        final java.time.LocalDateTime tableNameUpdateDatetime = org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread();
+        final java.time.LocalDateTime tableNameUpdateDatetime = entity.getTableNameUpdateDatetime() != null ? entity.getTableNameUpdateDatetime() : org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread();
         entity.setTableNameUpdateDatetime(tableNameUpdateDatetime);
         final String tableNameUpdateUser = org.dbflute.hook.AccessContext.getAccessUserOnThread();
         entity.setTableNameUpdateUser(tableNameUpdateUser);

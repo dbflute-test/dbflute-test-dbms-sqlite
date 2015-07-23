@@ -9,13 +9,13 @@ import java.util.Set;
 
 import org.docksidestage.sqlite.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.sqlite.dbflute.bsentity.dbmeta.PurchaseDbm;
-import org.docksidestage.sqlite.unit.AppContainerTestCase;
+import org.docksidestage.sqlite.unit.UnitContainerTestCase;
 
 /**
  * @author jflute
  * @since 0.6.1 (2008/01/23 Wednesday)
  */
-public class VendorMetaDataTest extends AppContainerTestCase {
+public class VendorMetaDataTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute

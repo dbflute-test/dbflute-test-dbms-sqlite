@@ -24,6 +24,9 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # test but no alter check here for now, only confirming no influence
+    ; isSchemaOnlyAlterCheck = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o dataLoadingType: (NotRequired - Default 'ut')
     #  The type of data loading.

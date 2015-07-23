@@ -46,7 +46,7 @@ map:{
         ; $-TABLE_NAME_UPDATE_PROCESS    = entity.getTableNameRegisterProcess()
     }
     ; beforeUpdateMap = map:{
-        ; $-TABLE_NAME_UPDATE_DATETIME   = $$AccessContext$$.getAccessLocalDateTimeOnThread()
+        ; $-TABLE_NAME_UPDATE_DATETIME   = entity.getTableNameUpdateDatetime() != null ? entity.getTableNameUpdateDatetime() : $$AccessContext$$.getAccessLocalDateTimeOnThread()
         ; $-TABLE_NAME_UPDATE_USER       = $$AccessContext$$.getAccessUserOnThread()
         ; $-TABLE_NAME_UPDATE_PROCESS    = $$AccessContext$$.getAccessProcessOnThread()
     }

@@ -53,7 +53,7 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
         bean.setUniqueResourceName("NONXADBMS");
         bean.setDriverClassName("org.sqlite.JDBC");
         EmbeddedSQLiteUrlFactoryBean factoryBean = new EmbeddedSQLiteUrlFactoryBean();
-        factoryBean.setUrlSuffix("/exampledb/exampledb.db");
+        factoryBean.setUrlSuffix("/database/maihamadb.db");
         factoryBean.setReferenceClassName(DBCurrent.class.getName());
         String url;
         try {

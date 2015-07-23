@@ -9,12 +9,12 @@ import org.dbflute.hook.SqlLogInfo;
 import org.dbflute.util.Srl;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberBhv;
 import org.docksidestage.sqlite.dbflute.exentity.Member;
-import org.docksidestage.sqlite.unit.AppContainerTestCase;
+import org.docksidestage.sqlite.unit.UnitContainerTestCase;
 
 /**
  * @author jflute
  */
-public class WxCompatibleEntityUpdateTest extends AppContainerTestCase {
+public class WxCompatibleEntityUpdateTest extends UnitContainerTestCase {
 
     private MemberBhv memberBhv;
 

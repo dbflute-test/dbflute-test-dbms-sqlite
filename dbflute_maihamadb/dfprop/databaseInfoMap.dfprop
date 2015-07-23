@@ -67,7 +67,11 @@ map:{
         #  This is only for the main schema. Additional schemas are unconcerned.
         #  And ReplaceSchema task basically ignores this.
         #
-        #; tableTargetList = list:{FOO_TABLE ; prefix:FOO_ ; suffix:_FOO ; contain:_FOO_}
+        ; tableTargetList = list:{
+            ; prefix:MEMBER@gen ; prefix:PURCHASE@gen ; prefix:PRODUCT@gen
+            ; WITHDRAWAL_REASON@gen ; REGION@gen ; SERVICE_RANK@gen ; SUMMARY_PRODUCT@gen
+            ; prefix:VENDOR@gen ; prefix:WHITE_
+        }
 
         # o columnExceptMap: (NotRequired - Default 'map:{}')
         #  If you want to exclude some columns in generating target,
