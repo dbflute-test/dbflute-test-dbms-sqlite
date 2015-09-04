@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param vendorCheckId The value of vendorCheckId as equal. (NullAllowed: if null, no condition)
+     * @param vendorCheckId The value of vendorCheckId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorCheckId_Equal(Integer vendorCheckId) {
         doSetVendorCheckId_Equal(vendorCheckId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param vendorCheckId The value of vendorCheckId as greaterThan. (NullAllowed: if null, no condition)
+     * @param vendorCheckId The value of vendorCheckId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorCheckId_GreaterThan(Integer vendorCheckId) {
         regVendorCheckId(CK_GT, vendorCheckId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param vendorCheckId The value of vendorCheckId as lessThan. (NullAllowed: if null, no condition)
+     * @param vendorCheckId The value of vendorCheckId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorCheckId_LessThan(Integer vendorCheckId) {
         regVendorCheckId(CK_LT, vendorCheckId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param vendorCheckId The value of vendorCheckId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param vendorCheckId The value of vendorCheckId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorCheckId_GreaterEqual(Integer vendorCheckId) {
         regVendorCheckId(CK_GE, vendorCheckId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param vendorCheckId The value of vendorCheckId as lessEqual. (NullAllowed: if null, no condition)
+     * @param vendorCheckId The value of vendorCheckId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorCheckId_LessEqual(Integer vendorCheckId) {
         regVendorCheckId(CK_LE, vendorCheckId);
@@ -279,7 +279,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param typeOfInteger The value of typeOfInteger as equal. (NullAllowed: if null, no condition)
+     * @param typeOfInteger The value of typeOfInteger as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTypeOfInteger_Equal(Integer typeOfInteger) {
         doSetTypeOfInteger_Equal(typeOfInteger);
@@ -292,7 +292,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param typeOfInteger The value of typeOfInteger as greaterThan. (NullAllowed: if null, no condition)
+     * @param typeOfInteger The value of typeOfInteger as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTypeOfInteger_GreaterThan(Integer typeOfInteger) {
         regTypeOfInteger(CK_GT, typeOfInteger);
@@ -301,7 +301,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param typeOfInteger The value of typeOfInteger as lessThan. (NullAllowed: if null, no condition)
+     * @param typeOfInteger The value of typeOfInteger as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTypeOfInteger_LessThan(Integer typeOfInteger) {
         regTypeOfInteger(CK_LT, typeOfInteger);
@@ -310,7 +310,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param typeOfInteger The value of typeOfInteger as greaterEqual. (NullAllowed: if null, no condition)
+     * @param typeOfInteger The value of typeOfInteger as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTypeOfInteger_GreaterEqual(Integer typeOfInteger) {
         regTypeOfInteger(CK_GE, typeOfInteger);
@@ -319,7 +319,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param typeOfInteger The value of typeOfInteger as lessEqual. (NullAllowed: if null, no condition)
+     * @param typeOfInteger The value of typeOfInteger as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTypeOfInteger_LessEqual(Integer typeOfInteger) {
         regTypeOfInteger(CK_LE, typeOfInteger);

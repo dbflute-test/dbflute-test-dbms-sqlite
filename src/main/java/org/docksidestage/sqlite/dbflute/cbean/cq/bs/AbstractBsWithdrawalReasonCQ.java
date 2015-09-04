@@ -329,7 +329,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
-     * @param displayOrder The value of displayOrder as equal. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_Equal(Integer displayOrder) {
         doSetDisplayOrder_Equal(displayOrder);
@@ -342,7 +342,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
-     * @param displayOrder The value of displayOrder as greaterThan. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_GreaterThan(Integer displayOrder) {
         regDisplayOrder(CK_GT, displayOrder);
@@ -351,7 +351,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
-     * @param displayOrder The value of displayOrder as lessThan. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_LessThan(Integer displayOrder) {
         regDisplayOrder(CK_LT, displayOrder);
@@ -360,7 +360,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
-     * @param displayOrder The value of displayOrder as greaterEqual. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_GreaterEqual(Integer displayOrder) {
         regDisplayOrder(CK_GE, displayOrder);
@@ -369,7 +369,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
-     * @param displayOrder The value of displayOrder as lessEqual. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_LessEqual(Integer displayOrder) {
         regDisplayOrder(CK_LE, displayOrder);
