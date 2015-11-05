@@ -3,7 +3,9 @@ package org.docksidestage.sqlite.dbflute.exbhv;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
 
+import org.dbflute.Entity;
 import org.docksidestage.sqlite.dbflute.bsbhv.BsMemberBhv;
 import org.docksidestage.sqlite.dbflute.exbhv.cursor.PurchaseSummaryMemberCursor;
 import org.docksidestage.sqlite.dbflute.exbhv.cursor.PurchaseSummaryMemberCursorHandler;
@@ -25,6 +27,8 @@ public class MemberBhv extends BsMemberBhv {
     //                                                                          Definition
     //                                                                          ==========
     private static final Logger _log = LoggerFactory.getLogger(MemberBhv.class);
+
+    protected boolean zeroUpdateExistenceMocked;
 
     // ===================================================================================
     //                                                                          CSV Output
@@ -50,5 +54,24 @@ public class MemberBhv extends BsMemberBhv {
                 return null;
             }
         });
+    }
+
+    // ===================================================================================
+    //                                                                               Mock
+    //                                                                              ======
+    @Override
+    protected int countZeroUpdateExistence(Entity entity, boolean hasPK, Set<String> uniqueProps) {
+        if (zeroUpdateExistenceMocked) {
+            return 1;
+        }
+        return super.countZeroUpdateExistence(entity, hasPK, uniqueProps);
+    }
+
+    public void mockZeroUpdateExistence() {
+        zeroUpdateExistenceMocked = true;
+    }
+
+    public void restoreZeroUpdateExistence() {
+        zeroUpdateExistenceMocked = false;
     }
 }

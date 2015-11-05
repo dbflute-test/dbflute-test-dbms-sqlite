@@ -44,6 +44,9 @@ map:{
     ; isCompatibleBatchInsertDefaultEveryColumn = true
     ; isCompatibleBatchUpdateDefaultEveryColumn = true
 
+    # the test of zero update
+    ; isZeroUpdateCheckExistenceForPassing = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName (NotRequired - Default 'false')
     #   [true]
