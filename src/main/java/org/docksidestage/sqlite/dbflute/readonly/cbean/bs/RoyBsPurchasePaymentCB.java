@@ -43,6 +43,9 @@ public class RoyBsPurchasePaymentCB extends AbstractConditionBean {
         if (RoyDBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
             enableNonSpecifiedColumnAccess();
         }
+        if (RoyDBFluteConfig.getInstance().isSpecifyColumnRequired()) {
+            enableSpecifyColumnRequired();
+        }
         if (RoyDBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }

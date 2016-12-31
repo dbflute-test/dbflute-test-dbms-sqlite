@@ -37,6 +37,11 @@ import com.google.inject.Module;
 public abstract class UnitContainerTestCase extends ContainerTestCase {
 
     @Override
+    protected boolean isUseTestCaseLooseBinding() {
+        return true;
+    }
+    
+    @Override
     protected List<Module> prepareModuleList() {
         final DataSource dataSource = createDataSource();
         final List<Module> moduleList = new ArrayList<Module>();

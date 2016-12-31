@@ -469,7 +469,7 @@ public abstract class RoyAbstractBsServiceRankCQ extends AbstractConditionQuery 
      * NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(2000000000, 10), classification=Flg}
      * @param newAcceptableFlgList The collection of newAcceptableFlg as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setNewAcceptableFlg_InScope(Collection<Integer> newAcceptableFlgList) {
+    protected void setNewAcceptableFlg_InScope(Collection<Integer> newAcceptableFlgList) {
         doSetNewAcceptableFlg_InScope(newAcceptableFlgList);
     }
 

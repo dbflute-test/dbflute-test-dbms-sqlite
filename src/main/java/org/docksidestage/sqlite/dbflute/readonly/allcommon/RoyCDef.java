@@ -2,11 +2,13 @@ package org.docksidestage.sqlite.dbflute.readonly.allcommon;
 
 import java.util.*;
 
+import org.dbflute.exception.ClassificationNotFoundException;
 import org.dbflute.jdbc.Classification;
 import org.dbflute.jdbc.ClassificationCodeType;
 import org.dbflute.jdbc.ClassificationMeta;
 import org.dbflute.jdbc.ClassificationUndefinedHandlingType;
 import org.dbflute.optional.OptionalThing;
+import static org.dbflute.util.DfTypeUtil.emptyStrings;
 
 /**
  * The definition of classification.
@@ -14,18 +16,15 @@ import org.dbflute.optional.OptionalThing;
  */
 public interface RoyCDef extends Classification {
 
-    /** The empty array for no sisters. */
-    String[] EMPTY_SISTERS = new String[]{};
-
     /**
      * general boolean classification for every flg-column
      */
     public enum Flg implements RoyCDef {
         /** Yes: means valid */
-        True("1", "Yes", EMPTY_SISTERS)
+        True("1", "Yes", emptyStrings())
         ,
         /** No: means invalid */
-        False("0", "No", EMPTY_SISTERS)
+        False("0", "No", emptyStrings())
         ;
         private static final Map<String, Flg> _codeClsMap = new HashMap<String, Flg>();
         private static final Map<String, Flg> _nameClsMap = new HashMap<String, Flg>();
@@ -141,13 +140,13 @@ public interface RoyCDef extends Classification {
 
     public enum MemberStatus implements RoyCDef {
         /** Provisional Member */
-        ProvisionalMember("PRV", "Provisional Member", EMPTY_SISTERS)
+        ProvisionalMember("PRV", "Provisional Member", emptyStrings())
         ,
         /** Formalized Member */
-        FormalizedMember("FML", "Formalized Member", EMPTY_SISTERS)
+        FormalizedMember("FML", "Formalized Member", emptyStrings())
         ,
         /** Withdrawal Member */
-        WithdrawalMember("WDL", "Withdrawal Member", EMPTY_SISTERS)
+        WithdrawalMember("WDL", "Withdrawal Member", emptyStrings())
         ;
         private static final Map<String, MemberStatus> _codeClsMap = new HashMap<String, MemberStatus>();
         private static final Map<String, MemberStatus> _nameClsMap = new HashMap<String, MemberStatus>();
@@ -296,31 +295,31 @@ public interface RoyCDef extends Classification {
         }
 
         public List<Classification> listAll() {
-            if (Flg.name().equals(name())) { return toClassificationList(RoyCDef.Flg.listAll()); }
-            if (MemberStatus.name().equals(name())) { return toClassificationList(RoyCDef.MemberStatus.listAll()); }
+            if (Flg.name().equals(name())) { return toClsList(RoyCDef.Flg.listAll()); }
+            if (MemberStatus.name().equals(name())) { return toClsList(RoyCDef.MemberStatus.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listByGroup(String groupName) { // exception if not found
-            if (Flg.name().equals(name())) { return toClassificationList(RoyCDef.Flg.listByGroup(groupName)); }
-            if (MemberStatus.name().equals(name())) { return toClassificationList(RoyCDef.MemberStatus.listByGroup(groupName)); }
+            if (Flg.name().equals(name())) { return toClsList(RoyCDef.Flg.listByGroup(groupName)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(RoyCDef.MemberStatus.listByGroup(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
-        public List<? extends Classification> listOf(Collection<String> codeList) {
-            if (Flg.name().equals(name())) { return RoyCDef.Flg.listOf(codeList); }
-            if (MemberStatus.name().equals(name())) { return RoyCDef.MemberStatus.listOf(codeList); }
+        public List<Classification> listOf(Collection<String> codeList) {
+            if (Flg.name().equals(name())) { return toClsList(RoyCDef.Flg.listOf(codeList)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(RoyCDef.MemberStatus.listOf(codeList)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> groupOf(String groupName) { // old style
-            if (Flg.name().equals(name())) { return toClassificationList(RoyCDef.Flg.groupOf(groupName)); }
-            if (MemberStatus.name().equals(name())) { return toClassificationList(RoyCDef.MemberStatus.groupOf(groupName)); }
+            if (Flg.name().equals(name())) { return toClsList(RoyCDef.Flg.groupOf(groupName)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(RoyCDef.MemberStatus.groupOf(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         @SuppressWarnings("unchecked")
-        private List<Classification> toClassificationList(List<?> clsList) {
+        private List<Classification> toClsList(List<?> clsList) {
             return (List<Classification>)clsList;
         }
 
@@ -350,13 +349,6 @@ public interface RoyCDef extends Classification {
             if (Flg.name().equalsIgnoreCase(classificationName)) { return RoyCDef.DefMeta.Flg; }
             if (MemberStatus.name().equalsIgnoreCase(classificationName)) { return RoyCDef.DefMeta.MemberStatus; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
-        }
-    }
-
-    public static class ClassificationNotFoundException extends RuntimeException {
-        private static final long serialVersionUID = 1L;
-        public ClassificationNotFoundException(String msg) {
-            super(msg);
         }
     }
 }

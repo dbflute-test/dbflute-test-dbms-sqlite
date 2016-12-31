@@ -408,7 +408,7 @@ public abstract class RoyAbstractBsMemberLoginCQ extends AbstractConditionQuery 
      * MOBILE_LOGIN_FLG: {NotNull, INTEGER(2000000000, 10), classification=Flg}
      * @param mobileLoginFlgList The collection of mobileLoginFlg as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
+    protected void setMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
         doSetMobileLoginFlg_InScope(mobileLoginFlgList);
     }
 

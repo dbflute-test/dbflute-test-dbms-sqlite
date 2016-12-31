@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Arrays;
 import java.util.Collections;
+import static com.example.dbflute.tricky.freeflute.AppCDef.XInternalCDefUtil.emptyStrings;
 
 /**
  * The definition of classification.
@@ -45,15 +46,18 @@ public interface AppCDef {
      */
     DefMeta meta();
 
+    class XInternalCDefUtil {
+        public static String[] emptyStrings() { return EMPTY_SISTERS; }
+    }
     public enum MemberStatus implements AppCDef {
         /** Provisional Member */
-        ProvisionalMember("PRV", "Provisional Member", EMPTY_SISTERS)
+        ProvisionalMember("PRV", "Provisional Member", emptyStrings())
         ,
         /** Formalized Member */
-        FormalizedMember("FML", "Formalized Member", EMPTY_SISTERS)
+        FormalizedMember("FML", "Formalized Member", emptyStrings())
         ,
         /** Withdrawal Member */
-        WithdrawalMember("WDL", "Withdrawal Member", EMPTY_SISTERS)
+        WithdrawalMember("WDL", "Withdrawal Member", emptyStrings())
         ;
         private static final Map<String, MemberStatus> _codeValueMap = new HashMap<String, MemberStatus>();
         static {
