@@ -50,9 +50,8 @@ public class OptionMemberDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((OptionMember)et).getMemberStatusName(), (et, vl) -> ((OptionMember)et).setMemberStatusName((String)vl), "memberStatusName");
         setupEpg(_epgMap, et -> ((OptionMember)et).getStatusDisplayOrder(), (et, vl) -> ((OptionMember)et).setStatusDisplayOrder((String)vl), "statusDisplayOrder");
         setupEpg(_epgMap, et -> ((OptionMember)et).getDummyFlg(), (et, vl) -> {
-            ColumnInfo col = columnDummyFlg();
-            ccls(et, col, vl);
-            CDef.Flg cls = (CDef.Flg)gcls(et, col, vl);
+            ccls(et, columnDummyFlg(), vl);
+            CDef.Flg cls = (CDef.Flg)gcls(et, columnDummyFlg(), vl);
             if (cls != null) {
                 ((OptionMember)et).setDummyFlgAsFlg(cls);
             } else {

@@ -46,9 +46,8 @@ public class ServiceRankDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((ServiceRank)et).getServiceRankName(), (et, vl) -> ((ServiceRank)et).setServiceRankName((String)vl), "serviceRankName");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getServicePointIncidence(), (et, vl) -> ((ServiceRank)et).setServicePointIncidence((String)vl), "servicePointIncidence");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getNewAcceptableFlg(), (et, vl) -> {
-            ColumnInfo col = columnNewAcceptableFlg();
-            ccls(et, col, vl);
-            CDef.Flg cls = (CDef.Flg)gcls(et, col, vl);
+            ccls(et, columnNewAcceptableFlg(), vl);
+            CDef.Flg cls = (CDef.Flg)gcls(et, columnNewAcceptableFlg(), vl);
             if (cls != null) {
                 ((ServiceRank)et).setNewAcceptableFlgAsFlg(cls);
             } else {
