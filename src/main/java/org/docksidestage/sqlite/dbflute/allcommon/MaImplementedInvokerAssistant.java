@@ -33,7 +33,7 @@ import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
 /**
  * @author DBFlute(AutoGenerator)
  */
-public class ImplementedInvokerAssistant implements InvokerAssistant {
+public class MaImplementedInvokerAssistant implements InvokerAssistant {
 
     // ===================================================================================
     //                                                                           Attribute
@@ -51,7 +51,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     //                                          DI Component
     //                                          ------------
     protected DataSource _dataSource;
-    protected DBFluteInitializer _introduction;
+    protected MaDBFluteInitializer _introduction;
 
     // -----------------------------------------------------
     //                                        Lazy Component
@@ -80,7 +80,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     //                                         -------------
     /** {@inheritDoc} */
     public DBDef assistCurrentDBDef() {
-        return DBCurrent.getInstance().currentDBDef();
+        return MaDBCurrent.getInstance().currentDBDef();
     }
 
     // -----------------------------------------------------
@@ -91,7 +91,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
         // this instance will be cached in SQL executions
         // so the handler should be set before initialization of DBFlute
         // (and it means you cannot switch data source after initialization)
-        DataSourceHandler handler = DBFluteConfig.getInstance().getDataSourceHandler();
+        DataSourceHandler handler = MaDBFluteConfig.getInstance().getDataSourceHandler();
         return handler != null ? new HandlingDataSourceWrapper(_dataSource, handler) : _dataSource;
     }
 
@@ -113,7 +113,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     }
 
     protected DBMetaProvider createDBMetaProvider() {
-        return DBMetaInstanceHandler.getProvider();
+        return MaDBMetaInstanceHandler.getProvider();
     }
 
     // -----------------------------------------------------
@@ -134,15 +134,15 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     }
 
     protected SqlClauseCreator createSqlClauseCreator() {
-        SqlClauseCreator creator = DBFluteConfig.getInstance().getSqlClauseCreator();
+        SqlClauseCreator creator = MaDBFluteConfig.getInstance().getSqlClauseCreator();
         if (creator != null) {
             return creator;
         }
         return newImplementedSqlClauseCreator(); // as default
     }
 
-    protected ImplementedSqlClauseCreator newImplementedSqlClauseCreator() {
-        return new ImplementedSqlClauseCreator();
+    protected MaImplementedSqlClauseCreator newImplementedSqlClauseCreator() {
+        return new MaImplementedSqlClauseCreator();
     }
 
     // -----------------------------------------------------
@@ -165,7 +165,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     protected StatementFactory createStatementFactory() {
         final TnStatementFactoryImpl factory = newStatementFactoryImpl();
         factory.setDefaultStatementConfig(assistDefaultStatementConfig());
-        DBFluteConfig config = DBFluteConfig.getInstance();
+        MaDBFluteConfig config = MaDBFluteConfig.getInstance();
         factory.setInternalDebug(config.isInternalDebug());
         factory.setCursorSelectFetchSize(config.getCursorSelectFetchSize());
         factory.setEntitySelectFetchSize(config.getEntitySelectFetchSize());
@@ -199,7 +199,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
         RelationOptionalFactory relationOptionalFactory = assistRelationOptionalFactory();
         final TnBeanMetaDataFactoryExtension factory = newBeanMetaDataFactoryExtension(relationOptionalFactory);
         factory.setDataSource(_dataSource);
-        factory.setInternalDebug(DBFluteConfig.getInstance().isInternalDebug());
+        factory.setInternalDebug(MaDBFluteConfig.getInstance().isInternalDebug());
         return factory;
     }
 
@@ -291,7 +291,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     }
 
     protected OutsideSqlOption prepareFirstOutsideSqlOption(String tableDbName) {
-        if (DBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
+        if (MaDBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
             OutsideSqlOption option = new OutsideSqlOption();
             option.setTableDbName(tableDbName);
             return option.enableNonSpecifiedColumnAccess();
@@ -317,7 +317,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     }
 
     protected OutsideSqlExecutorFactory createOutsideSqlExecutorFactory() {
-        OutsideSqlExecutorFactory factory = DBFluteConfig.getInstance().getOutsideSqlExecutorFactory();
+        OutsideSqlExecutorFactory factory = MaDBFluteConfig.getInstance().getOutsideSqlExecutorFactory();
         if (factory != null) {
             return factory;
         }
@@ -337,7 +337,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     }
 
     protected SQLExceptionDigger createSQLExceptionDigger() {
-        return DBFluteConfig.getInstance().getSQLExceptionDigger();
+        return MaDBFluteConfig.getInstance().getSQLExceptionDigger();
     }
 
     // -----------------------------------------------------
@@ -384,11 +384,11 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
 
     protected SequenceCacheHandler createSequenceCacheHandler() {
         SequenceCacheHandler handler = newSequenceCacheHandler();
-        SequenceCacheKeyGenerator generator = DBFluteConfig.getInstance().getSequenceCacheKeyGenerator();
+        SequenceCacheKeyGenerator generator = MaDBFluteConfig.getInstance().getSequenceCacheKeyGenerator();
         if (generator != null) {
             handler.setSequenceCacheKeyGenerator(generator);
         }
-        handler.setInternalDebug(DBFluteConfig.getInstance().isInternalDebug());
+        handler.setInternalDebug(MaDBFluteConfig.getInstance().isInternalDebug());
         return handler;
     }
 
@@ -409,7 +409,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     //                               -----------------------
     /** {@inheritDoc} */
     public StatementConfig assistDefaultStatementConfig() {
-        return DBFluteConfig.getInstance().getDefaultStatementConfig();
+        return MaDBFluteConfig.getInstance().getDefaultStatementConfig();
     }
 
     // -----------------------------------------------------
@@ -425,7 +425,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     //                                 ---------------------
     /** {@inheritDoc} */
     public GearedCipherManager assistGearedCipherManager() {
-        return DBFluteConfig.getInstance().getGearedCipherManager();
+        return MaDBFluteConfig.getInstance().getGearedCipherManager();
     }
 
     // -----------------------------------------------------
@@ -438,13 +438,13 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
 
     protected ResourceParameter createResourceParameter() {
         ResourceParameter parameter = newResourceParameter();
-        parameter.setOutsideSqlPackage(DBFluteConfig.getInstance().getOutsideSqlPackage());
-        parameter.setMappingDateTimeZoneProvider(DBFluteConfig.getInstance().getMappingDateTimeZoneProvider());
-        parameter.setLogDatePattern(DBFluteConfig.getInstance().getLogDatePattern());
-        parameter.setLogTimestampPattern(DBFluteConfig.getInstance().getLogTimestampPattern());
-        parameter.setLogTimePattern(DBFluteConfig.getInstance().getLogTimePattern());
-        parameter.setLogTimeZoneProvider(DBFluteConfig.getInstance().getLogTimeZoneProvider());
-        parameter.setInternalDebug(DBFluteConfig.getInstance().isInternalDebug());
+        parameter.setOutsideSqlPackage(MaDBFluteConfig.getInstance().getOutsideSqlPackage());
+        parameter.setMappingDateTimeZoneProvider(MaDBFluteConfig.getInstance().getMappingDateTimeZoneProvider());
+        parameter.setLogDatePattern(MaDBFluteConfig.getInstance().getLogDatePattern());
+        parameter.setLogTimestampPattern(MaDBFluteConfig.getInstance().getLogTimestampPattern());
+        parameter.setLogTimePattern(MaDBFluteConfig.getInstance().getLogTimePattern());
+        parameter.setLogTimeZoneProvider(MaDBFluteConfig.getInstance().getLogTimeZoneProvider());
+        parameter.setInternalDebug(MaDBFluteConfig.getInstance().isInternalDebug());
         return parameter;
     }
 
@@ -488,7 +488,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     // when the initializer is extended by DBFlute property
     // so this variable is actually unused in this class
     // (needs to be injected only when the DI container is set by its DI setting file)
-    public void setIntroduction(DBFluteInitializer introduction) {
+    public void setIntroduction(MaDBFluteInitializer introduction) {
         _introduction = introduction;
     }
 }

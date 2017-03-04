@@ -21,13 +21,13 @@ import com.google.inject.Injector;
  * The implementation of behavior selector.
  * @author DBFlute(AutoGenerator)
  */
-public class ImplementedBehaviorSelector implements BehaviorSelector {
+public class MaImplementedBehaviorSelector implements BehaviorSelector {
 
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
     /** The logger instance for this class. (NotNull) */
-    private static final Logger _log = LoggerFactory.getLogger(ImplementedBehaviorSelector.class);
+    private static final Logger _log = LoggerFactory.getLogger(MaImplementedBehaviorSelector.class);
 
     // ===================================================================================
     //                                                                           Attribute
@@ -45,7 +45,7 @@ public class ImplementedBehaviorSelector implements BehaviorSelector {
      * Initialize condition-bean meta data.
      */
     public void initializeConditionBeanMetaData() {
-        final Map<String, DBMeta> dbmetaMap = DBMetaInstanceHandler.getUnmodifiableDBMetaMap();
+        final Map<String, DBMeta> dbmetaMap = MaDBMetaInstanceHandler.getUnmodifiableDBMetaMap();
         final Collection<DBMeta> dbmetas = dbmetaMap.values();
         long before = 0;
         if (_log.isInfoEnabled()) {
@@ -107,7 +107,7 @@ public class ImplementedBehaviorSelector implements BehaviorSelector {
      */
     public BehaviorReadable byName(String tableFlexibleName) {
         assertStringNotNullAndNotTrimmedEmpty("tableFlexibleName", tableFlexibleName);
-        final DBMeta dbmeta = DBMetaInstanceHandler.findDBMeta(tableFlexibleName);
+        final DBMeta dbmeta = MaDBMetaInstanceHandler.findDBMeta(tableFlexibleName);
         return select(getBehaviorType(dbmeta));
     }
 

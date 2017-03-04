@@ -65,10 +65,10 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     protected java.util.Map<String, String> _map2;
 
     /** The parameter of cdef. */
-    protected org.docksidestage.sqlite.dbflute.allcommon.CDef _cdef;
+    protected org.docksidestage.sqlite.dbflute.allcommon.MaCDef _cdef;
 
     /** The parameter of cdefFlg. */
-    protected org.docksidestage.sqlite.dbflute.allcommon.CDef.Flg _cdefFlg;
+    protected org.docksidestage.sqlite.dbflute.allcommon.MaCDef.Flg _cdefFlg;
 
     /** The parameter of bytes. */
     protected byte[] _bytes;
@@ -121,7 +121,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
     //                                                String
     //                                                ------
     protected String filterStringParameter(String value) { return isEmptyStringParameterAllowed() ? value : convertEmptyToNull(value); }
-    protected boolean isEmptyStringParameterAllowed() { return DBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
+    protected boolean isEmptyStringParameterAllowed() { return MaDBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
     protected String convertEmptyToNull(String value) { return PmbCustodial.convertEmptyToNull(value); }
     
     // -----------------------------------------------------
@@ -434,7 +434,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
      * [get] cdef <br>
      * @return The value of cdef. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public org.docksidestage.sqlite.dbflute.allcommon.CDef getCdef() {
+    public org.docksidestage.sqlite.dbflute.allcommon.MaCDef getCdef() {
         return _cdef;
     }
 
@@ -442,7 +442,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
      * [set] cdef <br>
      * @param cdef The value of cdef. (NullAllowed)
      */
-    public void setCdef(org.docksidestage.sqlite.dbflute.allcommon.CDef cdef) {
+    public void setCdef(org.docksidestage.sqlite.dbflute.allcommon.MaCDef cdef) {
         _cdef = cdef;
     }
 
@@ -450,7 +450,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
      * [get] cdefFlg <br>
      * @return The value of cdefFlg. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public org.docksidestage.sqlite.dbflute.allcommon.CDef.Flg getCdefFlg() {
+    public org.docksidestage.sqlite.dbflute.allcommon.MaCDef.Flg getCdefFlg() {
         return _cdefFlg;
     }
 
@@ -458,7 +458,7 @@ public class BsResolvedPackageNamePmb implements ExecuteHandlingPmb<MemberBhv>, 
      * [set] cdefFlg <br>
      * @param cdefFlg The value of cdefFlg. (NullAllowed)
      */
-    public void setCdefFlg(org.docksidestage.sqlite.dbflute.allcommon.CDef.Flg cdefFlg) {
+    public void setCdefFlg(org.docksidestage.sqlite.dbflute.allcommon.MaCDef.Flg cdefFlg) {
         _cdefFlg = cdefFlg;
     }
 

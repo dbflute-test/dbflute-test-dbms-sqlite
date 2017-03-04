@@ -33,7 +33,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
-        return DBMetaInstanceHandler.getProvider();
+        return MaDBMetaInstanceHandler.getProvider();
     }
 
     public String asTableDbName() {

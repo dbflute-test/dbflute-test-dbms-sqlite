@@ -14,8 +14,8 @@ import org.dbflute.bhv.writable.DeleteOption;
 import org.dbflute.cbean.ConditionBean;
 import org.dbflute.utflute.guice.ContainerTestCase;
 import org.docksidestage.sqlite.EmbeddedSQLiteUrlFactoryBean;
-import org.docksidestage.sqlite.dbflute.allcommon.DBCurrent;
-import org.docksidestage.sqlite.dbflute.allcommon.DBFluteModule;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBCurrent;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBFluteModule;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberAddressBhv;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberLoginBhv;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberSecurityBhv;
@@ -45,7 +45,7 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
     protected List<Module> prepareModuleList() {
         final DataSource dataSource = createDataSource();
         final List<Module> moduleList = new ArrayList<Module>();
-        moduleList.add(new DBFluteModule(dataSource));
+        moduleList.add(new MaDBFluteModule(dataSource));
         final TransactionModule transactionModule = createTransactionModule(dataSource);
         if (transactionModule != null) {
             moduleList.add(transactionModule);
@@ -59,7 +59,7 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
         bean.setDriverClassName("org.sqlite.JDBC");
         EmbeddedSQLiteUrlFactoryBean factoryBean = new EmbeddedSQLiteUrlFactoryBean();
         factoryBean.setUrlSuffix("/database/maihamadb.db");
-        factoryBean.setReferenceClassName(DBCurrent.class.getName());
+        factoryBean.setReferenceClassName(MaDBCurrent.class.getName());
         String url;
         try {
             url = factoryBean.getObject().toString();

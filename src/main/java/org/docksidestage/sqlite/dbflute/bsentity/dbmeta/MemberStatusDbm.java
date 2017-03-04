@@ -28,10 +28,10 @@ public class MemberStatusDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
-    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
-    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
-    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
-    public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
+    public String getProjectName() { return MaDBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return MaDBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return MaDBCurrent.getInstance().generationGapBasePrefix(); }
+    public DBDef getCurrentDBDef() { return MaDBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
     //                                                                    Property Gateway
@@ -57,7 +57,7 @@ public class MemberStatusDbm extends AbstractDBMeta {
     protected final String _tableDispName = "MEMBER_STATUS";
     protected final String _tablePropertyName = "memberStatus";
     protected final TableSqlName _tableSqlName = new TableSqlName("MEMBER_STATUS", _tableDbName);
-    { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
+    { _tableSqlName.xacceptFilter(MaDBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
@@ -66,7 +66,7 @@ public class MemberStatusDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, String.class, "memberStatusCode", null, true, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, "memberList,memberLoginList", CDef.DefMeta.MemberStatus, false);
+    protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, String.class, "memberStatusCode", null, true, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, "memberList,memberLoginList", MaCDef.DefMeta.MemberStatus, false);
     protected final ColumnInfo _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, null, String.class, "memberStatusName", null, false, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnDescription = cci("DESCRIPTION", "DESCRIPTION", null, null, String.class, "description", null, false, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);

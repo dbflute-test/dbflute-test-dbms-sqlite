@@ -6,7 +6,7 @@ import org.dbflute.Entity;
  * The interface of entity defined common columns.
  * @author DBFlute(AutoGenerator)
  */
-public interface EntityDefinedCommonColumn extends Entity {
+public interface MaEntityDefinedCommonColumn extends Entity {
 
     /**
      * Get the value of tableNameRegisterDatetime.

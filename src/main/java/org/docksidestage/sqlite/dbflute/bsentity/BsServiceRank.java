@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
-import org.docksidestage.sqlite.dbflute.allcommon.DBMetaInstanceHandler;
-import org.docksidestage.sqlite.dbflute.allcommon.CDef;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBMetaInstanceHandler;
+import org.docksidestage.sqlite.dbflute.allcommon.MaCDef;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
@@ -92,7 +92,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     //                                                                             =======
     /** {@inheritDoc} */
     public DBMeta asDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+        return MaDBMetaInstanceHandler.findDBMeta(asTableDbName());
     }
 
     /** {@inheritDoc} */
@@ -119,8 +119,8 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
-    public CDef.Flg getNewAcceptableFlgAsFlg() {
-        return CDef.Flg.codeOf(getNewAcceptableFlg());
+    public MaCDef.Flg getNewAcceptableFlgAsFlg() {
+        return MaCDef.Flg.codeOf(getNewAcceptableFlg());
     }
 
     /**
@@ -129,7 +129,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
-    public void setNewAcceptableFlgAsFlg(CDef.Flg cdef) {
+    public void setNewAcceptableFlgAsFlg(MaCDef.Flg cdef) {
         setNewAcceptableFlg(cdef != null ? toNumber(cdef.code(), Integer.class) : null);
     }
 
@@ -141,7 +141,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * Yes: means valid
      */
     public void setNewAcceptableFlg_True() {
-        setNewAcceptableFlgAsFlg(CDef.Flg.True);
+        setNewAcceptableFlgAsFlg(MaCDef.Flg.True);
     }
 
     /**
@@ -149,7 +149,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * No: means invalid
      */
     public void setNewAcceptableFlg_False() {
-        setNewAcceptableFlgAsFlg(CDef.Flg.False);
+        setNewAcceptableFlgAsFlg(MaCDef.Flg.False);
     }
 
     // ===================================================================================
@@ -162,8 +162,8 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * @return The determination, true or false.
      */
     public boolean isNewAcceptableFlgTrue() {
-        CDef.Flg cdef = getNewAcceptableFlgAsFlg();
-        return cdef != null ? cdef.equals(CDef.Flg.True) : false;
+        MaCDef.Flg cdef = getNewAcceptableFlgAsFlg();
+        return cdef != null ? cdef.equals(MaCDef.Flg.True) : false;
     }
 
     /**
@@ -173,8 +173,8 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * @return The determination, true or false.
      */
     public boolean isNewAcceptableFlgFalse() {
-        CDef.Flg cdef = getNewAcceptableFlgAsFlg();
-        return cdef != null ? cdef.equals(CDef.Flg.False) : false;
+        MaCDef.Flg cdef = getNewAcceptableFlgAsFlg();
+        return cdef != null ? cdef.equals(MaCDef.Flg.False) : false;
     }
 
     // ===================================================================================
@@ -185,7 +185,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * @return The string of classification name. (NullAllowed: when the column value is null)
      */
     public String getNewAcceptableFlgName() {
-        CDef.Flg cdef = getNewAcceptableFlgAsFlg();
+        MaCDef.Flg cdef = getNewAcceptableFlgAsFlg();
         return cdef != null ? cdef.name() : null;
     }
 
@@ -194,7 +194,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * @return The string of classification alias. (NullAllowed: when the column value is null)
      */
     public String getNewAcceptableFlgAlias() {
-        CDef.Flg cdef = getNewAcceptableFlgAsFlg();
+        MaCDef.Flg cdef = getNewAcceptableFlgAsFlg();
         return cdef != null ? cdef.alias() : null;
     }
 
@@ -361,7 +361,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * @param newAcceptableFlg The value of the column 'NEW_ACCEPTABLE_FLG'. (basically NotNull if update: for the constraint)
      */
     protected void setNewAcceptableFlg(Integer newAcceptableFlg) {
-        checkClassificationCode("NEW_ACCEPTABLE_FLG", CDef.DefMeta.Flg, newAcceptableFlg);
+        checkClassificationCode("NEW_ACCEPTABLE_FLG", MaCDef.DefMeta.Flg, newAcceptableFlg);
         registerModifiedProperty("newAcceptableFlg");
         _newAcceptableFlg = newAcceptableFlg;
     }

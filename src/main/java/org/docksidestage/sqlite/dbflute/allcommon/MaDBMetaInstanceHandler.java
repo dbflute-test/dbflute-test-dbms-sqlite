@@ -16,7 +16,7 @@ import org.dbflute.util.DfAssertUtil;
  * The handler of the instance of DB meta.
  * @author DBFlute(AutoGenerator)
  */
-public class DBMetaInstanceHandler implements DBMetaProvider {
+public class MaDBMetaInstanceHandler implements DBMetaProvider {
 
     // ===================================================================================
     //                                                                        Resource Map
@@ -95,7 +95,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
     // ===================================================================================
     //                                                                  Provider Singleton
     //                                                                  ==================
-    protected static final DBMetaProvider _provider = new DBMetaInstanceHandler();
+    protected static final DBMetaProvider _provider = new MaDBMetaInstanceHandler();
 
     public static DBMetaProvider getProvider() {
         return _provider;

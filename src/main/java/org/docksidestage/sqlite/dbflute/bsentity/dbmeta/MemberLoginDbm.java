@@ -29,10 +29,10 @@ public class MemberLoginDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
-    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
-    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
-    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
-    public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
+    public String getProjectName() { return MaDBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return MaDBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return MaDBCurrent.getInstance().generationGapBasePrefix(); }
+    public DBDef getCurrentDBDef() { return MaDBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
     //                                                                    Property Gateway
@@ -48,7 +48,7 @@ public class MemberLoginDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((MemberLogin)et).getLoginDatetime(), (et, vl) -> ((MemberLogin)et).setLoginDatetime(ctldt(vl)), "loginDatetime");
         setupEpg(_epgMap, et -> ((MemberLogin)et).getMobileLoginFlg(), (et, vl) -> {
             ccls(et, columnMobileLoginFlg(), vl);
-            CDef.Flg cls = (CDef.Flg)gcls(et, columnMobileLoginFlg(), vl);
+            MaCDef.Flg cls = (MaCDef.Flg)gcls(et, columnMobileLoginFlg(), vl);
             if (cls != null) {
                 ((MemberLogin)et).setMobileLoginFlgAsFlg(cls);
             } else {
@@ -80,7 +80,7 @@ public class MemberLoginDbm extends AbstractDBMeta {
     protected final String _tableDispName = "MEMBER_LOGIN";
     protected final String _tablePropertyName = "memberLogin";
     protected final TableSqlName _tableSqlName = new TableSqlName("MEMBER_LOGIN", _tableDbName);
-    { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
+    { _tableSqlName.xacceptFilter(MaDBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
@@ -92,8 +92,8 @@ public class MemberLoginDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnMemberLoginId = cci("MEMBER_LOGIN_ID", "MEMBER_LOGIN_ID", null, null, Integer.class, "memberLoginId", null, true, true, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, Integer.class, "memberId", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, "member", null, null, false);
     protected final ColumnInfo _columnLoginDatetime = cci("LOGIN_DATETIME", "LOGIN_DATETIME", null, null, java.time.LocalDateTime.class, "loginDatetime", null, false, false, true, "DATETIME", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMobileLoginFlg = cci("MOBILE_LOGIN_FLG", "MOBILE_LOGIN_FLG", null, null, Integer.class, "mobileLoginFlg", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
-    protected final ColumnInfo _columnLoginMemberStatusCode = cci("LOGIN_MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", null, null, String.class, "loginMemberStatusCode", null, false, false, true, "TEXT", 2000000000, 10, null, false, null, null, "memberStatus", null, CDef.DefMeta.MemberStatus, false);
+    protected final ColumnInfo _columnMobileLoginFlg = cci("MOBILE_LOGIN_FLG", "MOBILE_LOGIN_FLG", null, null, Integer.class, "mobileLoginFlg", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, MaCDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnLoginMemberStatusCode = cci("LOGIN_MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", null, null, String.class, "loginMemberStatusCode", null, false, false, true, "TEXT", 2000000000, 10, null, false, null, null, "memberStatus", null, MaCDef.DefMeta.MemberStatus, false);
 
     /**
      * MEMBER_LOGIN_ID: {PK, ID, NotNull, INTEGER(2000000000, 10)}

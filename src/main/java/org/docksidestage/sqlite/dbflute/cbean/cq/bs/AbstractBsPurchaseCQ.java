@@ -33,7 +33,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
-        return DBMetaInstanceHandler.getProvider();
+        return MaDBMetaInstanceHandler.getProvider();
     }
 
     public String asTableDbName() {
@@ -691,7 +691,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
-    public void setPaymentCompleteFlg_Equal_AsFlg(CDef.Flg cdef) {
+    public void setPaymentCompleteFlg_Equal_AsFlg(MaCDef.Flg cdef) {
         doSetPaymentCompleteFlg_Equal(cTNum(cdef != null ? cdef.code() : null, Integer.class));
     }
 
@@ -700,7 +700,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * Yes: means valid
      */
     public void setPaymentCompleteFlg_Equal_True() {
-        setPaymentCompleteFlg_Equal_AsFlg(CDef.Flg.True);
+        setPaymentCompleteFlg_Equal_AsFlg(MaCDef.Flg.True);
     }
 
     /**
@@ -708,7 +708,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * No: means invalid
      */
     public void setPaymentCompleteFlg_Equal_False() {
-        setPaymentCompleteFlg_Equal_AsFlg(CDef.Flg.False);
+        setPaymentCompleteFlg_Equal_AsFlg(MaCDef.Flg.False);
     }
 
     protected void doSetPaymentCompleteFlg_Equal(Integer paymentCompleteFlg) {
@@ -730,7 +730,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setPaymentCompleteFlg_InScope_AsFlg(Collection<CDef.Flg> cdefList) {
+    public void setPaymentCompleteFlg_InScope_AsFlg(Collection<MaCDef.Flg> cdefList) {
         doSetPaymentCompleteFlg_InScope(cTNumL(cdefList, Integer.class));
     }
 
@@ -753,7 +753,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setPaymentCompleteFlg_NotInScope_AsFlg(Collection<CDef.Flg> cdefList) {
+    public void setPaymentCompleteFlg_NotInScope_AsFlg(Collection<MaCDef.Flg> cdefList) {
         doSetPaymentCompleteFlg_NotInScope(cTNumL(cdefList, Integer.class));
     }
 

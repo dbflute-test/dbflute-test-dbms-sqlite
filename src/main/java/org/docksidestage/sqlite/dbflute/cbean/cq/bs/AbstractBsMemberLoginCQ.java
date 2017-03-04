@@ -33,7 +33,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
-        return DBMetaInstanceHandler.getProvider();
+        return MaDBMetaInstanceHandler.getProvider();
     }
 
     public String asTableDbName() {
@@ -379,7 +379,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
-    public void setMobileLoginFlg_Equal_AsFlg(CDef.Flg cdef) {
+    public void setMobileLoginFlg_Equal_AsFlg(MaCDef.Flg cdef) {
         doSetMobileLoginFlg_Equal(cTNum(cdef != null ? cdef.code() : null, Integer.class));
     }
 
@@ -388,7 +388,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * Yes: means valid
      */
     public void setMobileLoginFlg_Equal_True() {
-        setMobileLoginFlg_Equal_AsFlg(CDef.Flg.True);
+        setMobileLoginFlg_Equal_AsFlg(MaCDef.Flg.True);
     }
 
     /**
@@ -396,7 +396,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * No: means invalid
      */
     public void setMobileLoginFlg_Equal_False() {
-        setMobileLoginFlg_Equal_AsFlg(CDef.Flg.False);
+        setMobileLoginFlg_Equal_AsFlg(MaCDef.Flg.False);
     }
 
     protected void doSetMobileLoginFlg_Equal(Integer mobileLoginFlg) {
@@ -418,7 +418,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setMobileLoginFlg_InScope_AsFlg(Collection<CDef.Flg> cdefList) {
+    public void setMobileLoginFlg_InScope_AsFlg(Collection<MaCDef.Flg> cdefList) {
         doSetMobileLoginFlg_InScope(cTNumL(cdefList, Integer.class));
     }
 
@@ -441,7 +441,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setMobileLoginFlg_NotInScope_AsFlg(Collection<CDef.Flg> cdefList) {
+    public void setMobileLoginFlg_NotInScope_AsFlg(Collection<MaCDef.Flg> cdefList) {
         doSetMobileLoginFlg_NotInScope(cTNumL(cdefList, Integer.class));
     }
 
@@ -466,7 +466,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * LOGIN_MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
-    public void setLoginMemberStatusCode_Equal_AsMemberStatus(CDef.MemberStatus cdef) {
+    public void setLoginMemberStatusCode_Equal_AsMemberStatus(MaCDef.MemberStatus cdef) {
         doSetLoginMemberStatusCode_Equal(cdef != null ? cdef.code() : null);
     }
 
@@ -475,7 +475,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * Provisional Member
      */
     public void setLoginMemberStatusCode_Equal_ProvisionalMember() {
-        setLoginMemberStatusCode_Equal_AsMemberStatus(CDef.MemberStatus.ProvisionalMember);
+        setLoginMemberStatusCode_Equal_AsMemberStatus(MaCDef.MemberStatus.ProvisionalMember);
     }
 
     /**
@@ -483,7 +483,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * Formalized Member
      */
     public void setLoginMemberStatusCode_Equal_FormalizedMember() {
-        setLoginMemberStatusCode_Equal_AsMemberStatus(CDef.MemberStatus.FormalizedMember);
+        setLoginMemberStatusCode_Equal_AsMemberStatus(MaCDef.MemberStatus.FormalizedMember);
     }
 
     /**
@@ -491,7 +491,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * Withdrawal Member
      */
     public void setLoginMemberStatusCode_Equal_WithdrawalMember() {
-        setLoginMemberStatusCode_Equal_AsMemberStatus(CDef.MemberStatus.WithdrawalMember);
+        setLoginMemberStatusCode_Equal_AsMemberStatus(MaCDef.MemberStatus.WithdrawalMember);
     }
 
     protected void doSetLoginMemberStatusCode_Equal(String loginMemberStatusCode) {
@@ -512,7 +512,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * LOGIN_MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
-    public void setLoginMemberStatusCode_NotEqual_AsMemberStatus(CDef.MemberStatus cdef) {
+    public void setLoginMemberStatusCode_NotEqual_AsMemberStatus(MaCDef.MemberStatus cdef) {
         doSetLoginMemberStatusCode_NotEqual(cdef != null ? cdef.code() : null);
     }
 
@@ -521,7 +521,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * Provisional Member
      */
     public void setLoginMemberStatusCode_NotEqual_ProvisionalMember() {
-        setLoginMemberStatusCode_NotEqual_AsMemberStatus(CDef.MemberStatus.ProvisionalMember);
+        setLoginMemberStatusCode_NotEqual_AsMemberStatus(MaCDef.MemberStatus.ProvisionalMember);
     }
 
     /**
@@ -529,7 +529,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * Formalized Member
      */
     public void setLoginMemberStatusCode_NotEqual_FormalizedMember() {
-        setLoginMemberStatusCode_NotEqual_AsMemberStatus(CDef.MemberStatus.FormalizedMember);
+        setLoginMemberStatusCode_NotEqual_AsMemberStatus(MaCDef.MemberStatus.FormalizedMember);
     }
 
     /**
@@ -537,7 +537,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * Withdrawal Member
      */
     public void setLoginMemberStatusCode_NotEqual_WithdrawalMember() {
-        setLoginMemberStatusCode_NotEqual_AsMemberStatus(CDef.MemberStatus.WithdrawalMember);
+        setLoginMemberStatusCode_NotEqual_AsMemberStatus(MaCDef.MemberStatus.WithdrawalMember);
     }
 
     protected void doSetLoginMemberStatusCode_NotEqual(String loginMemberStatusCode) {
@@ -558,7 +558,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * LOGIN_MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setLoginMemberStatusCode_InScope_AsMemberStatus(Collection<CDef.MemberStatus> cdefList) {
+    public void setLoginMemberStatusCode_InScope_AsMemberStatus(Collection<MaCDef.MemberStatus> cdefList) {
         doSetLoginMemberStatusCode_InScope(cTStrL(cdefList));
     }
 
@@ -580,7 +580,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * LOGIN_MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setLoginMemberStatusCode_NotInScope_AsMemberStatus(Collection<CDef.MemberStatus> cdefList) {
+    public void setLoginMemberStatusCode_NotInScope_AsMemberStatus(Collection<MaCDef.MemberStatus> cdefList) {
         doSetLoginMemberStatusCode_NotInScope(cTStrL(cdefList));
     }
 

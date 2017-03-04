@@ -33,7 +33,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
-        return DBMetaInstanceHandler.getProvider();
+        return MaDBMetaInstanceHandler.getProvider();
     }
 
     public String asTableDbName() {
@@ -440,7 +440,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
-    public void setNewAcceptableFlg_Equal_AsFlg(CDef.Flg cdef) {
+    public void setNewAcceptableFlg_Equal_AsFlg(MaCDef.Flg cdef) {
         doSetNewAcceptableFlg_Equal(cTNum(cdef != null ? cdef.code() : null, Integer.class));
     }
 
@@ -449,7 +449,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * Yes: means valid
      */
     public void setNewAcceptableFlg_Equal_True() {
-        setNewAcceptableFlg_Equal_AsFlg(CDef.Flg.True);
+        setNewAcceptableFlg_Equal_AsFlg(MaCDef.Flg.True);
     }
 
     /**
@@ -457,7 +457,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * No: means invalid
      */
     public void setNewAcceptableFlg_Equal_False() {
-        setNewAcceptableFlg_Equal_AsFlg(CDef.Flg.False);
+        setNewAcceptableFlg_Equal_AsFlg(MaCDef.Flg.False);
     }
 
     protected void doSetNewAcceptableFlg_Equal(Integer newAcceptableFlg) {
@@ -479,7 +479,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setNewAcceptableFlg_InScope_AsFlg(Collection<CDef.Flg> cdefList) {
+    public void setNewAcceptableFlg_InScope_AsFlg(Collection<MaCDef.Flg> cdefList) {
         doSetNewAcceptableFlg_InScope(cTNumL(cdefList, Integer.class));
     }
 
@@ -502,7 +502,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * general boolean classification for every flg-column
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setNewAcceptableFlg_NotInScope_AsFlg(Collection<CDef.Flg> cdefList) {
+    public void setNewAcceptableFlg_NotInScope_AsFlg(Collection<MaCDef.Flg> cdefList) {
         doSetNewAcceptableFlg_NotInScope(cTNumL(cdefList, Integer.class));
     }
 

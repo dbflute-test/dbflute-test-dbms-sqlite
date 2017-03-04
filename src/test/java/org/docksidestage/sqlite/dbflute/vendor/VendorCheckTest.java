@@ -6,7 +6,7 @@ import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.dbway.DBWay;
 import org.dbflute.exception.SQLFailureException;
-import org.docksidestage.sqlite.dbflute.allcommon.DBCurrent;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBCurrent;
 import org.docksidestage.sqlite.dbflute.cbean.MemberCB;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberBhv;
 import org.docksidestage.sqlite.dbflute.exbhv.pmbean.SimpleMemberPmb;
@@ -128,7 +128,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
         assertEquals("ABC＿C[]B|_A", option.generateRealValue("ABC＿C[]B_A"));
 
         // ## Arrange ##
-        DBWay dbway = DBCurrent.getInstance().currentDBDef().dbway();
+        DBWay dbway = MaDBCurrent.getInstance().currentDBDef().dbway();
         option.acceptOriginalWildCardList(dbway.getOriginalWildCardList());
 
         // ## Act & Assert ##

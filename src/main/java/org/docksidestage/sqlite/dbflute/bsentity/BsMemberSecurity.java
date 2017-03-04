@@ -8,7 +8,7 @@ import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.dbflute.optional.OptionalEntity;
-import org.docksidestage.sqlite.dbflute.allcommon.DBMetaInstanceHandler;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBMetaInstanceHandler;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
@@ -123,7 +123,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     //                                                                             =======
     /** {@inheritDoc} */
     public DBMeta asDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+        return MaDBMetaInstanceHandler.findDBMeta(asTableDbName());
     }
 
     /** {@inheritDoc} */

@@ -29,10 +29,10 @@ public class PurchaseDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
-    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
-    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
-    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
-    public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
+    public String getProjectName() { return MaDBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return MaDBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return MaDBCurrent.getInstance().generationGapBasePrefix(); }
+    public DBDef getCurrentDBDef() { return MaDBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
     //                                                                    Property Gateway
@@ -51,7 +51,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchasePrice(), (et, vl) -> ((Purchase)et).setPurchasePrice(cti(vl)), "purchasePrice");
         setupEpg(_epgMap, et -> ((Purchase)et).getPaymentCompleteFlg(), (et, vl) -> {
             ccls(et, columnPaymentCompleteFlg(), vl);
-            CDef.Flg cls = (CDef.Flg)gcls(et, columnPaymentCompleteFlg(), vl);
+            MaCDef.Flg cls = (MaCDef.Flg)gcls(et, columnPaymentCompleteFlg(), vl);
             if (cls != null) {
                 ((Purchase)et).setPaymentCompleteFlgAsFlg(cls);
             } else {
@@ -90,7 +90,7 @@ public class PurchaseDbm extends AbstractDBMeta {
     protected final String _tableDispName = "PURCHASE";
     protected final String _tablePropertyName = "purchase";
     protected final TableSqlName _tableSqlName = new TableSqlName("PURCHASE", _tableDbName);
-    { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
+    { _tableSqlName.xacceptFilter(MaDBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
@@ -105,7 +105,7 @@ public class PurchaseDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnPurchaseDatetime = cci("PURCHASE_DATETIME", "PURCHASE_DATETIME", null, null, java.time.LocalDateTime.class, "purchaseDatetime", null, false, false, true, "DATETIME", 2000000000, 10, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnPurchaseCount = cci("PURCHASE_COUNT", "PURCHASE_COUNT", null, null, Integer.class, "purchaseCount", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnPurchasePrice = cci("PURCHASE_PRICE", "PURCHASE_PRICE", null, null, Integer.class, "purchasePrice", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPaymentCompleteFlg = cci("PAYMENT_COMPLETE_FLG", "PAYMENT_COMPLETE_FLG", null, null, Integer.class, "paymentCompleteFlg", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnPaymentCompleteFlg = cci("PAYMENT_COMPLETE_FLG", "PAYMENT_COMPLETE_FLG", null, null, Integer.class, "paymentCompleteFlg", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, MaCDef.DefMeta.Flg, false);
     protected final ColumnInfo _columnPurchaseRegisterDatetime = cci("PURCHASE_REGISTER_DATETIME", "PURCHASE_REGISTER_DATETIME", null, null, java.time.LocalDateTime.class, "purchaseRegisterDatetime", null, false, false, true, "DATETIME", 2000000000, 10, null, true, null, null, null, null, null, false);
     protected final ColumnInfo _columnPurchaseRegisterUser = cci("PURCHASE_REGISTER_USER", "PURCHASE_REGISTER_USER", null, null, String.class, "purchaseRegisterUser", null, false, false, true, "TEXT", 2000000000, 10, null, true, null, null, null, null, null, false);
     protected final ColumnInfo _columnPurchaseRegisterProcess = cci("PURCHASE_REGISTER_PROCESS", "PURCHASE_REGISTER_PROCESS", null, null, String.class, "purchaseRegisterProcess", null, false, false, true, "TEXT", 2000000000, 10, null, true, null, null, null, null, null, false);

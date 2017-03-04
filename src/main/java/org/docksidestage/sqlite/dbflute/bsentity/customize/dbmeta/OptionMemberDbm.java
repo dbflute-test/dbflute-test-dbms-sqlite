@@ -28,10 +28,10 @@ public class OptionMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
-    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
-    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
-    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
-    public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
+    public String getProjectName() { return MaDBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return MaDBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return MaDBCurrent.getInstance().generationGapBasePrefix(); }
+    public DBDef getCurrentDBDef() { return MaDBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
     //                                                                    Property Gateway
@@ -51,7 +51,7 @@ public class OptionMemberDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((OptionMember)et).getStatusDisplayOrder(), (et, vl) -> ((OptionMember)et).setStatusDisplayOrder((String)vl), "statusDisplayOrder");
         setupEpg(_epgMap, et -> ((OptionMember)et).getDummyFlg(), (et, vl) -> {
             ccls(et, columnDummyFlg(), vl);
-            CDef.Flg cls = (CDef.Flg)gcls(et, columnDummyFlg(), vl);
+            MaCDef.Flg cls = (MaCDef.Flg)gcls(et, columnDummyFlg(), vl);
             if (cls != null) {
                 ((OptionMember)et).setDummyFlgAsFlg(cls);
             } else {
@@ -70,7 +70,7 @@ public class OptionMemberDbm extends AbstractDBMeta {
     protected final String _tableDispName = "OptionMember";
     protected final String _tablePropertyName = "optionMember";
     protected final TableSqlName _tableSqlName = new TableSqlName("OptionMember", _tableDbName);
-    { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
+    { _tableSqlName.xacceptFilter(MaDBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
@@ -83,10 +83,10 @@ public class OptionMemberDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, null, String.class, "memberName", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBirthdate = cci("BIRTHDATE", "BIRTHDATE", null, null, String.class, "birthdate", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnFormalizedDatetime = cci("FORMALIZED_DATETIME", "FORMALIZED_DATETIME", null, null, java.time.LocalDateTime.class, "formalizedDatetime", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, String.class, "memberStatusCode", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, CDef.DefMeta.MemberStatus, false);
+    protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, String.class, "memberStatusCode", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, MaCDef.DefMeta.MemberStatus, false);
     protected final ColumnInfo _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, null, String.class, "memberStatusName", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnStatusDisplayOrder = cci("STATUS_DISPLAY_ORDER", "STATUS_DISPLAY_ORDER", null, null, String.class, "statusDisplayOrder", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDummyFlg = cci("DUMMY_FLG", "DUMMY_FLG", null, null, String.class, "dummyFlg", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnDummyFlg = cci("DUMMY_FLG", "DUMMY_FLG", null, null, String.class, "dummyFlg", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, MaCDef.DefMeta.Flg, false);
     protected final ColumnInfo _columnDummyNoflg = cci("DUMMY_NOFLG", "DUMMY_NOFLG", null, null, String.class, "dummyNoflg", null, false, false, false, "null", 2147483647, 0, null, false, null, null, null, null, null, false);
 
     /**

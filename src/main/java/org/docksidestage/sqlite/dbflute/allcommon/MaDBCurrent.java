@@ -7,16 +7,16 @@ import org.dbflute.dbway.DBDef;
 /**
  * @author DBFlute(AutoGenerator)
  */
-public class DBCurrent {
+public class MaDBCurrent {
 
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
     /** The logger instance for this class. (NotNull) */
-    private static final Logger _log = LoggerFactory.getLogger(DBCurrent.class);
+    private static final Logger _log = LoggerFactory.getLogger(MaDBCurrent.class);
 
     /** Singleton instance. */
-    private static final DBCurrent _instance = new DBCurrent();
+    private static final MaDBCurrent _instance = new MaDBCurrent();
 
     // ===================================================================================
     //                                                                           Attribute
@@ -39,7 +39,7 @@ public class DBCurrent {
     /**
      * Constructor.
      */
-    private DBCurrent() {
+    private MaDBCurrent() {
     }
 
     // ===================================================================================
@@ -49,7 +49,7 @@ public class DBCurrent {
      * Get singleton instance.
      * @return Singleton instance. (NotNull)
      */
-    public static DBCurrent getInstance() {
+    public static MaDBCurrent getInstance() {
         return _instance;
     }
 

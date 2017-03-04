@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.CustomizeEntity;
-import org.docksidestage.sqlite.dbflute.allcommon.CDef;
+import org.docksidestage.sqlite.dbflute.allcommon.MaCDef;
 import org.docksidestage.sqlite.dbflute.exentity.customize.*;
 
 /**
@@ -131,8 +131,8 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
-    public CDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
-        return CDef.MemberStatus.codeOf(getMemberStatusCode());
+    public MaCDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
+        return MaCDef.MemberStatus.codeOf(getMemberStatusCode());
     }
 
     /**
@@ -140,7 +140,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * MEMBER_STATUS_CODE: {null(2147483647), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
-    public void setMemberStatusCodeAsMemberStatus(CDef.MemberStatus cdef) {
+    public void setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus cdef) {
         setMemberStatusCode(cdef != null ? cdef.code() : null);
     }
 
@@ -151,8 +151,8 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
-    public CDef.Flg getDummyFlgAsFlg() {
-        return CDef.Flg.codeOf(getDummyFlg());
+    public MaCDef.Flg getDummyFlgAsFlg() {
+        return MaCDef.Flg.codeOf(getDummyFlg());
     }
 
     /**
@@ -161,7 +161,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
-    public void setDummyFlgAsFlg(CDef.Flg cdef) {
+    public void setDummyFlgAsFlg(MaCDef.Flg cdef) {
         setDummyFlg(cdef != null ? cdef.code() : null);
     }
 
@@ -173,7 +173,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * Provisional Member
      */
     public void setMemberStatusCode_ProvisionalMember() {
-        setMemberStatusCodeAsMemberStatus(CDef.MemberStatus.ProvisionalMember);
+        setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.ProvisionalMember);
     }
 
     /**
@@ -181,7 +181,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * Formalized Member
      */
     public void setMemberStatusCode_FormalizedMember() {
-        setMemberStatusCodeAsMemberStatus(CDef.MemberStatus.FormalizedMember);
+        setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.FormalizedMember);
     }
 
     /**
@@ -189,7 +189,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * Withdrawal Member
      */
     public void setMemberStatusCode_WithdrawalMember() {
-        setMemberStatusCodeAsMemberStatus(CDef.MemberStatus.WithdrawalMember);
+        setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.WithdrawalMember);
     }
 
     /**
@@ -197,7 +197,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * Yes: means valid
      */
     public void setDummyFlg_True() {
-        setDummyFlgAsFlg(CDef.Flg.True);
+        setDummyFlgAsFlg(MaCDef.Flg.True);
     }
 
     /**
@@ -205,7 +205,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * No: means invalid
      */
     public void setDummyFlg_False() {
-        setDummyFlgAsFlg(CDef.Flg.False);
+        setDummyFlgAsFlg(MaCDef.Flg.False);
     }
 
     // ===================================================================================
@@ -218,8 +218,8 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The determination, true or false.
      */
     public boolean isMemberStatusCodeProvisionalMember() {
-        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.ProvisionalMember) : false;
+        MaCDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.ProvisionalMember) : false;
     }
 
     /**
@@ -229,8 +229,8 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The determination, true or false.
      */
     public boolean isMemberStatusCodeFormalizedMember() {
-        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.FormalizedMember) : false;
+        MaCDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.FormalizedMember) : false;
     }
 
     /**
@@ -240,8 +240,8 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The determination, true or false.
      */
     public boolean isMemberStatusCodeWithdrawalMember() {
-        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.WithdrawalMember) : false;
+        MaCDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.WithdrawalMember) : false;
     }
 
     /**
@@ -251,8 +251,8 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The determination, true or false.
      */
     public boolean isDummyFlgTrue() {
-        CDef.Flg cdef = getDummyFlgAsFlg();
-        return cdef != null ? cdef.equals(CDef.Flg.True) : false;
+        MaCDef.Flg cdef = getDummyFlgAsFlg();
+        return cdef != null ? cdef.equals(MaCDef.Flg.True) : false;
     }
 
     /**
@@ -262,8 +262,8 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The determination, true or false.
      */
     public boolean isDummyFlgFalse() {
-        CDef.Flg cdef = getDummyFlgAsFlg();
-        return cdef != null ? cdef.equals(CDef.Flg.False) : false;
+        MaCDef.Flg cdef = getDummyFlgAsFlg();
+        return cdef != null ? cdef.equals(MaCDef.Flg.False) : false;
     }
 
     // ===================================================================================
@@ -274,7 +274,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The string of classification name. (NullAllowed: when the column value is null)
      */
     public String getDummyFlgName() {
-        CDef.Flg cdef = getDummyFlgAsFlg();
+        MaCDef.Flg cdef = getDummyFlgAsFlg();
         return cdef != null ? cdef.name() : null;
     }
 
@@ -283,7 +283,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The string of classification alias. (NullAllowed: when the column value is null)
      */
     public String getDummyFlgAlias() {
-        CDef.Flg cdef = getDummyFlgAsFlg();
+        MaCDef.Flg cdef = getDummyFlgAsFlg();
         return cdef != null ? cdef.alias() : null;
     }
 
@@ -512,7 +512,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @param dummyFlg The value of the column 'DUMMY_FLG'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setDummyFlg(String dummyFlg) {
-        checkClassificationCode("DUMMY_FLG", CDef.DefMeta.Flg, dummyFlg);
+        checkClassificationCode("DUMMY_FLG", MaCDef.DefMeta.Flg, dummyFlg);
         registerModifiedProperty("dummyFlg");
         _dummyFlg = dummyFlg;
     }

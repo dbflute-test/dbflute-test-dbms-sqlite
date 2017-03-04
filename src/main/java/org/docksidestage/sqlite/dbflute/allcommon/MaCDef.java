@@ -14,12 +14,12 @@ import static org.dbflute.util.DfTypeUtil.emptyStrings;
  * The definition of classification.
  * @author DBFlute(AutoGenerator)
  */
-public interface CDef extends Classification {
+public interface MaCDef extends Classification {
 
     /**
      * general boolean classification for every flg-column
      */
-    public enum Flg implements CDef {
+    public enum Flg implements MaCDef {
         /** Yes: means valid */
         True("1", "Yes", emptyStrings())
         ,
@@ -41,7 +41,7 @@ public interface CDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
-        public ClassificationMeta meta() { return CDef.DefMeta.Flg; }
+        public ClassificationMeta meta() { return MaCDef.DefMeta.Flg; }
 
         public boolean inGroup(String groupName) {
             return false;
@@ -138,7 +138,7 @@ public interface CDef extends Classification {
         @Override public String toString() { return code(); }
     }
 
-    public enum MemberStatus implements CDef {
+    public enum MemberStatus implements MaCDef {
         /** Provisional Member */
         ProvisionalMember("PRV", "Provisional Member", emptyStrings())
         ,
@@ -163,7 +163,7 @@ public interface CDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
-        public ClassificationMeta meta() { return CDef.DefMeta.MemberStatus; }
+        public ClassificationMeta meta() { return MaCDef.DefMeta.MemberStatus; }
 
         public boolean inGroup(String groupName) {
             return false;
@@ -271,50 +271,50 @@ public interface CDef extends Classification {
         }
 
         public OptionalThing<? extends Classification> of(Object code) {
-            if (Flg.name().equals(name())) { return CDef.Flg.of(code); }
-            if (MemberStatus.name().equals(name())) { return CDef.MemberStatus.of(code); }
+            if (Flg.name().equals(name())) { return MaCDef.Flg.of(code); }
+            if (MemberStatus.name().equals(name())) { return MaCDef.MemberStatus.of(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public OptionalThing<? extends Classification> byName(String name) {
-            if (Flg.name().equals(name())) { return CDef.Flg.byName(name); }
-            if (MemberStatus.name().equals(name())) { return CDef.MemberStatus.byName(name); }
+            if (Flg.name().equals(name())) { return MaCDef.Flg.byName(name); }
+            if (MemberStatus.name().equals(name())) { return MaCDef.MemberStatus.byName(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public Classification codeOf(Object code) { // null if not found, old style so use classificationOf(code)
-            if (Flg.name().equals(name())) { return CDef.Flg.codeOf(code); }
-            if (MemberStatus.name().equals(name())) { return CDef.MemberStatus.codeOf(code); }
+            if (Flg.name().equals(name())) { return MaCDef.Flg.codeOf(code); }
+            if (MemberStatus.name().equals(name())) { return MaCDef.MemberStatus.codeOf(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public Classification nameOf(String name) { // null if not found, old style so use classificationByName(name)
-            if (Flg.name().equals(name())) { return CDef.Flg.valueOf(name); }
-            if (MemberStatus.name().equals(name())) { return CDef.MemberStatus.valueOf(name); }
+            if (Flg.name().equals(name())) { return MaCDef.Flg.valueOf(name); }
+            if (MemberStatus.name().equals(name())) { return MaCDef.MemberStatus.valueOf(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listAll() {
-            if (Flg.name().equals(name())) { return toClsList(CDef.Flg.listAll()); }
-            if (MemberStatus.name().equals(name())) { return toClsList(CDef.MemberStatus.listAll()); }
+            if (Flg.name().equals(name())) { return toClsList(MaCDef.Flg.listAll()); }
+            if (MemberStatus.name().equals(name())) { return toClsList(MaCDef.MemberStatus.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listByGroup(String groupName) { // exception if not found
-            if (Flg.name().equals(name())) { return toClsList(CDef.Flg.listByGroup(groupName)); }
-            if (MemberStatus.name().equals(name())) { return toClsList(CDef.MemberStatus.listByGroup(groupName)); }
+            if (Flg.name().equals(name())) { return toClsList(MaCDef.Flg.listByGroup(groupName)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(MaCDef.MemberStatus.listByGroup(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listOf(Collection<String> codeList) {
-            if (Flg.name().equals(name())) { return toClsList(CDef.Flg.listOf(codeList)); }
-            if (MemberStatus.name().equals(name())) { return toClsList(CDef.MemberStatus.listOf(codeList)); }
+            if (Flg.name().equals(name())) { return toClsList(MaCDef.Flg.listOf(codeList)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(MaCDef.MemberStatus.listOf(codeList)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> groupOf(String groupName) { // old style
-            if (Flg.name().equals(name())) { return toClsList(CDef.Flg.groupOf(groupName)); }
-            if (MemberStatus.name().equals(name())) { return toClsList(CDef.MemberStatus.groupOf(groupName)); }
+            if (Flg.name().equals(name())) { return toClsList(MaCDef.Flg.groupOf(groupName)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(MaCDef.MemberStatus.groupOf(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -335,19 +335,19 @@ public interface CDef extends Classification {
             return ClassificationUndefinedHandlingType.LOGGING; // as default
         }
 
-        public static OptionalThing<CDef.DefMeta> find(String classificationName) { // instead of valueOf()
+        public static OptionalThing<MaCDef.DefMeta> find(String classificationName) { // instead of valueOf()
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
-            if (Flg.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.Flg); }
-            if (MemberStatus.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.MemberStatus); }
+            if (Flg.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(MaCDef.DefMeta.Flg); }
+            if (MemberStatus.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(MaCDef.DefMeta.MemberStatus); }
             return OptionalThing.ofNullable(null, () -> {
                 throw new ClassificationNotFoundException("Unknown classification: " + classificationName);
             });
         }
 
-        public static CDef.DefMeta meta(String classificationName) { // old style so use byName(name)
+        public static MaCDef.DefMeta meta(String classificationName) { // old style so use byName(name)
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
-            if (Flg.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.Flg; }
-            if (MemberStatus.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.MemberStatus; }
+            if (Flg.name().equalsIgnoreCase(classificationName)) { return MaCDef.DefMeta.Flg; }
+            if (MemberStatus.name().equalsIgnoreCase(classificationName)) { return MaCDef.DefMeta.MemberStatus; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
         }
     }

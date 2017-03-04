@@ -8,9 +8,9 @@ import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.dbflute.optional.OptionalEntity;
-import org.docksidestage.sqlite.dbflute.allcommon.EntityDefinedCommonColumn;
-import org.docksidestage.sqlite.dbflute.allcommon.DBMetaInstanceHandler;
-import org.docksidestage.sqlite.dbflute.allcommon.CDef;
+import org.docksidestage.sqlite.dbflute.allcommon.MaEntityDefinedCommonColumn;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBMetaInstanceHandler;
+import org.docksidestage.sqlite.dbflute.allcommon.MaCDef;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
@@ -75,7 +75,7 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsMember extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
+public abstract class BsMember extends AbstractEntity implements DomainEntity, MaEntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -130,7 +130,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     //                                                                             =======
     /** {@inheritDoc} */
     public DBMeta asDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+        return MaDBMetaInstanceHandler.findDBMeta(asTableDbName());
     }
 
     /** {@inheritDoc} */
@@ -167,8 +167,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
-    public CDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
-        return CDef.MemberStatus.codeOf(getMemberStatusCode());
+    public MaCDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
+        return MaCDef.MemberStatus.codeOf(getMemberStatusCode());
     }
 
     /**
@@ -176,7 +176,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
-    public void setMemberStatusCodeAsMemberStatus(CDef.MemberStatus cdef) {
+    public void setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus cdef) {
         setMemberStatusCode(cdef != null ? cdef.code() : null);
     }
 
@@ -188,7 +188,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * Provisional Member
      */
     public void setMemberStatusCode_ProvisionalMember() {
-        setMemberStatusCodeAsMemberStatus(CDef.MemberStatus.ProvisionalMember);
+        setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.ProvisionalMember);
     }
 
     /**
@@ -196,7 +196,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * Formalized Member
      */
     public void setMemberStatusCode_FormalizedMember() {
-        setMemberStatusCodeAsMemberStatus(CDef.MemberStatus.FormalizedMember);
+        setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.FormalizedMember);
     }
 
     /**
@@ -204,7 +204,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * Withdrawal Member
      */
     public void setMemberStatusCode_WithdrawalMember() {
-        setMemberStatusCodeAsMemberStatus(CDef.MemberStatus.WithdrawalMember);
+        setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.WithdrawalMember);
     }
 
     // ===================================================================================
@@ -217,8 +217,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * @return The determination, true or false.
      */
     public boolean isMemberStatusCodeProvisionalMember() {
-        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.ProvisionalMember) : false;
+        MaCDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.ProvisionalMember) : false;
     }
 
     /**
@@ -228,8 +228,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * @return The determination, true or false.
      */
     public boolean isMemberStatusCodeFormalizedMember() {
-        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.FormalizedMember) : false;
+        MaCDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.FormalizedMember) : false;
     }
 
     /**
@@ -239,8 +239,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
      * @return The determination, true or false.
      */
     public boolean isMemberStatusCodeWithdrawalMember() {
-        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.WithdrawalMember) : false;
+        MaCDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.WithdrawalMember) : false;
     }
 
     // ===================================================================================

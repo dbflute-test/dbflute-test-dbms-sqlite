@@ -32,16 +32,16 @@ import org.dbflute.util.DfReflectionUtil;
 /**
  * @author DBFlute(AutoGenerator)
  */
-public class DBFluteConfig {
+public class MaDBFluteConfig {
 
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
     /** The logger instance for this class. (NotNull) */
-    private static final Logger _log = LoggerFactory.getLogger(DBFluteConfig.class);
+    private static final Logger _log = LoggerFactory.getLogger(MaDBFluteConfig.class);
 
     /** Singleton instance. */
-    private static final DBFluteConfig _instance = new DBFluteConfig();
+    private static final MaDBFluteConfig _instance = new MaDBFluteConfig();
 
     // ===================================================================================
     //                                                                           Attribute
@@ -110,7 +110,7 @@ public class DBFluteConfig {
     /**
      * Constructor.
      */
-    private DBFluteConfig() { // adjusts default settings
+    private MaDBFluteConfig() { // adjusts default settings
         _physicalConnectionDigger = new ImplementedPhysicalConnectionDigger();
         _sqlExceptionDigger = new ImplementedSQLExceptionDigger();
     }
@@ -122,7 +122,7 @@ public class DBFluteConfig {
      * Get singleton instance.
      * @return Singleton instance. (NotNull)
      */
-    public static DBFluteConfig getInstance() {
+    public static MaDBFluteConfig getInstance() {
         return _instance;
     }
 
@@ -819,11 +819,11 @@ public class DBFluteConfig {
     //                                                                       Assist Helper
     //                                                                       =============
     protected DBDef currentDBDef() {
-        return DBCurrent.getInstance().currentDBDef();
+        return MaDBCurrent.getInstance().currentDBDef();
     }
 
     protected boolean isCurrentDBDef(DBDef currentDBDef) {
-        return DBCurrent.getInstance().isCurrentDBDef(currentDBDef);
+        return MaDBCurrent.getInstance().isCurrentDBDef(currentDBDef);
     }
 
     // ===================================================================================

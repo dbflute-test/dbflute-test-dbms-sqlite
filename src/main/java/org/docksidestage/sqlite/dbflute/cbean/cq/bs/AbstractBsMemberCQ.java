@@ -33,7 +33,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
-        return DBMetaInstanceHandler.getProvider();
+        return MaDBMetaInstanceHandler.getProvider();
     }
 
     public String asTableDbName() {
@@ -679,7 +679,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
-    public void setMemberStatusCode_Equal_AsMemberStatus(CDef.MemberStatus cdef) {
+    public void setMemberStatusCode_Equal_AsMemberStatus(MaCDef.MemberStatus cdef) {
         doSetMemberStatusCode_Equal(cdef != null ? cdef.code() : null);
     }
 
@@ -688,7 +688,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * Provisional Member
      */
     public void setMemberStatusCode_Equal_ProvisionalMember() {
-        setMemberStatusCode_Equal_AsMemberStatus(CDef.MemberStatus.ProvisionalMember);
+        setMemberStatusCode_Equal_AsMemberStatus(MaCDef.MemberStatus.ProvisionalMember);
     }
 
     /**
@@ -696,7 +696,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * Formalized Member
      */
     public void setMemberStatusCode_Equal_FormalizedMember() {
-        setMemberStatusCode_Equal_AsMemberStatus(CDef.MemberStatus.FormalizedMember);
+        setMemberStatusCode_Equal_AsMemberStatus(MaCDef.MemberStatus.FormalizedMember);
     }
 
     /**
@@ -704,7 +704,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * Withdrawal Member
      */
     public void setMemberStatusCode_Equal_WithdrawalMember() {
-        setMemberStatusCode_Equal_AsMemberStatus(CDef.MemberStatus.WithdrawalMember);
+        setMemberStatusCode_Equal_AsMemberStatus(MaCDef.MemberStatus.WithdrawalMember);
     }
 
     protected void doSetMemberStatusCode_Equal(String memberStatusCode) {
@@ -725,7 +725,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
-    public void setMemberStatusCode_NotEqual_AsMemberStatus(CDef.MemberStatus cdef) {
+    public void setMemberStatusCode_NotEqual_AsMemberStatus(MaCDef.MemberStatus cdef) {
         doSetMemberStatusCode_NotEqual(cdef != null ? cdef.code() : null);
     }
 
@@ -734,7 +734,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * Provisional Member
      */
     public void setMemberStatusCode_NotEqual_ProvisionalMember() {
-        setMemberStatusCode_NotEqual_AsMemberStatus(CDef.MemberStatus.ProvisionalMember);
+        setMemberStatusCode_NotEqual_AsMemberStatus(MaCDef.MemberStatus.ProvisionalMember);
     }
 
     /**
@@ -742,7 +742,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * Formalized Member
      */
     public void setMemberStatusCode_NotEqual_FormalizedMember() {
-        setMemberStatusCode_NotEqual_AsMemberStatus(CDef.MemberStatus.FormalizedMember);
+        setMemberStatusCode_NotEqual_AsMemberStatus(MaCDef.MemberStatus.FormalizedMember);
     }
 
     /**
@@ -750,7 +750,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * Withdrawal Member
      */
     public void setMemberStatusCode_NotEqual_WithdrawalMember() {
-        setMemberStatusCode_NotEqual_AsMemberStatus(CDef.MemberStatus.WithdrawalMember);
+        setMemberStatusCode_NotEqual_AsMemberStatus(MaCDef.MemberStatus.WithdrawalMember);
     }
 
     protected void doSetMemberStatusCode_NotEqual(String memberStatusCode) {
@@ -771,7 +771,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setMemberStatusCode_InScope_AsMemberStatus(Collection<CDef.MemberStatus> cdefList) {
+    public void setMemberStatusCode_InScope_AsMemberStatus(Collection<MaCDef.MemberStatus> cdefList) {
         doSetMemberStatusCode_InScope(cTStrL(cdefList));
     }
 
@@ -793,7 +793,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
      */
-    public void setMemberStatusCode_NotInScope_AsMemberStatus(Collection<CDef.MemberStatus> cdefList) {
+    public void setMemberStatusCode_NotInScope_AsMemberStatus(Collection<MaCDef.MemberStatus> cdefList) {
         doSetMemberStatusCode_NotInScope(cTStrL(cdefList));
     }
 

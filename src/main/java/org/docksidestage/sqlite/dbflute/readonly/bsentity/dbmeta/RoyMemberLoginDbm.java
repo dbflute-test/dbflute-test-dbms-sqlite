@@ -47,9 +47,8 @@ public class RoyMemberLoginDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((RoyMemberLogin)et).getMemberId(), (et, vl) -> ((RoyMemberLogin)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((RoyMemberLogin)et).getLoginDatetime(), (et, vl) -> ((RoyMemberLogin)et).setLoginDatetime(ctldt(vl)), "loginDatetime");
         setupEpg(_epgMap, et -> ((RoyMemberLogin)et).getMobileLoginFlg(), (et, vl) -> {
-            ColumnInfo col = columnMobileLoginFlg();
-            ccls(et, col, vl);
-            RoyCDef.Flg cls = (RoyCDef.Flg)gcls(et, col, vl);
+            ccls(et, columnMobileLoginFlg(), vl);
+            RoyCDef.Flg cls = (RoyCDef.Flg)gcls(et, columnMobileLoginFlg(), vl);
             if (cls != null) {
                 ((RoyMemberLogin)et).setMobileLoginFlgAsFlg(cls);
             } else {

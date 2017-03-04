@@ -8,8 +8,8 @@ import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.dbflute.optional.OptionalEntity;
-import org.docksidestage.sqlite.dbflute.allcommon.DBMetaInstanceHandler;
-import org.docksidestage.sqlite.dbflute.allcommon.CDef;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBMetaInstanceHandler;
+import org.docksidestage.sqlite.dbflute.allcommon.MaCDef;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
@@ -89,7 +89,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     //                                                                             =======
     /** {@inheritDoc} */
     public DBMeta asDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+        return MaDBMetaInstanceHandler.findDBMeta(asTableDbName());
     }
 
     /** {@inheritDoc} */
@@ -116,8 +116,8 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
-    public CDef.Flg getMobileLoginFlgAsFlg() {
-        return CDef.Flg.codeOf(getMobileLoginFlg());
+    public MaCDef.Flg getMobileLoginFlgAsFlg() {
+        return MaCDef.Flg.codeOf(getMobileLoginFlg());
     }
 
     /**
@@ -126,7 +126,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
-    public void setMobileLoginFlgAsFlg(CDef.Flg cdef) {
+    public void setMobileLoginFlgAsFlg(MaCDef.Flg cdef) {
         setMobileLoginFlg(cdef != null ? toNumber(cdef.code(), Integer.class) : null);
     }
 
@@ -136,8 +136,8 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
-    public CDef.MemberStatus getLoginMemberStatusCodeAsMemberStatus() {
-        return CDef.MemberStatus.codeOf(getLoginMemberStatusCode());
+    public MaCDef.MemberStatus getLoginMemberStatusCodeAsMemberStatus() {
+        return MaCDef.MemberStatus.codeOf(getLoginMemberStatusCode());
     }
 
     /**
@@ -145,7 +145,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * LOGIN_MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
-    public void setLoginMemberStatusCodeAsMemberStatus(CDef.MemberStatus cdef) {
+    public void setLoginMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus cdef) {
         setLoginMemberStatusCode(cdef != null ? cdef.code() : null);
     }
 
@@ -157,7 +157,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * Yes: means valid
      */
     public void setMobileLoginFlg_True() {
-        setMobileLoginFlgAsFlg(CDef.Flg.True);
+        setMobileLoginFlgAsFlg(MaCDef.Flg.True);
     }
 
     /**
@@ -165,7 +165,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * No: means invalid
      */
     public void setMobileLoginFlg_False() {
-        setMobileLoginFlgAsFlg(CDef.Flg.False);
+        setMobileLoginFlgAsFlg(MaCDef.Flg.False);
     }
 
     /**
@@ -173,7 +173,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * Provisional Member
      */
     public void setLoginMemberStatusCode_ProvisionalMember() {
-        setLoginMemberStatusCodeAsMemberStatus(CDef.MemberStatus.ProvisionalMember);
+        setLoginMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.ProvisionalMember);
     }
 
     /**
@@ -181,7 +181,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * Formalized Member
      */
     public void setLoginMemberStatusCode_FormalizedMember() {
-        setLoginMemberStatusCodeAsMemberStatus(CDef.MemberStatus.FormalizedMember);
+        setLoginMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.FormalizedMember);
     }
 
     /**
@@ -189,7 +189,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * Withdrawal Member
      */
     public void setLoginMemberStatusCode_WithdrawalMember() {
-        setLoginMemberStatusCodeAsMemberStatus(CDef.MemberStatus.WithdrawalMember);
+        setLoginMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus.WithdrawalMember);
     }
 
     // ===================================================================================
@@ -202,8 +202,8 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The determination, true or false.
      */
     public boolean isMobileLoginFlgTrue() {
-        CDef.Flg cdef = getMobileLoginFlgAsFlg();
-        return cdef != null ? cdef.equals(CDef.Flg.True) : false;
+        MaCDef.Flg cdef = getMobileLoginFlgAsFlg();
+        return cdef != null ? cdef.equals(MaCDef.Flg.True) : false;
     }
 
     /**
@@ -213,8 +213,8 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The determination, true or false.
      */
     public boolean isMobileLoginFlgFalse() {
-        CDef.Flg cdef = getMobileLoginFlgAsFlg();
-        return cdef != null ? cdef.equals(CDef.Flg.False) : false;
+        MaCDef.Flg cdef = getMobileLoginFlgAsFlg();
+        return cdef != null ? cdef.equals(MaCDef.Flg.False) : false;
     }
 
     /**
@@ -224,8 +224,8 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The determination, true or false.
      */
     public boolean isLoginMemberStatusCodeProvisionalMember() {
-        CDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.ProvisionalMember) : false;
+        MaCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.ProvisionalMember) : false;
     }
 
     /**
@@ -235,8 +235,8 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The determination, true or false.
      */
     public boolean isLoginMemberStatusCodeFormalizedMember() {
-        CDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.FormalizedMember) : false;
+        MaCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.FormalizedMember) : false;
     }
 
     /**
@@ -246,8 +246,8 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The determination, true or false.
      */
     public boolean isLoginMemberStatusCodeWithdrawalMember() {
-        CDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(CDef.MemberStatus.WithdrawalMember) : false;
+        MaCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(MaCDef.MemberStatus.WithdrawalMember) : false;
     }
 
     // ===================================================================================
@@ -258,7 +258,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The string of classification name. (NullAllowed: when the column value is null)
      */
     public String getMobileLoginFlgName() {
-        CDef.Flg cdef = getMobileLoginFlgAsFlg();
+        MaCDef.Flg cdef = getMobileLoginFlgAsFlg();
         return cdef != null ? cdef.name() : null;
     }
 
@@ -267,7 +267,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The string of classification alias. (NullAllowed: when the column value is null)
      */
     public String getMobileLoginFlgAlias() {
-        CDef.Flg cdef = getMobileLoginFlgAsFlg();
+        MaCDef.Flg cdef = getMobileLoginFlgAsFlg();
         return cdef != null ? cdef.alias() : null;
     }
 
@@ -462,7 +462,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @param mobileLoginFlg The value of the column 'MOBILE_LOGIN_FLG'. (basically NotNull if update: for the constraint)
      */
     protected void setMobileLoginFlg(Integer mobileLoginFlg) {
-        checkClassificationCode("MOBILE_LOGIN_FLG", CDef.DefMeta.Flg, mobileLoginFlg);
+        checkClassificationCode("MOBILE_LOGIN_FLG", MaCDef.DefMeta.Flg, mobileLoginFlg);
         registerModifiedProperty("mobileLoginFlg");
         _mobileLoginFlg = mobileLoginFlg;
     }

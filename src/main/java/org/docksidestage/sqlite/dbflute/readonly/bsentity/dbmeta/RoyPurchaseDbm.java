@@ -50,9 +50,8 @@ public class RoyPurchaseDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((RoyPurchase)et).getPurchaseCount(), (et, vl) -> ((RoyPurchase)et).setPurchaseCount(cti(vl)), "purchaseCount");
         setupEpg(_epgMap, et -> ((RoyPurchase)et).getPurchasePrice(), (et, vl) -> ((RoyPurchase)et).setPurchasePrice(cti(vl)), "purchasePrice");
         setupEpg(_epgMap, et -> ((RoyPurchase)et).getPaymentCompleteFlg(), (et, vl) -> {
-            ColumnInfo col = columnPaymentCompleteFlg();
-            ccls(et, col, vl);
-            RoyCDef.Flg cls = (RoyCDef.Flg)gcls(et, col, vl);
+            ccls(et, columnPaymentCompleteFlg(), vl);
+            RoyCDef.Flg cls = (RoyCDef.Flg)gcls(et, columnPaymentCompleteFlg(), vl);
             if (cls != null) {
                 ((RoyPurchase)et).setPaymentCompleteFlgAsFlg(cls);
             } else {

@@ -46,9 +46,8 @@ public class RoyServiceRankDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((RoyServiceRank)et).getServiceRankName(), (et, vl) -> ((RoyServiceRank)et).setServiceRankName((String)vl), "serviceRankName");
         setupEpg(_epgMap, et -> ((RoyServiceRank)et).getServicePointIncidence(), (et, vl) -> ((RoyServiceRank)et).setServicePointIncidence((String)vl), "servicePointIncidence");
         setupEpg(_epgMap, et -> ((RoyServiceRank)et).getNewAcceptableFlg(), (et, vl) -> {
-            ColumnInfo col = columnNewAcceptableFlg();
-            ccls(et, col, vl);
-            RoyCDef.Flg cls = (RoyCDef.Flg)gcls(et, col, vl);
+            ccls(et, columnNewAcceptableFlg(), vl);
+            RoyCDef.Flg cls = (RoyCDef.Flg)gcls(et, columnNewAcceptableFlg(), vl);
             if (cls != null) {
                 ((RoyServiceRank)et).setNewAcceptableFlgAsFlg(cls);
             } else {

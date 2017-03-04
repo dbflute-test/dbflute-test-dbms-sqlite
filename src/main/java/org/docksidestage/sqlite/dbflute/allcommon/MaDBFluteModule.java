@@ -12,11 +12,11 @@ import org.docksidestage.sqlite.dbflute.exbhv.*;
 /**
  * @author DBFlute(AutoGenerator)
  */
-public class DBFluteModule extends AbstractModule {
+public class MaDBFluteModule extends AbstractModule {
 
     protected final DataSource dataSource;
 
-    public DBFluteModule(DataSource dataSource) {
+    public MaDBFluteModule(DataSource dataSource) {
         if (dataSource == null) {
             String msg = "The argument 'dataSource' should not be null!";
             throw new IllegalArgumentException(msg);
@@ -29,11 +29,11 @@ public class DBFluteModule extends AbstractModule {
         createDBFluteInitializer(); // initialized by only a creation
 
         // The components of DBFlute Runtime.
-        ImplementedBehaviorSelector behaviorSelector = createImplementedBehaviorSelector();
+        MaImplementedBehaviorSelector behaviorSelector = createImplementedBehaviorSelector();
         BehaviorCommandInvoker behaviorCommandInvoker = createBehaviorCommandInvoker();
-        ImplementedInvokerAssistant invokerAssistant = createImplementedInvokerAssistant();
+        MaImplementedInvokerAssistant invokerAssistant = createImplementedInvokerAssistant();
         behaviorCommandInvoker.setInvokerAssistant(invokerAssistant);
-        ImplementedCommonColumnAutoSetupper commonColumnAutoSetupper = createImplementedCommonColumnAutoSetupper();
+        MaImplementedCommonColumnAutoSetupper commonColumnAutoSetupper = createImplementedCommonColumnAutoSetupper();
 
         bind(BehaviorSelector.class).toInstance(behaviorSelector);
         bind(BehaviorCommandInvoker.class).toInstance(behaviorCommandInvoker);
@@ -44,26 +44,26 @@ public class DBFluteModule extends AbstractModule {
         setupBehavior(behaviorCommandInvoker, behaviorSelector, commonColumnAutoSetupper);
     }
 
-    protected DBFluteInitializer createDBFluteInitializer() {
-        return new org.docksidestage.sqlite.dbflute.allcommon.DBFluteInitializer();
+    protected MaDBFluteInitializer createDBFluteInitializer() {
+        return new org.docksidestage.sqlite.dbflute.allcommon.MaDBFluteInitializer();
     }
 
-    protected ImplementedBehaviorSelector createImplementedBehaviorSelector() {
-        return new ImplementedBehaviorSelector();
+    protected MaImplementedBehaviorSelector createImplementedBehaviorSelector() {
+        return new MaImplementedBehaviorSelector();
     }
 
     protected BehaviorCommandInvoker createBehaviorCommandInvoker() {
         return new BehaviorCommandInvoker();
     }
 
-    protected ImplementedInvokerAssistant createImplementedInvokerAssistant() {
-        ImplementedInvokerAssistant invokerAssistant = new org.docksidestage.sqlite.dbflute.nogen.ExtendedInvokerAssistant();
+    protected MaImplementedInvokerAssistant createImplementedInvokerAssistant() {
+        MaImplementedInvokerAssistant invokerAssistant = new org.docksidestage.sqlite.dbflute.nogen.ExtendedInvokerAssistant();
         invokerAssistant.setDataSource(dataSource);
         return invokerAssistant;
     }
 
-    protected ImplementedCommonColumnAutoSetupper createImplementedCommonColumnAutoSetupper() {
-        return new org.docksidestage.sqlite.dbflute.allcommon.ImplementedCommonColumnAutoSetupper();
+    protected MaImplementedCommonColumnAutoSetupper createImplementedCommonColumnAutoSetupper() {
+        return new org.docksidestage.sqlite.dbflute.allcommon.MaImplementedCommonColumnAutoSetupper();
     }
 
     protected void setupBehavior(BehaviorCommandInvoker ker, BehaviorSelector tor, CommonColumnAutoSetupper per) {

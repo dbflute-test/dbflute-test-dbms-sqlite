@@ -10,13 +10,13 @@ import org.dbflute.hook.CommonColumnAutoSetupper;
  * The basic implementation of the auto set-upper of common column.
  * @author DBFlute(AutoGenerator)
  */
-public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetupper {
+public class MaImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetupper {
 
     // =====================================================================================
     //                                                                            Definition
     //                                                                            ==========
     /** The logger instance for this class. (NotNull) */
-    private static final Logger _log = LoggerFactory.getLogger(ImplementedCommonColumnAutoSetupper.class);
+    private static final Logger _log = LoggerFactory.getLogger(MaImplementedCommonColumnAutoSetupper.class);
 
     // =====================================================================================
     //                                                                             Attribute
@@ -26,7 +26,7 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
     //                                                                                ======
     /** {@inheritDoc} */
     public void handleCommonColumnOfInsertIfNeeds(Entity targetEntity) {
-        final EntityDefinedCommonColumn entity = askIfEntitySetup(targetEntity);
+        final MaEntityDefinedCommonColumn entity = askIfEntitySetup(targetEntity);
         if (entity == null) {
             return;
         }
@@ -36,7 +36,7 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
         doHandleCommonColumnOfInsertIfNeeds(entity);
     }
 
-    protected void doHandleCommonColumnOfInsertIfNeeds(EntityDefinedCommonColumn entity) {
+    protected void doHandleCommonColumnOfInsertIfNeeds(MaEntityDefinedCommonColumn entity) {
         final java.time.LocalDateTime tableNameRegisterDatetime = org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread();
         entity.setTableNameRegisterDatetime(tableNameRegisterDatetime);
         final String tableNameRegisterUser = org.dbflute.hook.AccessContext.getAccessUserOnThread();
@@ -53,7 +53,7 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
 
     /** {@inheritDoc} */
     public void handleCommonColumnOfUpdateIfNeeds(Entity targetEntity) {
-        final EntityDefinedCommonColumn entity = askIfEntitySetup(targetEntity);
+        final MaEntityDefinedCommonColumn entity = askIfEntitySetup(targetEntity);
         if (entity == null) {
             return;
         }
@@ -63,7 +63,7 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
         doHandleCommonColumnOfUpdateIfNeeds(entity);
     }
 
-    protected void doHandleCommonColumnOfUpdateIfNeeds(EntityDefinedCommonColumn entity) {
+    protected void doHandleCommonColumnOfUpdateIfNeeds(MaEntityDefinedCommonColumn entity) {
         final java.time.LocalDateTime tableNameUpdateDatetime = entity.getTableNameUpdateDatetime() != null ? entity.getTableNameUpdateDatetime() : org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread();
         entity.setTableNameUpdateDatetime(tableNameUpdateDatetime);
         final String tableNameUpdateUser = org.dbflute.hook.AccessContext.getAccessUserOnThread();
@@ -75,7 +75,7 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
     // =====================================================================================
     //                                                                         Assist Helper
     //                                                                         =============
-    protected EntityDefinedCommonColumn askIfEntitySetup(Entity targetEntity) {
+    protected MaEntityDefinedCommonColumn askIfEntitySetup(Entity targetEntity) {
         if (!hasCommonColumn(targetEntity)) {
             return null;
         }
@@ -83,21 +83,21 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
     }
 
     protected boolean hasCommonColumn(Entity targetEntity) {
-        return targetEntity instanceof EntityDefinedCommonColumn;
+        return targetEntity instanceof MaEntityDefinedCommonColumn;
     }
 
-    protected EntityDefinedCommonColumn downcastEntity(Entity targetEntity) {
-        return (EntityDefinedCommonColumn)targetEntity;
+    protected MaEntityDefinedCommonColumn downcastEntity(Entity targetEntity) {
+        return (MaEntityDefinedCommonColumn)targetEntity;
     }
 
     // =====================================================================================
     //                                                                               Logging
     //                                                                               =======
     protected boolean isInternalDebugEnabled() {
-        return DBFluteConfig.getInstance().isInternalDebug() && _log.isDebugEnabled();
+        return MaDBFluteConfig.getInstance().isInternalDebug() && _log.isDebugEnabled();
     }
 
-    protected void logSettingUp(EntityDefinedCommonColumn entity, String keyword) {
+    protected void logSettingUp(MaEntityDefinedCommonColumn entity, String keyword) {
         _log.debug("...Setting up column columns of " + entity.asTableDbName() + " before " + keyword);
     }
 }

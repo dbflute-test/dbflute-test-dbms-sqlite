@@ -10,7 +10,7 @@ import org.dbflute.dbway.DBDef;
  * The creator of SQL clause.
  * @author DBFlute(AutoGenerator)
  */
-public class ImplementedSqlClauseCreator implements SqlClauseCreator {
+public class MaImplementedSqlClauseCreator implements SqlClauseCreator {
 
     // ===================================================================================
     //                                                                      Implementation
@@ -128,11 +128,11 @@ public class ImplementedSqlClauseCreator implements SqlClauseCreator {
     //                                                                           Supporter
     //                                                                           =========
     protected DBMetaProvider getDBMetaProvider() {
-        return DBMetaInstanceHandler.getProvider();
+        return MaDBMetaInstanceHandler.getProvider();
     }
 
     protected GearedCipherManager getGearedCipherManager() {
-        return DBFluteConfig.getInstance().getGearedCipherManager();
+        return MaDBFluteConfig.getInstance().getGearedCipherManager();
     }
 
     // ===================================================================================
@@ -209,38 +209,38 @@ public class ImplementedSqlClauseCreator implements SqlClauseCreator {
     //                                                                       Determination
     //                                                                       =============
     protected boolean isCurrentDBDef(DBDef currentDBDef) {
-	    return DBCurrent.getInstance().isCurrentDBDef(currentDBDef);
+	    return MaDBCurrent.getInstance().isCurrentDBDef(currentDBDef);
     }
 
     protected boolean isInnerJoinAutoDetect() {
-	    return DBFluteConfig.getInstance().isInnerJoinAutoDetect();
+	    return MaDBFluteConfig.getInstance().isInnerJoinAutoDetect();
     }
 
     protected boolean isThatsBadTimingDetect() {
-	    return DBFluteConfig.getInstance().isThatsBadTimingDetect();
+	    return MaDBFluteConfig.getInstance().isThatsBadTimingDetect();
     }
 
     protected boolean isNullOrEmptyQueryAllowed() {
-	    return DBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
+	    return MaDBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
     }
 
     protected boolean isEmptyStringQueryAllowed() {
-	    return DBFluteConfig.getInstance().isEmptyStringQueryAllowed();
+	    return MaDBFluteConfig.getInstance().isEmptyStringQueryAllowed();
     }
 
     protected boolean isOverridingQueryAllowed() {
-	    return DBFluteConfig.getInstance().isOverridingQueryAllowed();
+	    return MaDBFluteConfig.getInstance().isOverridingQueryAllowed();
     }
 
     protected boolean isColumnNullObjectAllowed() {
-	    return DBFluteConfig.getInstance().isColumnNullObjectAllowed();
+	    return MaDBFluteConfig.getInstance().isColumnNullObjectAllowed();
     }
 
     protected boolean isColumnNullObjectGearedToSpecify() {
-	    return DBFluteConfig.getInstance().isColumnNullObjectGearedToSpecify();
+	    return MaDBFluteConfig.getInstance().isColumnNullObjectGearedToSpecify();
     }
 
     protected boolean isDisableSelectIndex() {
-	    return DBFluteConfig.getInstance().isDisableSelectIndex();
+	    return MaDBFluteConfig.getInstance().isDisableSelectIndex();
     }
 }

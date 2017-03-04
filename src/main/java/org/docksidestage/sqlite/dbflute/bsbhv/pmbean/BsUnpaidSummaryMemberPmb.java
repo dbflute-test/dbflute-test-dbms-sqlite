@@ -48,7 +48,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
      * This is related to "<span style="color: #AD4747">selectUnpaidSummaryMember</span>" on MemberBhv.
      */
     public BsUnpaidSummaryMemberPmb() {
-        if (DBFluteConfig.getInstance().isPagingCountLater()) {
+        if (MaDBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
     }
@@ -74,7 +74,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     //                                                String
     //                                                ------
     protected String filterStringParameter(String value) { return isEmptyStringParameterAllowed() ? value : convertEmptyToNull(value); }
-    protected boolean isEmptyStringParameterAllowed() { return DBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
+    protected boolean isEmptyStringParameterAllowed() { return MaDBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
     protected String convertEmptyToNull(String value) { return PmbCustodial.convertEmptyToNull(value); }
     
     protected void assertLikeSearchOptionValid(String name, LikeSearchOption option) { PmbCustodial.assertLikeSearchOptionValid(name, option); }
@@ -192,21 +192,21 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
      * [set as ProvisionalMember] memberStatusCode:cls(MemberStatus) <br>
      */
     public void setMemberStatusCode_ProvisionalMember() {
-        _memberStatusCode = CDef.MemberStatus.ProvisionalMember.code();
+        _memberStatusCode = MaCDef.MemberStatus.ProvisionalMember.code();
     }
 
     /**
      * [set as FormalizedMember] memberStatusCode:cls(MemberStatus) <br>
      */
     public void setMemberStatusCode_FormalizedMember() {
-        _memberStatusCode = CDef.MemberStatus.FormalizedMember.code();
+        _memberStatusCode = MaCDef.MemberStatus.FormalizedMember.code();
     }
 
     /**
      * [set as WithdrawalMember] memberStatusCode:cls(MemberStatus) <br>
      */
     public void setMemberStatusCode_WithdrawalMember() {
-        _memberStatusCode = CDef.MemberStatus.WithdrawalMember.code();
+        _memberStatusCode = MaCDef.MemberStatus.WithdrawalMember.code();
     }
 
     /**

@@ -109,7 +109,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     //                                                String
     //                                                ------
     protected String filterStringParameter(String value) { return isEmptyStringParameterAllowed() ? value : convertEmptyToNull(value); }
-    protected boolean isEmptyStringParameterAllowed() { return DBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
+    protected boolean isEmptyStringParameterAllowed() { return MaDBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
     protected String convertEmptyToNull(String value) { return PmbCustodial.convertEmptyToNull(value); }
     
     protected void assertLikeSearchOptionValid(String name, LikeSearchOption option) { PmbCustodial.assertLikeSearchOptionValid(name, option); }
@@ -294,21 +294,21 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
      * [set as ProvisionalMember] memberStatusCode:cls(MemberStatus) <br>
      */
     public void setMemberStatusCode_ProvisionalMember() {
-        _memberStatusCode = CDef.MemberStatus.ProvisionalMember.code();
+        _memberStatusCode = MaCDef.MemberStatus.ProvisionalMember.code();
     }
 
     /**
      * [set as FormalizedMember] memberStatusCode:cls(MemberStatus) <br>
      */
     public void setMemberStatusCode_FormalizedMember() {
-        _memberStatusCode = CDef.MemberStatus.FormalizedMember.code();
+        _memberStatusCode = MaCDef.MemberStatus.FormalizedMember.code();
     }
 
     /**
      * [set as WithdrawalMember] memberStatusCode:cls(MemberStatus) <br>
      */
     public void setMemberStatusCode_WithdrawalMember() {
-        _memberStatusCode = CDef.MemberStatus.WithdrawalMember.code();
+        _memberStatusCode = MaCDef.MemberStatus.WithdrawalMember.code();
     }
 
     /**
@@ -363,20 +363,20 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
      * [set as ProvisionalMember] status:cls(MemberStatus)|ref(Member.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      */
     public void setStatus_ProvisionalMember() {
-        _status = CDef.MemberStatus.ProvisionalMember.code();
+        _status = MaCDef.MemberStatus.ProvisionalMember.code();
     }
 
     /**
      * [set as FormalizedMember] status:cls(MemberStatus)|ref(Member.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      */
     public void setStatus_FormalizedMember() {
-        _status = CDef.MemberStatus.FormalizedMember.code();
+        _status = MaCDef.MemberStatus.FormalizedMember.code();
     }
 
     /**
      * [set as WithdrawalMember] status:cls(MemberStatus)|ref(Member.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      */
     public void setStatus_WithdrawalMember() {
-        _status = CDef.MemberStatus.WithdrawalMember.code();
+        _status = MaCDef.MemberStatus.WithdrawalMember.code();
     }
 }

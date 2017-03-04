@@ -8,9 +8,9 @@ import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.dbflute.optional.OptionalEntity;
-import org.docksidestage.sqlite.dbflute.allcommon.EntityDefinedCommonColumn;
-import org.docksidestage.sqlite.dbflute.allcommon.DBMetaInstanceHandler;
-import org.docksidestage.sqlite.dbflute.allcommon.CDef;
+import org.docksidestage.sqlite.dbflute.allcommon.MaEntityDefinedCommonColumn;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBMetaInstanceHandler;
+import org.docksidestage.sqlite.dbflute.allcommon.MaCDef;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
@@ -77,7 +77,7 @@ import org.docksidestage.sqlite.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsPurchase extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
+public abstract class BsPurchase extends AbstractEntity implements DomainEntity, MaEntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -135,7 +135,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     //                                                                             =======
     /** {@inheritDoc} */
     public DBMeta asDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+        return MaDBMetaInstanceHandler.findDBMeta(asTableDbName());
     }
 
     /** {@inheritDoc} */
@@ -162,8 +162,8 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
-    public CDef.Flg getPaymentCompleteFlgAsFlg() {
-        return CDef.Flg.codeOf(getPaymentCompleteFlg());
+    public MaCDef.Flg getPaymentCompleteFlgAsFlg() {
+        return MaCDef.Flg.codeOf(getPaymentCompleteFlg());
     }
 
     /**
@@ -172,7 +172,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
-    public void setPaymentCompleteFlgAsFlg(CDef.Flg cdef) {
+    public void setPaymentCompleteFlgAsFlg(MaCDef.Flg cdef) {
         setPaymentCompleteFlg(cdef != null ? toNumber(cdef.code(), Integer.class) : null);
     }
 
@@ -184,7 +184,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * Yes: means valid
      */
     public void setPaymentCompleteFlg_True() {
-        setPaymentCompleteFlgAsFlg(CDef.Flg.True);
+        setPaymentCompleteFlgAsFlg(MaCDef.Flg.True);
     }
 
     /**
@@ -192,7 +192,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * No: means invalid
      */
     public void setPaymentCompleteFlg_False() {
-        setPaymentCompleteFlgAsFlg(CDef.Flg.False);
+        setPaymentCompleteFlgAsFlg(MaCDef.Flg.False);
     }
 
     // ===================================================================================
@@ -205,8 +205,8 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * @return The determination, true or false.
      */
     public boolean isPaymentCompleteFlgTrue() {
-        CDef.Flg cdef = getPaymentCompleteFlgAsFlg();
-        return cdef != null ? cdef.equals(CDef.Flg.True) : false;
+        MaCDef.Flg cdef = getPaymentCompleteFlgAsFlg();
+        return cdef != null ? cdef.equals(MaCDef.Flg.True) : false;
     }
 
     /**
@@ -216,8 +216,8 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * @return The determination, true or false.
      */
     public boolean isPaymentCompleteFlgFalse() {
-        CDef.Flg cdef = getPaymentCompleteFlgAsFlg();
-        return cdef != null ? cdef.equals(CDef.Flg.False) : false;
+        MaCDef.Flg cdef = getPaymentCompleteFlgAsFlg();
+        return cdef != null ? cdef.equals(MaCDef.Flg.False) : false;
     }
 
     // ===================================================================================
@@ -228,7 +228,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * @return The string of classification name. (NullAllowed: when the column value is null)
      */
     public String getPaymentCompleteFlgName() {
-        CDef.Flg cdef = getPaymentCompleteFlgAsFlg();
+        MaCDef.Flg cdef = getPaymentCompleteFlgAsFlg();
         return cdef != null ? cdef.name() : null;
     }
 
@@ -237,7 +237,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * @return The string of classification alias. (NullAllowed: when the column value is null)
      */
     public String getPaymentCompleteFlgAlias() {
-        CDef.Flg cdef = getPaymentCompleteFlgAsFlg();
+        MaCDef.Flg cdef = getPaymentCompleteFlgAsFlg();
         return cdef != null ? cdef.alias() : null;
     }
 
@@ -520,7 +520,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * @param paymentCompleteFlg The value of the column 'PAYMENT_COMPLETE_FLG'. (basically NotNull if update: for the constraint)
      */
     protected void setPaymentCompleteFlg(Integer paymentCompleteFlg) {
-        checkClassificationCode("PAYMENT_COMPLETE_FLG", CDef.DefMeta.Flg, paymentCompleteFlg);
+        checkClassificationCode("PAYMENT_COMPLETE_FLG", MaCDef.DefMeta.Flg, paymentCompleteFlg);
         registerModifiedProperty("paymentCompleteFlg");
         _paymentCompleteFlg = paymentCompleteFlg;
     }

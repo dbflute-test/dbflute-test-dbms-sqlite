@@ -9,13 +9,13 @@ import org.slf4j.LoggerFactory;
 /**
  * @author DBFlute(AutoGenerator)
  */
-public class DBFluteInitializer {
+public class MaDBFluteInitializer {
 
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
     /** The logger instance for this class. (NotNull) */
-    private static final Logger _log = LoggerFactory.getLogger(DBFluteInitializer.class);
+    private static final Logger _log = LoggerFactory.getLogger(MaDBFluteInitializer.class);
 
     // ===================================================================================
     //                                                                           Attribute
@@ -27,7 +27,7 @@ public class DBFluteInitializer {
     /**
      * Constructor, which initializes various components.
      */
-    public DBFluteInitializer() {
+    public MaDBFluteInitializer() {
         announce();
         prologue();
         standBy();
@@ -56,8 +56,8 @@ public class DBFluteInitializer {
      * Enjoy your DBFlute life.
      */
     protected void standBy() {
-        if (!DBFluteConfig.getInstance().isLocked()) {
-            DBFluteConfig.getInstance().lock();
+        if (!MaDBFluteConfig.getInstance().isLocked()) {
+            MaDBFluteConfig.getInstance().lock();
         }
         if (!DBFluteSystem.isLocked()) {
             DBFluteSystem.lock();
@@ -77,7 +77,7 @@ public class DBFluteInitializer {
     //                                                                       Assist Helper
     //                                                                       =============
     protected boolean isCurrentDBDef(DBDef currentDBDef) {
-        return DBCurrent.getInstance().isCurrentDBDef(currentDBDef);
+        return MaDBCurrent.getInstance().isCurrentDBDef(currentDBDef);
     }
 
     // ===================================================================================

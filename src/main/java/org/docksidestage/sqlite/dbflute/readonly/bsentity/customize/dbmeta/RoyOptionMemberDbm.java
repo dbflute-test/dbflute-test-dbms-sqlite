@@ -50,9 +50,8 @@ public class RoyOptionMemberDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((RoyOptionMember)et).getMemberStatusName(), (et, vl) -> ((RoyOptionMember)et).setMemberStatusName((String)vl), "memberStatusName");
         setupEpg(_epgMap, et -> ((RoyOptionMember)et).getStatusDisplayOrder(), (et, vl) -> ((RoyOptionMember)et).setStatusDisplayOrder((String)vl), "statusDisplayOrder");
         setupEpg(_epgMap, et -> ((RoyOptionMember)et).getDummyFlg(), (et, vl) -> {
-            ColumnInfo col = columnDummyFlg();
-            ccls(et, col, vl);
-            RoyCDef.Flg cls = (RoyCDef.Flg)gcls(et, col, vl);
+            ccls(et, columnDummyFlg(), vl);
+            RoyCDef.Flg cls = (RoyCDef.Flg)gcls(et, columnDummyFlg(), vl);
             if (cls != null) {
                 ((RoyOptionMember)et).setDummyFlgAsFlg(cls);
             } else {

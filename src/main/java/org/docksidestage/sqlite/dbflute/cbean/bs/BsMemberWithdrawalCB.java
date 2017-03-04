@@ -12,10 +12,10 @@ import org.dbflute.cbean.scoping.*;
 import org.dbflute.dbmeta.DBMetaProvider;
 import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
 import org.dbflute.twowaysql.style.BoundDateDisplayTimeZoneProvider;
-import org.docksidestage.sqlite.dbflute.allcommon.DBFluteConfig;
-import org.docksidestage.sqlite.dbflute.allcommon.DBMetaInstanceHandler;
-import org.docksidestage.sqlite.dbflute.allcommon.ImplementedInvokerAssistant;
-import org.docksidestage.sqlite.dbflute.allcommon.ImplementedSqlClauseCreator;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBFluteConfig;
+import org.docksidestage.sqlite.dbflute.allcommon.MaDBMetaInstanceHandler;
+import org.docksidestage.sqlite.dbflute.allcommon.MaImplementedInvokerAssistant;
+import org.docksidestage.sqlite.dbflute.allcommon.MaImplementedSqlClauseCreator;
 import org.docksidestage.sqlite.dbflute.cbean.*;
 import org.docksidestage.sqlite.dbflute.cbean.cq.*;
 import org.docksidestage.sqlite.dbflute.cbean.nss.*;
@@ -35,19 +35,19 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
     //                                                                         Constructor
     //                                                                         ===========
     public BsMemberWithdrawalCB() {
-        if (DBFluteConfig.getInstance().isPagingCountLater()) {
+        if (MaDBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
-        if (DBFluteConfig.getInstance().isPagingCountLeastJoin()) {
+        if (MaDBFluteConfig.getInstance().isPagingCountLeastJoin()) {
             enablePagingCountLeastJoin();
         }
-        if (DBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
+        if (MaDBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
             enableNonSpecifiedColumnAccess();
         }
-        if (DBFluteConfig.getInstance().isSpecifyColumnRequired()) {
+        if (MaDBFluteConfig.getInstance().isSpecifyColumnRequired()) {
             enableSpecifyColumnRequired();
         }
-        if (DBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
+        if (MaDBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }
     }
@@ -57,11 +57,11 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
     //                                                                           =========
     @Override
     protected SqlClause createSqlClause() {
-        SqlClauseCreator creator = DBFluteConfig.getInstance().getSqlClauseCreator();
+        SqlClauseCreator creator = MaDBFluteConfig.getInstance().getSqlClauseCreator();
         if (creator != null) {
             return creator.createSqlClause(this);
         }
-        return new ImplementedSqlClauseCreator().createSqlClause(this); // as default
+        return new MaImplementedSqlClauseCreator().createSqlClause(this); // as default
     }
 
     // ===================================================================================
@@ -69,7 +69,7 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
     //                                                                             =======
     @Override
     protected DBMetaProvider getDBMetaProvider() {
-        return DBMetaInstanceHandler.getProvider(); // as default
+        return MaDBMetaInstanceHandler.getProvider(); // as default
     }
 
     public String asTableDbName() {
@@ -540,15 +540,15 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
     //                                                                          ==========
     @Override
     protected SqlAnalyzerFactory getSqlAnalyzerFactory()
-    { return new ImplementedInvokerAssistant().assistSqlAnalyzerFactory(); }
+    { return new MaImplementedInvokerAssistant().assistSqlAnalyzerFactory(); }
     @Override
-    protected String getConfiguredLogDatePattern() { return DBFluteConfig.getInstance().getLogDatePattern(); }
+    protected String getConfiguredLogDatePattern() { return MaDBFluteConfig.getInstance().getLogDatePattern(); }
     @Override
-    protected String getConfiguredLogTimestampPattern() { return DBFluteConfig.getInstance().getLogTimestampPattern(); }
+    protected String getConfiguredLogTimestampPattern() { return MaDBFluteConfig.getInstance().getLogTimestampPattern(); }
     @Override
-    protected String getConfiguredLogTimePattern() { return DBFluteConfig.getInstance().getLogTimePattern(); }
+    protected String getConfiguredLogTimePattern() { return MaDBFluteConfig.getInstance().getLogTimePattern(); }
     @Override
-    protected BoundDateDisplayTimeZoneProvider getConfiguredLogTimeZoneProvider() { return DBFluteConfig.getInstance().getLogTimeZoneProvider(); }
+    protected BoundDateDisplayTimeZoneProvider getConfiguredLogTimeZoneProvider() { return MaDBFluteConfig.getInstance().getLogTimeZoneProvider(); }
 
     // ===================================================================================
     //                                                                       Meta Handling
