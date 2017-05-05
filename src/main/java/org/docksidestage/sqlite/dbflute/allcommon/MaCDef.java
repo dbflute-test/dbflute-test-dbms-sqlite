@@ -344,11 +344,16 @@ public interface MaCDef extends Classification {
             });
         }
 
-        public static MaCDef.DefMeta meta(String classificationName) { // old style so use byName(name)
+        public static MaCDef.DefMeta meta(String classificationName) { // old style so use find(name)
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
             if (Flg.name().equalsIgnoreCase(classificationName)) { return MaCDef.DefMeta.Flg; }
             if (MemberStatus.name().equalsIgnoreCase(classificationName)) { return MaCDef.DefMeta.MemberStatus; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
+        }
+
+        @SuppressWarnings("unused")
+        private String[] xinternalEmptyString() {
+            return emptyStrings(); // to suppress 'unused' warning of import statement
         }
     }
 }

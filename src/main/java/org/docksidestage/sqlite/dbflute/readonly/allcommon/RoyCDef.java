@@ -344,11 +344,16 @@ public interface RoyCDef extends Classification {
             });
         }
 
-        public static RoyCDef.DefMeta meta(String classificationName) { // old style so use byName(name)
+        public static RoyCDef.DefMeta meta(String classificationName) { // old style so use find(name)
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
             if (Flg.name().equalsIgnoreCase(classificationName)) { return RoyCDef.DefMeta.Flg; }
             if (MemberStatus.name().equalsIgnoreCase(classificationName)) { return RoyCDef.DefMeta.MemberStatus; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
+        }
+
+        @SuppressWarnings("unused")
+        private String[] xinternalEmptyString() {
+            return emptyStrings(); // to suppress 'unused' warning of import statement
         }
     }
 }
