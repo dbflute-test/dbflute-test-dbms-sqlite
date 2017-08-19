@@ -97,8 +97,8 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {PK, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {PK, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PRODUCT_ID: {PK, INTEGER(2000000000, 10)}
-     * @param productIdList The collection of productId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param productIdList The collection of productId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductId_InScope(Collection<Integer> productIdList) {
         doSetProductId_InScope(productIdList);
@@ -134,7 +134,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PRODUCT_ID: {PK, INTEGER(2000000000, 10)}
-     * @param productIdList The collection of productId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param productIdList The collection of productId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductId_NotInScope(Collection<Integer> productIdList) {
         doSetProductId_NotInScope(productIdList);
@@ -235,7 +235,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)}
-     * @param productName The value of productName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param productName The value of productName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_Equal(String productName) {
         doSetProductName_Equal(fRES(productName));
@@ -248,7 +248,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)}
-     * @param productName The value of productName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param productName The value of productName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_NotEqual(String productName) {
         doSetProductName_NotEqual(fRES(productName));
@@ -261,7 +261,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)}
-     * @param productNameList The collection of productName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param productNameList The collection of productName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_InScope(Collection<String> productNameList) {
         doSetProductName_InScope(productNameList);
@@ -274,7 +274,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)}
-     * @param productNameList The collection of productName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param productNameList The collection of productName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_NotInScope(Collection<String> productNameList) {
         doSetProductName_NotInScope(productNameList);
@@ -288,7 +288,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param productName The value of productName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setProductName_LikeSearch(String productName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -299,7 +299,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param productName The value of productName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductName_LikeSearch(String productName, LikeSearchOption likeSearchOption) {
@@ -310,7 +310,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)}
-     * @param productName The value of productName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setProductName_NotLikeSearch(String productName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -321,7 +321,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)}
-     * @param productName The value of productName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductName_NotLikeSearch(String productName, LikeSearchOption likeSearchOption) {
@@ -352,7 +352,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS}
-     * @param productStatusCode The value of productStatusCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param productStatusCode The value of productStatusCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductStatusCode_Equal(String productStatusCode) {
         doSetProductStatusCode_Equal(fRES(productStatusCode));
@@ -365,7 +365,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS}
-     * @param productStatusCode The value of productStatusCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param productStatusCode The value of productStatusCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductStatusCode_NotEqual(String productStatusCode) {
         doSetProductStatusCode_NotEqual(fRES(productStatusCode));
@@ -378,7 +378,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS}
-     * @param productStatusCodeList The collection of productStatusCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param productStatusCodeList The collection of productStatusCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductStatusCode_InScope(Collection<String> productStatusCodeList) {
         doSetProductStatusCode_InScope(productStatusCodeList);
@@ -391,7 +391,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS}
-     * @param productStatusCodeList The collection of productStatusCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param productStatusCodeList The collection of productStatusCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductStatusCode_NotInScope(Collection<String> productStatusCodeList) {
         doSetProductStatusCode_NotInScope(productStatusCodeList);
@@ -405,7 +405,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS} <br>
      * <pre>e.g. setProductStatusCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param productStatusCode The value of productStatusCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param productStatusCode The value of productStatusCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setProductStatusCode_LikeSearch(String productStatusCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -416,7 +416,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS} <br>
      * <pre>e.g. setProductStatusCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param productStatusCode The value of productStatusCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param productStatusCode The value of productStatusCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductStatusCode_LikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
@@ -427,7 +427,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS}
-     * @param productStatusCode The value of productStatusCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param productStatusCode The value of productStatusCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setProductStatusCode_NotLikeSearch(String productStatusCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -438,7 +438,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS}
-     * @param productStatusCode The value of productStatusCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param productStatusCode The value of productStatusCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductStatusCode_NotLikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
@@ -469,7 +469,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)}
-     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as equal. (NullAllowed: if null (or empty), no condition)
+     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLatestPurchaseDatetime_Equal(String latestPurchaseDatetime) {
         doSetLatestPurchaseDatetime_Equal(fRES(latestPurchaseDatetime));
@@ -482,7 +482,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)}
-     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLatestPurchaseDatetime_NotEqual(String latestPurchaseDatetime) {
         doSetLatestPurchaseDatetime_NotEqual(fRES(latestPurchaseDatetime));
@@ -495,7 +495,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)}
-     * @param latestPurchaseDatetimeList The collection of latestPurchaseDatetime as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param latestPurchaseDatetimeList The collection of latestPurchaseDatetime as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLatestPurchaseDatetime_InScope(Collection<String> latestPurchaseDatetimeList) {
         doSetLatestPurchaseDatetime_InScope(latestPurchaseDatetimeList);
@@ -508,7 +508,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)}
-     * @param latestPurchaseDatetimeList The collection of latestPurchaseDatetime as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param latestPurchaseDatetimeList The collection of latestPurchaseDatetime as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLatestPurchaseDatetime_NotInScope(Collection<String> latestPurchaseDatetimeList) {
         doSetLatestPurchaseDatetime_NotInScope(latestPurchaseDatetimeList);
@@ -522,7 +522,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)} <br>
      * <pre>e.g. setLatestPurchaseDatetime_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setLatestPurchaseDatetime_LikeSearch(String latestPurchaseDatetime, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -533,7 +533,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)} <br>
      * <pre>e.g. setLatestPurchaseDatetime_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setLatestPurchaseDatetime_LikeSearch(String latestPurchaseDatetime, LikeSearchOption likeSearchOption) {
@@ -544,7 +544,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)}
-     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setLatestPurchaseDatetime_NotLikeSearch(String latestPurchaseDatetime, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -555,7 +555,7 @@ public abstract class RoyAbstractBsSummaryProductCQ extends AbstractConditionQue
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)}
-     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param latestPurchaseDatetime The value of latestPurchaseDatetime as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setLatestPurchaseDatetime_NotLikeSearch(String latestPurchaseDatetime, LikeSearchOption likeSearchOption) {

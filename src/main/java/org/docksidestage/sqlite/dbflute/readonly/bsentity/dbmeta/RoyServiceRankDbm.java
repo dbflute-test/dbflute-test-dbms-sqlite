@@ -76,12 +76,12 @@ public class RoyServiceRankDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnServiceRankCode = cci("SERVICE_RANK_CODE", "SERVICE_RANK_CODE", null, null, String.class, "serviceRankCode", null, true, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, "memberServiceList", null, false);
-    protected final ColumnInfo _columnServiceRankName = cci("SERVICE_RANK_NAME", "SERVICE_RANK_NAME", null, null, String.class, "serviceRankName", null, false, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnServicePointIncidence = cci("SERVICE_POINT_INCIDENCE", "SERVICE_POINT_INCIDENCE", null, null, String.class, "servicePointIncidence", null, false, false, true, "REAL", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnNewAcceptableFlg = cci("NEW_ACCEPTABLE_FLG", "NEW_ACCEPTABLE_FLG", null, null, Integer.class, "newAcceptableFlg", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, RoyCDef.DefMeta.Flg, false);
-    protected final ColumnInfo _columnDescription = cci("DESCRIPTION", "DESCRIPTION", null, null, String.class, "description", null, false, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnServiceRankCode = cci("SERVICE_RANK_CODE", "SERVICE_RANK_CODE", null, null, String.class, "serviceRankCode", null, true, false, true, "TEXT", 2000000000, 10, null, null, false, null, null, null, "memberServiceList", null, false);
+    protected final ColumnInfo _columnServiceRankName = cci("SERVICE_RANK_NAME", "SERVICE_RANK_NAME", null, null, String.class, "serviceRankName", null, false, false, true, "TEXT", 2000000000, 10, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnServicePointIncidence = cci("SERVICE_POINT_INCIDENCE", "SERVICE_POINT_INCIDENCE", null, null, String.class, "servicePointIncidence", null, false, false, true, "REAL", 2000000000, 10, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNewAcceptableFlg = cci("NEW_ACCEPTABLE_FLG", "NEW_ACCEPTABLE_FLG", null, null, Integer.class, "newAcceptableFlg", null, false, false, true, "INTEGER", 2000000000, 10, null, null, false, null, null, null, null, RoyCDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnDescription = cci("DESCRIPTION", "DESCRIPTION", null, null, String.class, "description", null, false, false, true, "TEXT", 2000000000, 10, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "INTEGER", 2000000000, 10, null, null, false, null, null, null, null, null, false);
 
     /**
      * SERVICE_RANK_CODE: {PK, NotNull, TEXT(2000000000, 10)}

@@ -79,10 +79,10 @@ public class SummaryProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, true, false, false, "INTEGER", 2000000000, 10, null, false, null, null, null, "purchaseList", null, false);
-    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, false, "TEXT", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, false, "TEXT", 2000000000, 10, null, false, null, null, "productStatus", null, null, false);
-    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, String.class, "latestPurchaseDatetime", null, false, false, false, "UnknownType", 2000000000, 10, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, true, false, false, "INTEGER", 2000000000, 10, null, null, false, null, null, null, "purchaseList", null, false);
+    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, false, "TEXT", 2000000000, 10, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, false, "TEXT", 2000000000, 10, null, null, false, null, null, "productStatus", null, null, false);
+    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, String.class, "latestPurchaseDatetime", null, false, false, false, "UnknownType", 2000000000, 10, null, null, false, null, null, null, null, null, false);
 
     /**
      * PRODUCT_ID: {PK, INTEGER(2000000000, 10)}

@@ -89,11 +89,11 @@ public class RoyMemberLoginDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberLoginId = cci("MEMBER_LOGIN_ID", "MEMBER_LOGIN_ID", null, null, Integer.class, "memberLoginId", null, true, true, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, Integer.class, "memberId", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, "member", null, null, false);
-    protected final ColumnInfo _columnLoginDatetime = cci("LOGIN_DATETIME", "LOGIN_DATETIME", null, null, java.time.LocalDateTime.class, "loginDatetime", null, false, false, true, "DATETIME", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMobileLoginFlg = cci("MOBILE_LOGIN_FLG", "MOBILE_LOGIN_FLG", null, null, Integer.class, "mobileLoginFlg", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, RoyCDef.DefMeta.Flg, false);
-    protected final ColumnInfo _columnLoginMemberStatusCode = cci("LOGIN_MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", null, null, String.class, "loginMemberStatusCode", null, false, false, true, "TEXT", 2000000000, 10, null, false, null, null, "memberStatus", null, RoyCDef.DefMeta.MemberStatus, false);
+    protected final ColumnInfo _columnMemberLoginId = cci("MEMBER_LOGIN_ID", "MEMBER_LOGIN_ID", null, null, Integer.class, "memberLoginId", null, true, true, true, "INTEGER", 2000000000, 10, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, Integer.class, "memberId", null, false, false, true, "INTEGER", 2000000000, 10, null, null, false, null, null, "member", null, null, false);
+    protected final ColumnInfo _columnLoginDatetime = cci("LOGIN_DATETIME", "LOGIN_DATETIME", null, null, java.time.LocalDateTime.class, "loginDatetime", null, false, false, true, "DATETIME", 2000000000, 10, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMobileLoginFlg = cci("MOBILE_LOGIN_FLG", "MOBILE_LOGIN_FLG", null, null, Integer.class, "mobileLoginFlg", null, false, false, true, "INTEGER", 2000000000, 10, null, null, false, null, null, null, null, RoyCDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnLoginMemberStatusCode = cci("LOGIN_MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", null, null, String.class, "loginMemberStatusCode", null, false, false, true, "TEXT", 2000000000, 10, null, null, false, null, null, "memberStatus", null, RoyCDef.DefMeta.MemberStatus, false);
 
     /**
      * MEMBER_LOGIN_ID: {PK, ID, NotNull, INTEGER(2000000000, 10)}

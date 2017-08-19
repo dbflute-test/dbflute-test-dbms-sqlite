@@ -97,8 +97,8 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of vendorCheckId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of vendorCheckId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of vendorCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of vendorCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setVendorCheckId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of vendorCheckId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of vendorCheckId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of vendorCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of vendorCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVendorCheckId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param vendorCheckIdList The collection of vendorCheckId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param vendorCheckIdList The collection of vendorCheckId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendorCheckId_InScope(Collection<Integer> vendorCheckIdList) {
         doSetVendorCheckId_InScope(vendorCheckIdList);
@@ -134,7 +134,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
-     * @param vendorCheckIdList The collection of vendorCheckId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param vendorCheckIdList The collection of vendorCheckId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendorCheckId_NotInScope(Collection<Integer> vendorCheckIdList) {
         doSetVendorCheckId_NotInScope(vendorCheckIdList);
@@ -162,7 +162,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)}
-     * @param typeOfText The value of typeOfText as equal. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfText The value of typeOfText as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfText_Equal(String typeOfText) {
         doSetTypeOfText_Equal(fRES(typeOfText));
@@ -175,7 +175,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)}
-     * @param typeOfText The value of typeOfText as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfText The value of typeOfText as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfText_NotEqual(String typeOfText) {
         doSetTypeOfText_NotEqual(fRES(typeOfText));
@@ -188,7 +188,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)}
-     * @param typeOfTextList The collection of typeOfText as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfTextList The collection of typeOfText as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfText_InScope(Collection<String> typeOfTextList) {
         doSetTypeOfText_InScope(typeOfTextList);
@@ -201,7 +201,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)}
-     * @param typeOfTextList The collection of typeOfText as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfTextList The collection of typeOfText as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfText_NotInScope(Collection<String> typeOfTextList) {
         doSetTypeOfText_NotInScope(typeOfTextList);
@@ -215,7 +215,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)} <br>
      * <pre>e.g. setTypeOfText_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param typeOfText The value of typeOfText as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfText The value of typeOfText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setTypeOfText_LikeSearch(String typeOfText, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -226,7 +226,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)} <br>
      * <pre>e.g. setTypeOfText_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param typeOfText The value of typeOfText as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfText The value of typeOfText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfText_LikeSearch(String typeOfText, LikeSearchOption likeSearchOption) {
@@ -237,7 +237,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)}
-     * @param typeOfText The value of typeOfText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfText The value of typeOfText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setTypeOfText_NotLikeSearch(String typeOfText, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -248,7 +248,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)}
-     * @param typeOfText The value of typeOfText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfText The value of typeOfText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfText_NotLikeSearch(String typeOfText, LikeSearchOption likeSearchOption) {
@@ -330,8 +330,8 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param minNumber The min number of typeOfInteger. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of typeOfInteger. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of typeOfInteger. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of typeOfInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setTypeOfInteger_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -343,8 +343,8 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param minNumber The min number of typeOfInteger. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of typeOfInteger. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of typeOfInteger. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of typeOfInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTypeOfInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -354,7 +354,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param typeOfIntegerList The collection of typeOfInteger as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfIntegerList The collection of typeOfInteger as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfInteger_InScope(Collection<Integer> typeOfIntegerList) {
         doSetTypeOfInteger_InScope(typeOfIntegerList);
@@ -367,7 +367,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
-     * @param typeOfIntegerList The collection of typeOfInteger as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfIntegerList The collection of typeOfInteger as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfInteger_NotInScope(Collection<Integer> typeOfIntegerList) {
         doSetTypeOfInteger_NotInScope(typeOfIntegerList);
@@ -395,7 +395,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)}
-     * @param typeOfReal The value of typeOfReal as equal. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfReal The value of typeOfReal as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfReal_Equal(String typeOfReal) {
         doSetTypeOfReal_Equal(fRES(typeOfReal));
@@ -408,7 +408,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)}
-     * @param typeOfReal The value of typeOfReal as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfReal The value of typeOfReal as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfReal_NotEqual(String typeOfReal) {
         doSetTypeOfReal_NotEqual(fRES(typeOfReal));
@@ -421,7 +421,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)}
-     * @param typeOfRealList The collection of typeOfReal as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfRealList The collection of typeOfReal as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfReal_InScope(Collection<String> typeOfRealList) {
         doSetTypeOfReal_InScope(typeOfRealList);
@@ -434,7 +434,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)}
-     * @param typeOfRealList The collection of typeOfReal as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfRealList The collection of typeOfReal as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfReal_NotInScope(Collection<String> typeOfRealList) {
         doSetTypeOfReal_NotInScope(typeOfRealList);
@@ -448,7 +448,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)} <br>
      * <pre>e.g. setTypeOfReal_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param typeOfReal The value of typeOfReal as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfReal The value of typeOfReal as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setTypeOfReal_LikeSearch(String typeOfReal, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -459,7 +459,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)} <br>
      * <pre>e.g. setTypeOfReal_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param typeOfReal The value of typeOfReal as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfReal The value of typeOfReal as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTypeOfReal_LikeSearch(String typeOfReal, LikeSearchOption likeSearchOption) {
@@ -470,7 +470,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)}
-     * @param typeOfReal The value of typeOfReal as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfReal The value of typeOfReal as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setTypeOfReal_NotLikeSearch(String typeOfReal, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -481,7 +481,7 @@ public abstract class RoyAbstractBsVendorCheckCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)}
-     * @param typeOfReal The value of typeOfReal as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param typeOfReal The value of typeOfReal as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTypeOfReal_NotLikeSearch(String typeOfReal, LikeSearchOption likeSearchOption) {

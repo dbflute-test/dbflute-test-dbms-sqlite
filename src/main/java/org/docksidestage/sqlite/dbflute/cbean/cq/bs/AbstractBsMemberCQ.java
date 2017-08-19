@@ -97,8 +97,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, ID, NotNull, INTEGER(2000000000, 10), FK to MEMBER_ADDRESS}
-     * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, ID, NotNull, INTEGER(2000000000, 10), FK to MEMBER_ADDRESS}
-     * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_ID: {PK, ID, NotNull, INTEGER(2000000000, 10), FK to MEMBER_ADDRESS}
-     * @param memberIdList The collection of memberId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberIdList The collection of memberId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberId_InScope(Collection<Integer> memberIdList) {
         doSetMemberId_InScope(memberIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_ID: {PK, ID, NotNull, INTEGER(2000000000, 10), FK to MEMBER_ADDRESS}
-     * @param memberIdList The collection of memberId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberIdList The collection of memberId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberId_NotInScope(Collection<Integer> memberIdList) {
         doSetMemberId_NotInScope(memberIdList);
@@ -454,7 +454,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_NAME: {NotNull, TEXT(2000000000, 10)}
-     * @param memberName The value of memberName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_Equal(String memberName) {
         doSetMemberName_Equal(fRES(memberName));
@@ -467,7 +467,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_NAME: {NotNull, TEXT(2000000000, 10)}
-     * @param memberName The value of memberName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_NotEqual(String memberName) {
         doSetMemberName_NotEqual(fRES(memberName));
@@ -480,7 +480,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, TEXT(2000000000, 10)}
-     * @param memberNameList The collection of memberName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberNameList The collection of memberName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_InScope(Collection<String> memberNameList) {
         doSetMemberName_InScope(memberNameList);
@@ -493,7 +493,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, TEXT(2000000000, 10)}
-     * @param memberNameList The collection of memberName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberNameList The collection of memberName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_NotInScope(Collection<String> memberNameList) {
         doSetMemberName_NotInScope(memberNameList);
@@ -507,7 +507,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param memberName The value of memberName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberName_LikeSearch(String memberName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -518,7 +518,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param memberName The value of memberName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberName_LikeSearch(String memberName, LikeSearchOption likeSearchOption) {
@@ -529,7 +529,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, TEXT(2000000000, 10)}
-     * @param memberName The value of memberName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberName_NotLikeSearch(String memberName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -540,7 +540,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, TEXT(2000000000, 10)}
-     * @param memberName The value of memberName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberName_NotLikeSearch(String memberName, LikeSearchOption likeSearchOption) {
@@ -553,7 +553,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ACCOUNT: {UQ, NotNull, TEXT(2000000000, 10)}
-     * @param memberAccount The value of memberAccount as equal. (NullAllowed: if null (or empty), no condition)
+     * @param memberAccount The value of memberAccount as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberAccount_Equal(String memberAccount) {
         doSetMemberAccount_Equal(fRES(memberAccount));
@@ -574,7 +574,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ACCOUNT: {UQ, NotNull, TEXT(2000000000, 10)}
-     * @param memberAccount The value of memberAccount as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param memberAccount The value of memberAccount as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberAccount_NotEqual(String memberAccount) {
         doSetMemberAccount_NotEqual(fRES(memberAccount));
@@ -595,7 +595,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_ACCOUNT: {UQ, NotNull, TEXT(2000000000, 10)}
-     * @param memberAccountList The collection of memberAccount as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberAccountList The collection of memberAccount as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberAccount_InScope(Collection<String> memberAccountList) {
         doSetMemberAccount_InScope(memberAccountList);
@@ -608,7 +608,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_ACCOUNT: {UQ, NotNull, TEXT(2000000000, 10)}
-     * @param memberAccountList The collection of memberAccount as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberAccountList The collection of memberAccount as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberAccount_NotInScope(Collection<String> memberAccountList) {
         doSetMemberAccount_NotInScope(memberAccountList);
@@ -622,7 +622,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_ACCOUNT: {UQ, NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberAccount_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param memberAccount The value of memberAccount as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberAccount The value of memberAccount as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberAccount_LikeSearch(String memberAccount, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -633,7 +633,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_ACCOUNT: {UQ, NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberAccount_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param memberAccount The value of memberAccount as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberAccount The value of memberAccount as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberAccount_LikeSearch(String memberAccount, LikeSearchOption likeSearchOption) {
@@ -644,7 +644,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_ACCOUNT: {UQ, NotNull, TEXT(2000000000, 10)}
-     * @param memberAccount The value of memberAccount as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberAccount The value of memberAccount as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberAccount_NotLikeSearch(String memberAccount, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -655,7 +655,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_ACCOUNT: {UQ, NotNull, TEXT(2000000000, 10)}
-     * @param memberAccount The value of memberAccount as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberAccount The value of memberAccount as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberAccount_NotLikeSearch(String memberAccount, LikeSearchOption likeSearchOption) {
@@ -668,7 +668,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus}
-     * @param memberStatusCode The value of memberStatusCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param memberStatusCode The value of memberStatusCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberStatusCode_Equal(String memberStatusCode) {
         doSetMemberStatusCode_Equal(fRES(memberStatusCode));
@@ -714,7 +714,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus}
-     * @param memberStatusCode The value of memberStatusCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param memberStatusCode The value of memberStatusCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberStatusCode_NotEqual(String memberStatusCode) {
         doSetMemberStatusCode_NotEqual(fRES(memberStatusCode));
@@ -760,7 +760,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus}
-     * @param memberStatusCodeList The collection of memberStatusCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberStatusCodeList The collection of memberStatusCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
         doSetMemberStatusCode_InScope(memberStatusCodeList);
@@ -769,7 +769,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. As MemberStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberStatusCode_InScope_AsMemberStatus(Collection<MaCDef.MemberStatus> cdefList) {
         doSetMemberStatusCode_InScope(cTStrL(cdefList));
@@ -782,7 +782,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus}
-     * @param memberStatusCodeList The collection of memberStatusCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberStatusCodeList The collection of memberStatusCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberStatusCode_NotInScope(Collection<String> memberStatusCodeList) {
         doSetMemberStatusCode_NotInScope(memberStatusCodeList);
@@ -791,7 +791,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. As MemberStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberStatusCode_NotInScope_AsMemberStatus(Collection<MaCDef.MemberStatus> cdefList) {
         doSetMemberStatusCode_NotInScope(cTStrL(cdefList));
@@ -879,7 +879,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FORMALIZED_DATETIME: {DATETIME(2000000000, 10)}
-     * @param formalizedDatetimeList The collection of formalizedDatetime as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param formalizedDatetimeList The collection of formalizedDatetime as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFormalizedDatetime_InScope(Collection<java.time.LocalDateTime> formalizedDatetimeList) {
         doSetFormalizedDatetime_InScope(formalizedDatetimeList);
@@ -892,7 +892,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FORMALIZED_DATETIME: {DATETIME(2000000000, 10)}
-     * @param formalizedDatetimeList The collection of formalizedDatetime as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param formalizedDatetimeList The collection of formalizedDatetime as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFormalizedDatetime_NotInScope(Collection<java.time.LocalDateTime> formalizedDatetimeList) {
         doSetFormalizedDatetime_NotInScope(formalizedDatetimeList);
@@ -992,7 +992,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BIRTHDATE: {DATE(2000000000, 10)}
-     * @param birthdateList The collection of birthdate as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param birthdateList The collection of birthdate as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBirthdate_InScope(Collection<java.time.LocalDate> birthdateList) {
         doSetBirthdate_InScope(birthdateList);
@@ -1005,7 +1005,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BIRTHDATE: {DATE(2000000000, 10)}
-     * @param birthdateList The collection of birthdate as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param birthdateList The collection of birthdate as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBirthdate_NotInScope(Collection<java.time.LocalDate> birthdateList) {
         doSetBirthdate_NotInScope(birthdateList);
@@ -1105,7 +1105,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param memberRegisterDatetimeList The collection of memberRegisterDatetime as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterDatetimeList The collection of memberRegisterDatetime as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterDatetime_InScope(Collection<java.time.LocalDateTime> memberRegisterDatetimeList) {
         doSetMemberRegisterDatetime_InScope(memberRegisterDatetimeList);
@@ -1118,7 +1118,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param memberRegisterDatetimeList The collection of memberRegisterDatetime as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterDatetimeList The collection of memberRegisterDatetime as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterDatetime_NotInScope(Collection<java.time.LocalDateTime> memberRegisterDatetimeList) {
         doSetMemberRegisterDatetime_NotInScope(memberRegisterDatetimeList);
@@ -1134,7 +1134,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterUser The value of memberRegisterUser as equal. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterUser The value of memberRegisterUser as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterUser_Equal(String memberRegisterUser) {
         doSetMemberRegisterUser_Equal(fRES(memberRegisterUser));
@@ -1147,7 +1147,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterUser The value of memberRegisterUser as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterUser The value of memberRegisterUser as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterUser_NotEqual(String memberRegisterUser) {
         doSetMemberRegisterUser_NotEqual(fRES(memberRegisterUser));
@@ -1160,7 +1160,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterUserList The collection of memberRegisterUser as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterUserList The collection of memberRegisterUser as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterUser_InScope(Collection<String> memberRegisterUserList) {
         doSetMemberRegisterUser_InScope(memberRegisterUserList);
@@ -1173,7 +1173,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterUserList The collection of memberRegisterUser as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterUserList The collection of memberRegisterUser as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterUser_NotInScope(Collection<String> memberRegisterUserList) {
         doSetMemberRegisterUser_NotInScope(memberRegisterUserList);
@@ -1187,7 +1187,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_USER: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberRegisterUser_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param memberRegisterUser The value of memberRegisterUser as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterUser The value of memberRegisterUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberRegisterUser_LikeSearch(String memberRegisterUser, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1198,7 +1198,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_USER: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberRegisterUser_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param memberRegisterUser The value of memberRegisterUser as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterUser The value of memberRegisterUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberRegisterUser_LikeSearch(String memberRegisterUser, LikeSearchOption likeSearchOption) {
@@ -1209,7 +1209,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterUser The value of memberRegisterUser as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterUser The value of memberRegisterUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberRegisterUser_NotLikeSearch(String memberRegisterUser, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1220,7 +1220,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterUser The value of memberRegisterUser as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterUser The value of memberRegisterUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberRegisterUser_NotLikeSearch(String memberRegisterUser, LikeSearchOption likeSearchOption) {
@@ -1233,7 +1233,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterProcess The value of memberRegisterProcess as equal. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterProcess The value of memberRegisterProcess as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterProcess_Equal(String memberRegisterProcess) {
         doSetMemberRegisterProcess_Equal(fRES(memberRegisterProcess));
@@ -1246,7 +1246,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterProcess The value of memberRegisterProcess as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterProcess The value of memberRegisterProcess as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterProcess_NotEqual(String memberRegisterProcess) {
         doSetMemberRegisterProcess_NotEqual(fRES(memberRegisterProcess));
@@ -1259,7 +1259,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterProcessList The collection of memberRegisterProcess as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterProcessList The collection of memberRegisterProcess as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterProcess_InScope(Collection<String> memberRegisterProcessList) {
         doSetMemberRegisterProcess_InScope(memberRegisterProcessList);
@@ -1272,7 +1272,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterProcessList The collection of memberRegisterProcess as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterProcessList The collection of memberRegisterProcess as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberRegisterProcess_NotInScope(Collection<String> memberRegisterProcessList) {
         doSetMemberRegisterProcess_NotInScope(memberRegisterProcessList);
@@ -1286,7 +1286,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberRegisterProcess_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param memberRegisterProcess The value of memberRegisterProcess as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterProcess The value of memberRegisterProcess as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberRegisterProcess_LikeSearch(String memberRegisterProcess, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1297,7 +1297,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberRegisterProcess_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param memberRegisterProcess The value of memberRegisterProcess as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterProcess The value of memberRegisterProcess as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberRegisterProcess_LikeSearch(String memberRegisterProcess, LikeSearchOption likeSearchOption) {
@@ -1308,7 +1308,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterProcess The value of memberRegisterProcess as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterProcess The value of memberRegisterProcess as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberRegisterProcess_NotLikeSearch(String memberRegisterProcess, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1319,7 +1319,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberRegisterProcess The value of memberRegisterProcess as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberRegisterProcess The value of memberRegisterProcess as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberRegisterProcess_NotLikeSearch(String memberRegisterProcess, LikeSearchOption likeSearchOption) {
@@ -1404,7 +1404,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param memberUpdateDatetimeList The collection of memberUpdateDatetime as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateDatetimeList The collection of memberUpdateDatetime as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateDatetime_InScope(Collection<java.time.LocalDateTime> memberUpdateDatetimeList) {
         doSetMemberUpdateDatetime_InScope(memberUpdateDatetimeList);
@@ -1417,7 +1417,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param memberUpdateDatetimeList The collection of memberUpdateDatetime as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateDatetimeList The collection of memberUpdateDatetime as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateDatetime_NotInScope(Collection<java.time.LocalDateTime> memberUpdateDatetimeList) {
         doSetMemberUpdateDatetime_NotInScope(memberUpdateDatetimeList);
@@ -1433,7 +1433,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateUser The value of memberUpdateUser as equal. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateUser The value of memberUpdateUser as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateUser_Equal(String memberUpdateUser) {
         doSetMemberUpdateUser_Equal(fRES(memberUpdateUser));
@@ -1446,7 +1446,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateUser The value of memberUpdateUser as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateUser The value of memberUpdateUser as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateUser_NotEqual(String memberUpdateUser) {
         doSetMemberUpdateUser_NotEqual(fRES(memberUpdateUser));
@@ -1459,7 +1459,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateUserList The collection of memberUpdateUser as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateUserList The collection of memberUpdateUser as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateUser_InScope(Collection<String> memberUpdateUserList) {
         doSetMemberUpdateUser_InScope(memberUpdateUserList);
@@ -1472,7 +1472,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateUserList The collection of memberUpdateUser as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateUserList The collection of memberUpdateUser as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateUser_NotInScope(Collection<String> memberUpdateUserList) {
         doSetMemberUpdateUser_NotInScope(memberUpdateUserList);
@@ -1486,7 +1486,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_USER: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberUpdateUser_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param memberUpdateUser The value of memberUpdateUser as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateUser The value of memberUpdateUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberUpdateUser_LikeSearch(String memberUpdateUser, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1497,7 +1497,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_USER: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberUpdateUser_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param memberUpdateUser The value of memberUpdateUser as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateUser The value of memberUpdateUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberUpdateUser_LikeSearch(String memberUpdateUser, LikeSearchOption likeSearchOption) {
@@ -1508,7 +1508,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateUser The value of memberUpdateUser as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateUser The value of memberUpdateUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberUpdateUser_NotLikeSearch(String memberUpdateUser, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1519,7 +1519,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateUser The value of memberUpdateUser as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateUser The value of memberUpdateUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberUpdateUser_NotLikeSearch(String memberUpdateUser, LikeSearchOption likeSearchOption) {
@@ -1532,7 +1532,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateProcess The value of memberUpdateProcess as equal. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateProcess The value of memberUpdateProcess as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateProcess_Equal(String memberUpdateProcess) {
         doSetMemberUpdateProcess_Equal(fRES(memberUpdateProcess));
@@ -1545,7 +1545,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateProcess The value of memberUpdateProcess as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateProcess The value of memberUpdateProcess as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateProcess_NotEqual(String memberUpdateProcess) {
         doSetMemberUpdateProcess_NotEqual(fRES(memberUpdateProcess));
@@ -1558,7 +1558,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateProcessList The collection of memberUpdateProcess as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateProcessList The collection of memberUpdateProcess as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateProcess_InScope(Collection<String> memberUpdateProcessList) {
         doSetMemberUpdateProcess_InScope(memberUpdateProcessList);
@@ -1571,7 +1571,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateProcessList The collection of memberUpdateProcess as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateProcessList The collection of memberUpdateProcess as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberUpdateProcess_NotInScope(Collection<String> memberUpdateProcessList) {
         doSetMemberUpdateProcess_NotInScope(memberUpdateProcessList);
@@ -1585,7 +1585,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberUpdateProcess_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param memberUpdateProcess The value of memberUpdateProcess as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateProcess The value of memberUpdateProcess as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberUpdateProcess_LikeSearch(String memberUpdateProcess, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1596,7 +1596,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setMemberUpdateProcess_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param memberUpdateProcess The value of memberUpdateProcess as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateProcess The value of memberUpdateProcess as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberUpdateProcess_LikeSearch(String memberUpdateProcess, LikeSearchOption likeSearchOption) {
@@ -1607,7 +1607,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateProcess The value of memberUpdateProcess as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateProcess The value of memberUpdateProcess as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberUpdateProcess_NotLikeSearch(String memberUpdateProcess, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1618,7 +1618,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param memberUpdateProcess The value of memberUpdateProcess as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberUpdateProcess The value of memberUpdateProcess as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberUpdateProcess_NotLikeSearch(String memberUpdateProcess, LikeSearchOption likeSearchOption) {
@@ -1682,8 +1682,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of versionNo. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of versionNo. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setVersionNo_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1695,8 +1695,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of versionNo. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of versionNo. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVersionNo_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1706,7 +1706,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
-     * @param versionNoList The collection of versionNo as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param versionNoList The collection of versionNo as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVersionNo_InScope(Collection<Integer> versionNoList) {
         doSetVersionNo_InScope(versionNoList);
@@ -1719,7 +1719,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
-     * @param versionNoList The collection of versionNo as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param versionNoList The collection of versionNo as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVersionNo_NotInScope(Collection<Integer> versionNoList) {
         doSetVersionNo_NotInScope(versionNoList);

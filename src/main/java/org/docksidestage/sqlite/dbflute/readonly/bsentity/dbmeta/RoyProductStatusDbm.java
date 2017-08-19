@@ -65,9 +65,9 @@ public class RoyProductStatusDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, true, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, "productList,summaryProductList", null, false);
-    protected final ColumnInfo _columnProductStatusName = cci("PRODUCT_STATUS_NAME", "PRODUCT_STATUS_NAME", null, null, String.class, "productStatusName", null, false, false, true, "TEXT", 2000000000, 10, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "INTEGER", 2000000000, 10, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, true, false, true, "TEXT", 2000000000, 10, null, null, false, null, null, null, "productList,summaryProductList", null, false);
+    protected final ColumnInfo _columnProductStatusName = cci("PRODUCT_STATUS_NAME", "PRODUCT_STATUS_NAME", null, null, String.class, "productStatusName", null, false, false, true, "TEXT", 2000000000, 10, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "INTEGER", 2000000000, 10, null, null, false, null, null, null, null, null, false);
 
     /**
      * PRODUCT_STATUS_CODE: {PK, NotNull, TEXT(2000000000, 10)}

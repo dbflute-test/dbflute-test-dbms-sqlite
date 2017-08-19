@@ -291,6 +291,14 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
+     * [set as MemberStatus] memberStatusCode:cls(MemberStatus) <br>
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the property)
+     */
+    public void setMemberStatusCodeAsMemberStatus(MaCDef.MemberStatus cdef) {
+        _memberStatusCode = cdef != null ? cdef.code() : null;
+    }
+
+    /**
      * [set as ProvisionalMember] memberStatusCode:cls(MemberStatus) <br>
      */
     public void setMemberStatusCode_ProvisionalMember() {
@@ -357,6 +365,14 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
      */
     public void setStatus(String status) {
         _status = status;
+    }
+
+    /**
+     * [set as MemberStatus] status:cls(MemberStatus)|ref(Member.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the property)
+     */
+    public void setStatusAsMemberStatus(MaCDef.MemberStatus cdef) {
+        _status = cdef != null ? cdef.code() : null;
     }
 
     /**

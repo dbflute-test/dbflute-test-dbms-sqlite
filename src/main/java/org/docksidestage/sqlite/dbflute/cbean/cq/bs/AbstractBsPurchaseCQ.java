@@ -97,8 +97,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_ID: {PK, ID, NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of purchaseId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of purchaseId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of purchaseId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of purchaseId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPurchaseId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_ID: {PK, ID, NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of purchaseId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of purchaseId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of purchaseId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of purchaseId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPurchaseId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_ID: {PK, ID, NotNull, INTEGER(2000000000, 10)}
-     * @param purchaseIdList The collection of purchaseId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseIdList The collection of purchaseId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseId_InScope(Collection<Integer> purchaseIdList) {
         doSetPurchaseId_InScope(purchaseIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_ID: {PK, ID, NotNull, INTEGER(2000000000, 10)}
-     * @param purchaseIdList The collection of purchaseId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseIdList The collection of purchaseId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseId_NotInScope(Collection<Integer> purchaseIdList) {
         doSetPurchaseId_NotInScope(purchaseIdList);
@@ -213,8 +213,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INTEGER(2000000000, 10), FK to MEMBER}
-     * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -226,8 +226,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INTEGER(2000000000, 10), FK to MEMBER}
-     * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -237,7 +237,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_ID: {NotNull, INTEGER(2000000000, 10), FK to MEMBER}
-     * @param memberIdList The collection of memberId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberIdList The collection of memberId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberId_InScope(Collection<Integer> memberIdList) {
         doSetMemberId_InScope(memberIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_ID: {NotNull, INTEGER(2000000000, 10), FK to MEMBER}
-     * @param memberIdList The collection of memberId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberIdList The collection of memberId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberId_NotInScope(Collection<Integer> memberIdList) {
         doSetMemberId_NotInScope(memberIdList);
@@ -317,8 +317,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {NotNull, INTEGER(2000000000, 10), FK to PRODUCT}
-     * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -330,8 +330,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {NotNull, INTEGER(2000000000, 10), FK to PRODUCT}
-     * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -341,7 +341,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PRODUCT_ID: {NotNull, INTEGER(2000000000, 10), FK to PRODUCT}
-     * @param productIdList The collection of productId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param productIdList The collection of productId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductId_InScope(Collection<Integer> productIdList) {
         doSetProductId_InScope(productIdList);
@@ -354,7 +354,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PRODUCT_ID: {NotNull, INTEGER(2000000000, 10), FK to PRODUCT}
-     * @param productIdList The collection of productId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param productIdList The collection of productId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductId_NotInScope(Collection<Integer> productIdList) {
         doSetProductId_NotInScope(productIdList);
@@ -442,7 +442,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param purchaseDatetimeList The collection of purchaseDatetime as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseDatetimeList The collection of purchaseDatetime as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseDatetime_InScope(Collection<java.time.LocalDateTime> purchaseDatetimeList) {
         doSetPurchaseDatetime_InScope(purchaseDatetimeList);
@@ -455,7 +455,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param purchaseDatetimeList The collection of purchaseDatetime as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseDatetimeList The collection of purchaseDatetime as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseDatetime_NotInScope(Collection<java.time.LocalDateTime> purchaseDatetimeList) {
         doSetPurchaseDatetime_NotInScope(purchaseDatetimeList);
@@ -522,8 +522,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_COUNT: {NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of purchaseCount. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of purchaseCount. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of purchaseCount. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of purchaseCount. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPurchaseCount_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -535,8 +535,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_COUNT: {NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of purchaseCount. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of purchaseCount. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of purchaseCount. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of purchaseCount. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPurchaseCount_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -546,7 +546,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_COUNT: {NotNull, INTEGER(2000000000, 10)}
-     * @param purchaseCountList The collection of purchaseCount as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseCountList The collection of purchaseCount as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseCount_InScope(Collection<Integer> purchaseCountList) {
         doSetPurchaseCount_InScope(purchaseCountList);
@@ -559,7 +559,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_COUNT: {NotNull, INTEGER(2000000000, 10)}
-     * @param purchaseCountList The collection of purchaseCount as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseCountList The collection of purchaseCount as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseCount_NotInScope(Collection<Integer> purchaseCountList) {
         doSetPurchaseCount_NotInScope(purchaseCountList);
@@ -626,8 +626,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_PRICE: {NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of purchasePrice. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of purchasePrice. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of purchasePrice. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of purchasePrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPurchasePrice_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -639,8 +639,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_PRICE: {NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of purchasePrice. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of purchasePrice. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of purchasePrice. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of purchasePrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPurchasePrice_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -650,7 +650,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_PRICE: {NotNull, INTEGER(2000000000, 10)}
-     * @param purchasePriceList The collection of purchasePrice as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchasePriceList The collection of purchasePrice as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchasePrice_InScope(Collection<Integer> purchasePriceList) {
         doSetPurchasePrice_InScope(purchasePriceList);
@@ -663,7 +663,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_PRICE: {NotNull, INTEGER(2000000000, 10)}
-     * @param purchasePriceList The collection of purchasePrice as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchasePriceList The collection of purchasePrice as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchasePrice_NotInScope(Collection<Integer> purchasePriceList) {
         doSetPurchasePrice_NotInScope(purchasePriceList);
@@ -718,7 +718,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PAYMENT_COMPLETE_FLG: {NotNull, INTEGER(2000000000, 10), classification=Flg}
-     * @param paymentCompleteFlgList The collection of paymentCompleteFlg as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param paymentCompleteFlgList The collection of paymentCompleteFlg as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setPaymentCompleteFlg_InScope(Collection<Integer> paymentCompleteFlgList) {
         doSetPaymentCompleteFlg_InScope(paymentCompleteFlgList);
@@ -728,7 +728,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * InScope {in (1, 2)}. As Flg. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PAYMENT_COMPLETE_FLG: {NotNull, INTEGER(2000000000, 10), classification=Flg} <br>
      * general boolean classification for every flg-column
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPaymentCompleteFlg_InScope_AsFlg(Collection<MaCDef.Flg> cdefList) {
         doSetPaymentCompleteFlg_InScope(cTNumL(cdefList, Integer.class));
@@ -741,7 +741,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PAYMENT_COMPLETE_FLG: {NotNull, INTEGER(2000000000, 10), classification=Flg}
-     * @param paymentCompleteFlgList The collection of paymentCompleteFlg as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param paymentCompleteFlgList The collection of paymentCompleteFlg as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setPaymentCompleteFlg_NotInScope(Collection<Integer> paymentCompleteFlgList) {
         doSetPaymentCompleteFlg_NotInScope(paymentCompleteFlgList);
@@ -751,7 +751,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotInScope {not in (1, 2)}. As Flg. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PAYMENT_COMPLETE_FLG: {NotNull, INTEGER(2000000000, 10), classification=Flg} <br>
      * general boolean classification for every flg-column
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPaymentCompleteFlg_NotInScope_AsFlg(Collection<MaCDef.Flg> cdefList) {
         doSetPaymentCompleteFlg_NotInScope(cTNumL(cdefList, Integer.class));
@@ -839,7 +839,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param purchaseRegisterDatetimeList The collection of purchaseRegisterDatetime as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterDatetimeList The collection of purchaseRegisterDatetime as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterDatetime_InScope(Collection<java.time.LocalDateTime> purchaseRegisterDatetimeList) {
         doSetPurchaseRegisterDatetime_InScope(purchaseRegisterDatetimeList);
@@ -852,7 +852,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param purchaseRegisterDatetimeList The collection of purchaseRegisterDatetime as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterDatetimeList The collection of purchaseRegisterDatetime as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterDatetime_NotInScope(Collection<java.time.LocalDateTime> purchaseRegisterDatetimeList) {
         doSetPurchaseRegisterDatetime_NotInScope(purchaseRegisterDatetimeList);
@@ -868,7 +868,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterUser The value of purchaseRegisterUser as equal. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterUser The value of purchaseRegisterUser as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterUser_Equal(String purchaseRegisterUser) {
         doSetPurchaseRegisterUser_Equal(fRES(purchaseRegisterUser));
@@ -881,7 +881,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterUser The value of purchaseRegisterUser as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterUser The value of purchaseRegisterUser as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterUser_NotEqual(String purchaseRegisterUser) {
         doSetPurchaseRegisterUser_NotEqual(fRES(purchaseRegisterUser));
@@ -894,7 +894,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterUserList The collection of purchaseRegisterUser as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterUserList The collection of purchaseRegisterUser as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterUser_InScope(Collection<String> purchaseRegisterUserList) {
         doSetPurchaseRegisterUser_InScope(purchaseRegisterUserList);
@@ -907,7 +907,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterUserList The collection of purchaseRegisterUser as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterUserList The collection of purchaseRegisterUser as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterUser_NotInScope(Collection<String> purchaseRegisterUserList) {
         doSetPurchaseRegisterUser_NotInScope(purchaseRegisterUserList);
@@ -921,7 +921,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_USER: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setPurchaseRegisterUser_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param purchaseRegisterUser The value of purchaseRegisterUser as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterUser The value of purchaseRegisterUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseRegisterUser_LikeSearch(String purchaseRegisterUser, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -932,7 +932,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_USER: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setPurchaseRegisterUser_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param purchaseRegisterUser The value of purchaseRegisterUser as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterUser The value of purchaseRegisterUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPurchaseRegisterUser_LikeSearch(String purchaseRegisterUser, LikeSearchOption likeSearchOption) {
@@ -943,7 +943,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterUser The value of purchaseRegisterUser as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterUser The value of purchaseRegisterUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseRegisterUser_NotLikeSearch(String purchaseRegisterUser, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -954,7 +954,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterUser The value of purchaseRegisterUser as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterUser The value of purchaseRegisterUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPurchaseRegisterUser_NotLikeSearch(String purchaseRegisterUser, LikeSearchOption likeSearchOption) {
@@ -967,7 +967,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as equal. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterProcess_Equal(String purchaseRegisterProcess) {
         doSetPurchaseRegisterProcess_Equal(fRES(purchaseRegisterProcess));
@@ -980,7 +980,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterProcess_NotEqual(String purchaseRegisterProcess) {
         doSetPurchaseRegisterProcess_NotEqual(fRES(purchaseRegisterProcess));
@@ -993,7 +993,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterProcessList The collection of purchaseRegisterProcess as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterProcessList The collection of purchaseRegisterProcess as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterProcess_InScope(Collection<String> purchaseRegisterProcessList) {
         doSetPurchaseRegisterProcess_InScope(purchaseRegisterProcessList);
@@ -1006,7 +1006,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterProcessList The collection of purchaseRegisterProcess as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterProcessList The collection of purchaseRegisterProcess as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseRegisterProcess_NotInScope(Collection<String> purchaseRegisterProcessList) {
         doSetPurchaseRegisterProcess_NotInScope(purchaseRegisterProcessList);
@@ -1020,7 +1020,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setPurchaseRegisterProcess_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseRegisterProcess_LikeSearch(String purchaseRegisterProcess, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1031,7 +1031,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setPurchaseRegisterProcess_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPurchaseRegisterProcess_LikeSearch(String purchaseRegisterProcess, LikeSearchOption likeSearchOption) {
@@ -1042,7 +1042,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseRegisterProcess_NotLikeSearch(String purchaseRegisterProcess, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1053,7 +1053,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseRegisterProcess The value of purchaseRegisterProcess as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPurchaseRegisterProcess_NotLikeSearch(String purchaseRegisterProcess, LikeSearchOption likeSearchOption) {
@@ -1138,7 +1138,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param purchaseUpdateDatetimeList The collection of purchaseUpdateDatetime as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateDatetimeList The collection of purchaseUpdateDatetime as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateDatetime_InScope(Collection<java.time.LocalDateTime> purchaseUpdateDatetimeList) {
         doSetPurchaseUpdateDatetime_InScope(purchaseUpdateDatetimeList);
@@ -1151,7 +1151,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_DATETIME: {NotNull, DATETIME(2000000000, 10)}
-     * @param purchaseUpdateDatetimeList The collection of purchaseUpdateDatetime as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateDatetimeList The collection of purchaseUpdateDatetime as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateDatetime_NotInScope(Collection<java.time.LocalDateTime> purchaseUpdateDatetimeList) {
         doSetPurchaseUpdateDatetime_NotInScope(purchaseUpdateDatetimeList);
@@ -1167,7 +1167,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateUser The value of purchaseUpdateUser as equal. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateUser The value of purchaseUpdateUser as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateUser_Equal(String purchaseUpdateUser) {
         doSetPurchaseUpdateUser_Equal(fRES(purchaseUpdateUser));
@@ -1180,7 +1180,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateUser The value of purchaseUpdateUser as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateUser The value of purchaseUpdateUser as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateUser_NotEqual(String purchaseUpdateUser) {
         doSetPurchaseUpdateUser_NotEqual(fRES(purchaseUpdateUser));
@@ -1193,7 +1193,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateUserList The collection of purchaseUpdateUser as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateUserList The collection of purchaseUpdateUser as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateUser_InScope(Collection<String> purchaseUpdateUserList) {
         doSetPurchaseUpdateUser_InScope(purchaseUpdateUserList);
@@ -1206,7 +1206,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateUserList The collection of purchaseUpdateUser as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateUserList The collection of purchaseUpdateUser as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateUser_NotInScope(Collection<String> purchaseUpdateUserList) {
         doSetPurchaseUpdateUser_NotInScope(purchaseUpdateUserList);
@@ -1220,7 +1220,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_USER: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setPurchaseUpdateUser_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param purchaseUpdateUser The value of purchaseUpdateUser as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateUser The value of purchaseUpdateUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseUpdateUser_LikeSearch(String purchaseUpdateUser, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1231,7 +1231,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_USER: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setPurchaseUpdateUser_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param purchaseUpdateUser The value of purchaseUpdateUser as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateUser The value of purchaseUpdateUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPurchaseUpdateUser_LikeSearch(String purchaseUpdateUser, LikeSearchOption likeSearchOption) {
@@ -1242,7 +1242,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateUser The value of purchaseUpdateUser as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateUser The value of purchaseUpdateUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseUpdateUser_NotLikeSearch(String purchaseUpdateUser, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1253,7 +1253,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateUser The value of purchaseUpdateUser as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateUser The value of purchaseUpdateUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPurchaseUpdateUser_NotLikeSearch(String purchaseUpdateUser, LikeSearchOption likeSearchOption) {
@@ -1266,7 +1266,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as equal. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateProcess_Equal(String purchaseUpdateProcess) {
         doSetPurchaseUpdateProcess_Equal(fRES(purchaseUpdateProcess));
@@ -1279,7 +1279,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateProcess_NotEqual(String purchaseUpdateProcess) {
         doSetPurchaseUpdateProcess_NotEqual(fRES(purchaseUpdateProcess));
@@ -1292,7 +1292,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateProcessList The collection of purchaseUpdateProcess as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateProcessList The collection of purchaseUpdateProcess as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateProcess_InScope(Collection<String> purchaseUpdateProcessList) {
         doSetPurchaseUpdateProcess_InScope(purchaseUpdateProcessList);
@@ -1305,7 +1305,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateProcessList The collection of purchaseUpdateProcess as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateProcessList The collection of purchaseUpdateProcess as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseUpdateProcess_NotInScope(Collection<String> purchaseUpdateProcessList) {
         doSetPurchaseUpdateProcess_NotInScope(purchaseUpdateProcessList);
@@ -1319,7 +1319,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setPurchaseUpdateProcess_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseUpdateProcess_LikeSearch(String purchaseUpdateProcess, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1330,7 +1330,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)} <br>
      * <pre>e.g. setPurchaseUpdateProcess_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPurchaseUpdateProcess_LikeSearch(String purchaseUpdateProcess, LikeSearchOption likeSearchOption) {
@@ -1341,7 +1341,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseUpdateProcess_NotLikeSearch(String purchaseUpdateProcess, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1352,7 +1352,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
-     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseUpdateProcess The value of purchaseUpdateProcess as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPurchaseUpdateProcess_NotLikeSearch(String purchaseUpdateProcess, LikeSearchOption likeSearchOption) {
@@ -1416,8 +1416,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of versionNo. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of versionNo. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setVersionNo_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1429,8 +1429,8 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
-     * @param minNumber The min number of versionNo. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of versionNo. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVersionNo_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1440,7 +1440,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
-     * @param versionNoList The collection of versionNo as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param versionNoList The collection of versionNo as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVersionNo_InScope(Collection<Integer> versionNoList) {
         doSetVersionNo_InScope(versionNoList);
@@ -1453,7 +1453,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
-     * @param versionNoList The collection of versionNo as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param versionNoList The collection of versionNo as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVersionNo_NotInScope(Collection<Integer> versionNoList) {
         doSetVersionNo_NotInScope(versionNoList);

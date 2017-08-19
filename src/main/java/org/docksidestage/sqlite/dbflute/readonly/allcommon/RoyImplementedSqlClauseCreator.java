@@ -146,6 +146,7 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
         doSetupSqlClauseOverridingQuery(sqlClause);
         doSetupSqlClauseColumnNullObject(sqlClause);
         doSetupSqlClauseColumnNullObjectGearedToSpecify(sqlClause);
+        doSetupSqlClauseTruncateConditionDatetimePrecision(sqlClause);
         doSetupSqlClauseSelectIndex(sqlClause);
     }
 
@@ -199,6 +200,14 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
         }
     }
 
+    protected void doSetupSqlClauseTruncateConditionDatetimePrecision(SqlClause sqlClause) {
+        if (isDatetimePrecisionTruncationOfCondition()) {
+            sqlClause.enableDatetimePrecisionTruncationOfCondition();
+        } else {
+            sqlClause.disableDatetimePrecisionTruncationOfCondition();
+        }
+    }
+
     protected void doSetupSqlClauseSelectIndex(SqlClause sqlClause) {
         if (isDisableSelectIndex()) {
             sqlClause.disableSelectIndex();
@@ -238,6 +247,10 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
 
     protected boolean isColumnNullObjectGearedToSpecify() {
 	    return RoyDBFluteConfig.getInstance().isColumnNullObjectGearedToSpecify();
+    }
+
+    protected boolean isDatetimePrecisionTruncationOfCondition() {
+	    return RoyDBFluteConfig.getInstance().isDatetimePrecisionTruncationOfCondition();
     }
 
     protected boolean isDisableSelectIndex() {
