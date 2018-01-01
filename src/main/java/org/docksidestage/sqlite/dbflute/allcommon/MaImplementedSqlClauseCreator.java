@@ -15,22 +15,22 @@ public class MaImplementedSqlClauseCreator implements SqlClauseCreator {
     // ===================================================================================
     //                                                                      Implementation
     //                                                                      ==============
-	/**
-	 * Create SQL clause. {for condition-bean}
-	 * @param cb Condition-bean. (NotNull) 
-	 * @return SQL clause. (NotNull)
-	 */
+    /**
+     * Create SQL clause. {for condition-bean}
+     * @param cb Condition-bean. (NotNull)
+     * @return SQL clause. (NotNull)
+     */
     public SqlClause createSqlClause(ConditionBean cb) {
         String tableDbName = cb.asTableDbName();
-		SqlClause sqlClause = createSqlClause(tableDbName);
+        SqlClause sqlClause = createSqlClause(tableDbName);
         return sqlClause;
     }
 
-	/**
-	 * Create SQL clause.
-	 * @param tableDbName The DB name of table. (NotNull) 
-	 * @return SQL clause. (NotNull)
-	 */
+    /**
+     * Create SQL clause.
+     * @param tableDbName The DB name of table. (NotNull)
+     * @return SQL clause. (NotNull)
+     */
     public SqlClause createSqlClause(String tableDbName) {
         SqlClause sqlClause = doCreateSqlClause(tableDbName);
         setupSqlClauseOption(sqlClause);
@@ -218,42 +218,42 @@ public class MaImplementedSqlClauseCreator implements SqlClauseCreator {
     //                                                                       Determination
     //                                                                       =============
     protected boolean isCurrentDBDef(DBDef currentDBDef) {
-	    return MaDBCurrent.getInstance().isCurrentDBDef(currentDBDef);
+        return MaDBCurrent.getInstance().isCurrentDBDef(currentDBDef);
     }
 
     protected boolean isInnerJoinAutoDetect() {
-	    return MaDBFluteConfig.getInstance().isInnerJoinAutoDetect();
+        return MaDBFluteConfig.getInstance().isInnerJoinAutoDetect();
     }
 
     protected boolean isThatsBadTimingDetect() {
-	    return MaDBFluteConfig.getInstance().isThatsBadTimingDetect();
+        return MaDBFluteConfig.getInstance().isThatsBadTimingDetect();
     }
 
     protected boolean isNullOrEmptyQueryAllowed() {
-	    return MaDBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
+        return MaDBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
     }
 
     protected boolean isEmptyStringQueryAllowed() {
-	    return MaDBFluteConfig.getInstance().isEmptyStringQueryAllowed();
+        return MaDBFluteConfig.getInstance().isEmptyStringQueryAllowed();
     }
 
     protected boolean isOverridingQueryAllowed() {
-	    return MaDBFluteConfig.getInstance().isOverridingQueryAllowed();
+        return MaDBFluteConfig.getInstance().isOverridingQueryAllowed();
     }
 
     protected boolean isColumnNullObjectAllowed() {
-	    return MaDBFluteConfig.getInstance().isColumnNullObjectAllowed();
+        return MaDBFluteConfig.getInstance().isColumnNullObjectAllowed();
     }
 
     protected boolean isColumnNullObjectGearedToSpecify() {
-	    return MaDBFluteConfig.getInstance().isColumnNullObjectGearedToSpecify();
+        return MaDBFluteConfig.getInstance().isColumnNullObjectGearedToSpecify();
     }
 
     protected boolean isDatetimePrecisionTruncationOfCondition() {
-	    return MaDBFluteConfig.getInstance().isDatetimePrecisionTruncationOfCondition();
+        return MaDBFluteConfig.getInstance().isDatetimePrecisionTruncationOfCondition();
     }
 
     protected boolean isDisableSelectIndex() {
-	    return MaDBFluteConfig.getInstance().isDisableSelectIndex();
+        return MaDBFluteConfig.getInstance().isDisableSelectIndex();
     }
 }

@@ -79,7 +79,7 @@ public class RoyBsProductCategoryCQ extends RoyAbstractBsProductCategoryCQ {
       return _productCategoryCode; }
     protected ConditionValue xgetCValueProductCategoryCode() { return xdfgetProductCategoryCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_CATEGORY_CODE: {PK, NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class RoyBsProductCategoryCQ extends RoyAbstractBsProductCategoryCQ {
       return _productCategoryName; }
     protected ConditionValue xgetCValueProductCategoryName() { return xdfgetProductCategoryName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_CATEGORY_NAME: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class RoyBsProductCategoryCQ extends RoyAbstractBsProductCategoryCQ {
       return _parentCategoryCode; }
     protected ConditionValue xgetCValueParentCategoryCode() { return xdfgetParentCategoryCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PARENT_CATEGORY_CODE: {TEXT(2000000000, 10)}
      * @return this. (NotNull)

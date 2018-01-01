@@ -107,7 +107,7 @@ public class RoyBsProductStatusCQ extends RoyAbstractBsProductStatusCQ {
     public Map<String, Object> xdfgetProductStatusCode_QueryDerivedReferrer_SummaryProductListParameter() { return xgetSQuePmMap("productStatusCode_QueryDerivedReferrer_SummaryProductList"); }
     public String keepProductStatusCode_QueryDerivedReferrer_SummaryProductListParameter(Object pm) { return xkeepSQuePm("productStatusCode_QueryDerivedReferrer_SummaryProductList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_STATUS_CODE: {PK, NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -127,7 +127,7 @@ public class RoyBsProductStatusCQ extends RoyAbstractBsProductStatusCQ {
       return _productStatusName; }
     protected ConditionValue xgetCValueProductStatusName() { return xdfgetProductStatusName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_STATUS_NAME: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -147,7 +147,7 @@ public class RoyBsProductStatusCQ extends RoyAbstractBsProductStatusCQ {
       return _displayOrder; }
     protected ConditionValue xgetCValueDisplayOrder() { return xdfgetDisplayOrder(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
      * @return this. (NotNull)

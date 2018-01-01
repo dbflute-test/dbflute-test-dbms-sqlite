@@ -93,7 +93,7 @@ public class RoyBsWithdrawalReasonCQ extends RoyAbstractBsWithdrawalReasonCQ {
     public Map<String, Object> xdfgetWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalListParameter() { return xgetSQuePmMap("withdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalList"); }
     public String keepWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalListParameter(Object pm) { return xkeepSQuePm("withdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WITHDRAWAL_REASON_CODE: {PK, NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -113,7 +113,7 @@ public class RoyBsWithdrawalReasonCQ extends RoyAbstractBsWithdrawalReasonCQ {
       return _withdrawalReasonText; }
     protected ConditionValue xgetCValueWithdrawalReasonText() { return xdfgetWithdrawalReasonText(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -133,7 +133,7 @@ public class RoyBsWithdrawalReasonCQ extends RoyAbstractBsWithdrawalReasonCQ {
       return _displayOrder; }
     protected ConditionValue xgetCValueDisplayOrder() { return xdfgetDisplayOrder(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DISPLAY_ORDER: {NotNull, INTEGER(2000000000, 10)}
      * @return this. (NotNull)

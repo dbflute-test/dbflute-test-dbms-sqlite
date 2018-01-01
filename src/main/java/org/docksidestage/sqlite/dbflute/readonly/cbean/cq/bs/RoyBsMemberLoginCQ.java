@@ -79,7 +79,7 @@ public class RoyBsMemberLoginCQ extends RoyAbstractBsMemberLoginCQ {
       return _memberLoginId; }
     protected ConditionValue xgetCValueMemberLoginId() { return xdfgetMemberLoginId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_LOGIN_ID: {PK, ID, NotNull, INTEGER(2000000000, 10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class RoyBsMemberLoginCQ extends RoyAbstractBsMemberLoginCQ {
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {NotNull, INTEGER(2000000000, 10), FK to MEMBER}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class RoyBsMemberLoginCQ extends RoyAbstractBsMemberLoginCQ {
       return _loginDatetime; }
     protected ConditionValue xgetCValueLoginDatetime() { return xdfgetLoginDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOGIN_DATETIME: {NotNull, DATETIME(2000000000, 10)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class RoyBsMemberLoginCQ extends RoyAbstractBsMemberLoginCQ {
       return _mobileLoginFlg; }
     protected ConditionValue xgetCValueMobileLoginFlg() { return xdfgetMobileLoginFlg(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MOBILE_LOGIN_FLG: {NotNull, INTEGER(2000000000, 10), classification=Flg}
      * @return this. (NotNull)
@@ -159,7 +159,7 @@ public class RoyBsMemberLoginCQ extends RoyAbstractBsMemberLoginCQ {
       return _loginMemberStatusCode; }
     protected ConditionValue xgetCValueLoginMemberStatusCode() { return xdfgetLoginMemberStatusCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOGIN_MEMBER_STATUS_CODE: {NotNull, TEXT(2000000000, 10), FK to MEMBER_STATUS, classification=MemberStatus}
      * @return this. (NotNull)

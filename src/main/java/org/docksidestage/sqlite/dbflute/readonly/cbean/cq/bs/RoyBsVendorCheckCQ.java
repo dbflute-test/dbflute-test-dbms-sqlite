@@ -79,7 +79,7 @@ public class RoyBsVendorCheckCQ extends RoyAbstractBsVendorCheckCQ {
       return _vendorCheckId; }
     protected ConditionValue xgetCValueVendorCheckId() { return xdfgetVendorCheckId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, INTEGER(2000000000, 10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class RoyBsVendorCheckCQ extends RoyAbstractBsVendorCheckCQ {
       return _typeOfText; }
     protected ConditionValue xgetCValueTypeOfText() { return xdfgetTypeOfText(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TYPE_OF_TEXT: {TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class RoyBsVendorCheckCQ extends RoyAbstractBsVendorCheckCQ {
       return _typeOfInteger; }
     protected ConditionValue xgetCValueTypeOfInteger() { return xdfgetTypeOfInteger(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TYPE_OF_INTEGER: {INTEGER(2000000000, 10)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class RoyBsVendorCheckCQ extends RoyAbstractBsVendorCheckCQ {
       return _typeOfReal; }
     protected ConditionValue xgetCValueTypeOfReal() { return xdfgetTypeOfReal(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TYPE_OF_REAL: {REAL(2000000000, 10)}
      * @return this. (NotNull)

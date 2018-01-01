@@ -15,22 +15,22 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
     // ===================================================================================
     //                                                                      Implementation
     //                                                                      ==============
-	/**
-	 * Create SQL clause. {for condition-bean}
-	 * @param cb Condition-bean. (NotNull) 
-	 * @return SQL clause. (NotNull)
-	 */
+    /**
+     * Create SQL clause. {for condition-bean}
+     * @param cb Condition-bean. (NotNull)
+     * @return SQL clause. (NotNull)
+     */
     public SqlClause createSqlClause(ConditionBean cb) {
         String tableDbName = cb.asTableDbName();
-		SqlClause sqlClause = createSqlClause(tableDbName);
+        SqlClause sqlClause = createSqlClause(tableDbName);
         return sqlClause;
     }
 
-	/**
-	 * Create SQL clause.
-	 * @param tableDbName The DB name of table. (NotNull) 
-	 * @return SQL clause. (NotNull)
-	 */
+    /**
+     * Create SQL clause.
+     * @param tableDbName The DB name of table. (NotNull)
+     * @return SQL clause. (NotNull)
+     */
     public SqlClause createSqlClause(String tableDbName) {
         SqlClause sqlClause = doCreateSqlClause(tableDbName);
         setupSqlClauseOption(sqlClause);
@@ -218,42 +218,42 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
     //                                                                       Determination
     //                                                                       =============
     protected boolean isCurrentDBDef(DBDef currentDBDef) {
-	    return RoyDBCurrent.getInstance().isCurrentDBDef(currentDBDef);
+        return RoyDBCurrent.getInstance().isCurrentDBDef(currentDBDef);
     }
 
     protected boolean isInnerJoinAutoDetect() {
-	    return RoyDBFluteConfig.getInstance().isInnerJoinAutoDetect();
+        return RoyDBFluteConfig.getInstance().isInnerJoinAutoDetect();
     }
 
     protected boolean isThatsBadTimingDetect() {
-	    return RoyDBFluteConfig.getInstance().isThatsBadTimingDetect();
+        return RoyDBFluteConfig.getInstance().isThatsBadTimingDetect();
     }
 
     protected boolean isNullOrEmptyQueryAllowed() {
-	    return RoyDBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
+        return RoyDBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
     }
 
     protected boolean isEmptyStringQueryAllowed() {
-	    return RoyDBFluteConfig.getInstance().isEmptyStringQueryAllowed();
+        return RoyDBFluteConfig.getInstance().isEmptyStringQueryAllowed();
     }
 
     protected boolean isOverridingQueryAllowed() {
-	    return RoyDBFluteConfig.getInstance().isOverridingQueryAllowed();
+        return RoyDBFluteConfig.getInstance().isOverridingQueryAllowed();
     }
 
     protected boolean isColumnNullObjectAllowed() {
-	    return RoyDBFluteConfig.getInstance().isColumnNullObjectAllowed();
+        return RoyDBFluteConfig.getInstance().isColumnNullObjectAllowed();
     }
 
     protected boolean isColumnNullObjectGearedToSpecify() {
-	    return RoyDBFluteConfig.getInstance().isColumnNullObjectGearedToSpecify();
+        return RoyDBFluteConfig.getInstance().isColumnNullObjectGearedToSpecify();
     }
 
     protected boolean isDatetimePrecisionTruncationOfCondition() {
-	    return RoyDBFluteConfig.getInstance().isDatetimePrecisionTruncationOfCondition();
+        return RoyDBFluteConfig.getInstance().isDatetimePrecisionTruncationOfCondition();
     }
 
     protected boolean isDisableSelectIndex() {
-	    return RoyDBFluteConfig.getInstance().isDisableSelectIndex();
+        return RoyDBFluteConfig.getInstance().isDisableSelectIndex();
     }
 }

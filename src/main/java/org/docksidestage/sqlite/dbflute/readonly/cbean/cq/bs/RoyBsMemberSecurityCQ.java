@@ -79,7 +79,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {PK, NotNull, INTEGER(2000000000, 10), FK to MEMBER}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _loginPassword; }
     protected ConditionValue xgetCValueLoginPassword() { return xdfgetLoginPassword(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOGIN_PASSWORD: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _reminderQuestion; }
     protected ConditionValue xgetCValueReminderQuestion() { return xdfgetReminderQuestion(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REMINDER_QUESTION: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _reminderAnswer; }
     protected ConditionValue xgetCValueReminderAnswer() { return xdfgetReminderAnswer(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REMINDER_ANSWER: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -159,7 +159,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _reminderUseCount; }
     protected ConditionValue xgetCValueReminderUseCount() { return xdfgetReminderUseCount(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REMINDER_USE_COUNT: {NotNull, INTEGER(2000000000, 10)}
      * @return this. (NotNull)
@@ -179,7 +179,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _registerDatetime; }
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_DATETIME: {NotNull, DATETIME(2000000000, 10)}
      * @return this. (NotNull)
@@ -199,7 +199,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _registerProcess; }
     protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_PROCESS: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -219,7 +219,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _registerUser; }
     protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_USER: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -239,7 +239,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _updateDatetime; }
     protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_DATETIME: {NotNull, DATETIME(2000000000, 10)}
      * @return this. (NotNull)
@@ -259,7 +259,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _updateProcess; }
     protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_PROCESS: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -279,7 +279,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _updateUser; }
     protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_USER: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -299,7 +299,7 @@ public class RoyBsMemberSecurityCQ extends RoyAbstractBsMemberSecurityCQ {
       return _versionNo; }
     protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VERSION_NO: {NotNull, INTEGER(2000000000, 10)}
      * @return this. (NotNull)

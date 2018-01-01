@@ -93,7 +93,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_PurchaseListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_PurchaseList"); }
     public String keepProductId_QueryDerivedReferrer_PurchaseListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_PurchaseList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_ID: {PK, INTEGER(2000000000, 10)}
      * @return this. (NotNull)
@@ -113,7 +113,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productName; }
     protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_NAME: {TEXT(2000000000, 10)}
      * @return this. (NotNull)
@@ -133,7 +133,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productStatusCode; }
     protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_STATUS_CODE: {TEXT(2000000000, 10), FK to PRODUCT_STATUS}
      * @return this. (NotNull)
@@ -153,7 +153,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _latestPurchaseDatetime; }
     protected ConditionValue xgetCValueLatestPurchaseDatetime() { return xdfgetLatestPurchaseDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LATEST_PURCHASE_DATETIME: {UnknownType(2000000000, 10)}
      * @return this. (NotNull)

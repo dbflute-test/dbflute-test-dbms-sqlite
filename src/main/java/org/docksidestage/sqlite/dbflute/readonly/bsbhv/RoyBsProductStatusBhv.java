@@ -121,7 +121,7 @@ public abstract class RoyBsProductStatusBhv extends AbstractBehaviorReadable<Roy
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">productStatus</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">productStatusBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -150,13 +150,13 @@ public abstract class RoyBsProductStatusBhv extends AbstractBehaviorReadable<Roy
      * <pre>
      * RoyProductStatusCB cb = <span style="color: #70226C">new</span> RoyProductStatusCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">productStatusBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(productStatus <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = productStatus.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">productStatusBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(productStatus <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -635,8 +635,8 @@ public abstract class RoyBsProductStatusBhv extends AbstractBehaviorReadable<Roy
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * productStatusBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * productStatusBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * productStatusBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * productStatusBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * productStatusBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -644,7 +644,7 @@ public abstract class RoyBsProductStatusBhv extends AbstractBehaviorReadable<Roy
      * productStatusBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * productStatusBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * productStatusBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * productStatusBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * productStatusBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -652,7 +652,7 @@ public abstract class RoyBsProductStatusBhv extends AbstractBehaviorReadable<Roy
      * productStatusBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * productStatusBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * productStatusBhv.outideSql().removeBlockComment().selectList()
      * productStatusBhv.outideSql().removeLineComment().selectList()
      * productStatusBhv.outideSql().formatSql().selectList()

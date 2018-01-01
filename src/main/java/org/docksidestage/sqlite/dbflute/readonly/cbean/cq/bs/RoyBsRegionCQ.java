@@ -93,7 +93,7 @@ public class RoyBsRegionCQ extends RoyAbstractBsRegionCQ {
     public Map<String, Object> xdfgetRegionId_QueryDerivedReferrer_MemberAddressListParameter() { return xgetSQuePmMap("regionId_QueryDerivedReferrer_MemberAddressList"); }
     public String keepRegionId_QueryDerivedReferrer_MemberAddressListParameter(Object pm) { return xkeepSQuePm("regionId_QueryDerivedReferrer_MemberAddressList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGION_ID: {PK, NotNull, INTEGER(2000000000, 10)}
      * @return this. (NotNull)
@@ -113,7 +113,7 @@ public class RoyBsRegionCQ extends RoyAbstractBsRegionCQ {
       return _regionName; }
     protected ConditionValue xgetCValueRegionName() { return xdfgetRegionName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGION_NAME: {NotNull, TEXT(2000000000, 10)}
      * @return this. (NotNull)
