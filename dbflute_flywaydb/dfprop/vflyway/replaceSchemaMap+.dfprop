@@ -1,0 +1,11 @@
+map:{
+    # to revert
+    ; repsAsDataManagerMap = map:{
+    }
+
+    # for DDL only replace-schema
+    ; playSqlDirectory = ./playsql/vflyway
+
+    # because SQLite does not support drop FK
+    ; isSuppressDropForeignKey = true
+}
