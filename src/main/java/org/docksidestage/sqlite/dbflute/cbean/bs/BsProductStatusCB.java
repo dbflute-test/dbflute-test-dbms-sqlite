@@ -46,6 +46,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
         if (MaDBFluteConfig.getInstance().isSpecifyColumnRequired()) {
             enableSpecifyColumnRequired();
         }
+        xsetSpecifyColumnRequiredExceptDeterminer(MaDBFluteConfig.getInstance().getSpecifyColumnRequiredExceptDeterminer());
         if (MaDBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }

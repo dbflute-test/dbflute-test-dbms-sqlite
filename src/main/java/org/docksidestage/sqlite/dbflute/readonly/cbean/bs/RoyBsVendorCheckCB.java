@@ -46,6 +46,7 @@ public class RoyBsVendorCheckCB extends AbstractConditionBean {
         if (RoyDBFluteConfig.getInstance().isSpecifyColumnRequired()) {
             enableSpecifyColumnRequired();
         }
+        xsetSpecifyColumnRequiredExceptDeterminer(RoyDBFluteConfig.getInstance().getSpecifyColumnRequiredExceptDeterminer());
         if (RoyDBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }
