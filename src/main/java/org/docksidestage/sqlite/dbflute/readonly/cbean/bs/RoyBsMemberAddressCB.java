@@ -48,6 +48,9 @@ public class RoyBsMemberAddressCB extends AbstractConditionBean {
             enableSpecifyColumnRequired();
         }
         xsetSpecifyColumnRequiredExceptDeterminer(RoyDBFluteConfig.getInstance().getSpecifyColumnRequiredExceptDeterminer());
+        if (RoyDBFluteConfig.getInstance().isSpecifyColumnRequiredWarningOnly()) {
+            xenableSpecifyColumnRequiredWarningOnly();
+        }
         if (RoyDBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }

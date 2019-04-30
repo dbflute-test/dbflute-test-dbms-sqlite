@@ -48,6 +48,9 @@ public class BsMemberServiceCB extends AbstractConditionBean {
             enableSpecifyColumnRequired();
         }
         xsetSpecifyColumnRequiredExceptDeterminer(MaDBFluteConfig.getInstance().getSpecifyColumnRequiredExceptDeterminer());
+        if (MaDBFluteConfig.getInstance().isSpecifyColumnRequiredWarningOnly()) {
+            xenableSpecifyColumnRequiredWarningOnly();
+        }
         if (MaDBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }

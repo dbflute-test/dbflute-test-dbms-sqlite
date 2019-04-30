@@ -282,13 +282,13 @@ public interface RoyCDef extends Classification {
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
-        public Classification codeOf(Object code) { // null if not found, old style so use classificationOf(code)
+        public Classification codeOf(Object code) { // null if not found, old style so use of(code)
             if (Flg.name().equals(name())) { return RoyCDef.Flg.codeOf(code); }
             if (MemberStatus.name().equals(name())) { return RoyCDef.MemberStatus.codeOf(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
-        public Classification nameOf(String name) { // null if not found, old style so use classificationByName(name)
+        public Classification nameOf(String name) { // null if not found, old style so use byName(name)
             if (Flg.name().equals(name())) { return RoyCDef.Flg.valueOf(name); }
             if (MemberStatus.name().equals(name())) { return RoyCDef.MemberStatus.valueOf(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
