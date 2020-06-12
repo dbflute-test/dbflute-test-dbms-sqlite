@@ -34,7 +34,7 @@ map:{
 
     # Class and Package for CDef
     ; simpleCDefClass = AppCDef
-    ; simpleCDefPackage = com.example.dbflute.tricky.freeflute
+    ; simpleCDefPackage = org.docksidestage.sqlite.freeflute
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o simpleCDefTargetList: (NotRequired - Default all classifications)
