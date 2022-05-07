@@ -1,4 +1,4 @@
-package org.docksidestage.sqlite.dbflute.whitebox;
+package org.docksidestage.sqlite.dbflute.whitebox.dfprop;
 
 import org.docksidestage.sqlite.dbflute.cbean.MemberCB;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberBhv;

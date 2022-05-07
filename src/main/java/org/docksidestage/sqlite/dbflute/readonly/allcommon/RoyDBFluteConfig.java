@@ -29,6 +29,8 @@ import org.dbflute.system.XLog;
 import org.dbflute.twowaysql.DisplaySqlBuilder;
 import org.dbflute.twowaysql.style.BoundDateDisplayTimeZoneProvider;
 import org.dbflute.util.DfReflectionUtil;
+import org.lastaflute.jta.dbcp.ConnectionWrapper;
+import org.lastaflute.di.exception.SQLRuntimeException;
 
 /**
  * @author DBFlute(AutoGenerator)
@@ -884,6 +886,7 @@ public class RoyDBFluteConfig {
 
         public Connection digUp(Connection conn) throws SQLException {
             Connection digged = unwrap(conn);
+            digged = resolveLaDBCP(digged);
             digged = resolveCommonsDBCP(digged);
             return digged;
         }
@@ -891,6 +894,13 @@ public class RoyDBFluteConfig {
         protected Connection unwrap(Connection conn) {
             if (conn instanceof NotClosingConnectionWrapper) {
                 return ((NotClosingConnectionWrapper)conn).getActualConnection();
+            }
+            return conn;
+        }
+
+        protected Connection resolveLaDBCP(Connection conn) {
+            if (conn instanceof ConnectionWrapper) {
+                return ((ConnectionWrapper)conn).getPhysicalConnection();
             }
             return conn;
         }
@@ -918,9 +928,23 @@ public class RoyDBFluteConfig {
     public static class ImplementedSQLExceptionDigger implements SQLExceptionDigger {
 
         public SQLException digUp(Throwable cause) {
+            SQLException s2found = resolveLaDBCP(cause);
+            if (s2found != null) {
+                return s2found;
+            }
             SQLException defaultFound = resolveDefault(cause);
             if (defaultFound != null) {
                 return defaultFound;
+            }
+            return null;
+        }
+
+        protected SQLException resolveLaDBCP(Throwable cause) {
+            if (cause instanceof SQLRuntimeException) {
+                Throwable nestedCause = ((SQLRuntimeException)cause).getCause();
+                if (nestedCause instanceof SQLException) {
+                    return (SQLException)nestedCause;
+                }
             }
             return null;
         }

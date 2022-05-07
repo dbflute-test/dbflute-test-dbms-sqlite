@@ -1187,6 +1187,12 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
         return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
+    // ===================================================================================
+    //                                                                 Delegate to Command
+    //                                                                 ===================
+    // -----------------------------------------------------
+    //                                         Entity Update
+    //                                         -------------
     @Override
     protected int delegateUpdate(Entity entity, UpdateOption<? extends ConditionBean> option) {
         // ignore optimistic lock failure because optimistic lock column is

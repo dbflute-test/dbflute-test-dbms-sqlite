@@ -162,7 +162,7 @@ public abstract class RoyBsPurchase extends AbstractEntity implements DomainEnti
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public RoyCDef.Flg getPaymentCompleteFlgAsFlg() {
-        return RoyCDef.Flg.codeOf(getPaymentCompleteFlg());
+        return RoyCDef.Flg.of(getPaymentCompleteFlg()).orElse(null);
     }
 
     /**

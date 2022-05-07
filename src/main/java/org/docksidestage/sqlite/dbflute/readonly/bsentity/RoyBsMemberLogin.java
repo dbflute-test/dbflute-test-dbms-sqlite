@@ -117,7 +117,7 @@ public abstract class RoyBsMemberLogin extends AbstractEntity implements DomainE
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public RoyCDef.Flg getMobileLoginFlgAsFlg() {
-        return RoyCDef.Flg.codeOf(getMobileLoginFlg());
+        return RoyCDef.Flg.of(getMobileLoginFlg()).orElse(null);
     }
 
     /**
@@ -137,7 +137,7 @@ public abstract class RoyBsMemberLogin extends AbstractEntity implements DomainE
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public RoyCDef.MemberStatus getLoginMemberStatusCodeAsMemberStatus() {
-        return RoyCDef.MemberStatus.codeOf(getLoginMemberStatusCode());
+        return RoyCDef.MemberStatus.of(getLoginMemberStatusCode()).orElse(null);
     }
 
     /**

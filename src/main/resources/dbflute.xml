@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//DBFLUTE//DTD LastaDi 1.0//EN"
+	"http://dbflute.org/meta/lastadi10.dtd">
+<components namespace="dbflute">
+	<include condition="#exists('#path')" path="my_included_dbflute.xml"/>
+	<include path="rdb.xml"/>
+
+	<!-- The components of DBFlute Runtime. -->
+	<component name="maIntroduction" class="org.docksidestage.sqlite.dbflute.allcommon.MaDBFluteInitializer"/>
+	<component name="maInvokerAssistant" class="org.docksidestage.sqlite.dbflute.nogen.ExtendedInvokerAssistant"/>
+	<component name="maBehaviorCommandInvoker" class="org.dbflute.bhv.core.BehaviorCommandInvoker"/>
+	<component name="maBehaviorSelector" class="org.docksidestage.sqlite.dbflute.allcommon.MaImplementedBehaviorSelector"/>
+	<component name="maCommonColumnAutoSetupper" class="org.docksidestage.sqlite.dbflute.allcommon.MaImplementedCommonColumnAutoSetupper"/>
+
+	<!-- The components of Behavior. -->
+	<component name="memberBhv" class="org.docksidestage.sqlite.dbflute.exbhv.MemberBhv"/>
+	<component name="memberAddressBhv" class="org.docksidestage.sqlite.dbflute.exbhv.MemberAddressBhv"/>
+	<component name="memberLoginBhv" class="org.docksidestage.sqlite.dbflute.exbhv.MemberLoginBhv"/>
+	<component name="memberSecurityBhv" class="org.docksidestage.sqlite.dbflute.exbhv.MemberSecurityBhv"/>
+	<component name="memberServiceBhv" class="org.docksidestage.sqlite.dbflute.exbhv.MemberServiceBhv"/>
+	<component name="memberStatusBhv" class="org.docksidestage.sqlite.dbflute.exbhv.MemberStatusBhv"/>
+	<component name="memberWithdrawalBhv" class="org.docksidestage.sqlite.dbflute.exbhv.MemberWithdrawalBhv"/>
+	<component name="productBhv" class="org.docksidestage.sqlite.dbflute.exbhv.ProductBhv"/>
+	<component name="productCategoryBhv" class="org.docksidestage.sqlite.dbflute.exbhv.ProductCategoryBhv"/>
+	<component name="productStatusBhv" class="org.docksidestage.sqlite.dbflute.exbhv.ProductStatusBhv"/>
+	<component name="purchaseBhv" class="org.docksidestage.sqlite.dbflute.exbhv.PurchaseBhv"/>
+	<component name="purchasePaymentBhv" class="org.docksidestage.sqlite.dbflute.exbhv.PurchasePaymentBhv"/>
+	<component name="regionBhv" class="org.docksidestage.sqlite.dbflute.exbhv.RegionBhv"/>
+	<component name="serviceRankBhv" class="org.docksidestage.sqlite.dbflute.exbhv.ServiceRankBhv"/>
+	<component name="summaryProductBhv" class="org.docksidestage.sqlite.dbflute.exbhv.SummaryProductBhv"/>
+	<component name="vendorCheckBhv" class="org.docksidestage.sqlite.dbflute.exbhv.VendorCheckBhv"/>
+	<component name="withdrawalReasonBhv" class="org.docksidestage.sqlite.dbflute.exbhv.WithdrawalReasonBhv"/>
+</components>

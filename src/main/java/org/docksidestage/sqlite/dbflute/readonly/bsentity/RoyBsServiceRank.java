@@ -120,7 +120,7 @@ public abstract class RoyBsServiceRank extends AbstractEntity implements DomainE
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public RoyCDef.Flg getNewAcceptableFlgAsFlg() {
-        return RoyCDef.Flg.codeOf(getNewAcceptableFlg());
+        return RoyCDef.Flg.of(getNewAcceptableFlg()).orElse(null);
     }
 
     /**

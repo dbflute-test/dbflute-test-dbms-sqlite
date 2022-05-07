@@ -37,6 +37,8 @@ public class MaImplementedCommonColumnAutoSetupper implements CommonColumnAutoSe
     }
 
     protected void doHandleCommonColumnOfInsertIfNeeds(MaEntityDefinedCommonColumn entity) {
+        // this implementation is generated based on commonColumnMap.dfprop
+        // so confirm the settings if you have compile errors here
         final java.time.LocalDateTime tableNameRegisterDatetime = org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread();
         entity.setTableNameRegisterDatetime(tableNameRegisterDatetime);
         final String tableNameRegisterUser = org.dbflute.hook.AccessContext.getAccessUserOnThread();
@@ -64,6 +66,8 @@ public class MaImplementedCommonColumnAutoSetupper implements CommonColumnAutoSe
     }
 
     protected void doHandleCommonColumnOfUpdateIfNeeds(MaEntityDefinedCommonColumn entity) {
+        // this implementation is generated based on commonColumnMap.dfprop
+        // so confirm the settings if you have compile errors here
         final java.time.LocalDateTime tableNameUpdateDatetime = entity.getTableNameUpdateDatetime() != null ? entity.getTableNameUpdateDatetime() : org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread();
         entity.setTableNameUpdateDatetime(tableNameUpdateDatetime);
         final String tableNameUpdateUser = org.dbflute.hook.AccessContext.getAccessUserOnThread();

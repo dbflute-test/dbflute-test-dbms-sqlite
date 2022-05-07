@@ -132,7 +132,7 @@ public abstract class RoyBsOptionMember extends AbstractEntity implements Custom
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public RoyCDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
-        return RoyCDef.MemberStatus.codeOf(getMemberStatusCode());
+        return RoyCDef.MemberStatus.of(getMemberStatusCode()).orElse(null);
     }
 
     /**
@@ -152,7 +152,7 @@ public abstract class RoyBsOptionMember extends AbstractEntity implements Custom
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public RoyCDef.Flg getDummyFlgAsFlg() {
-        return RoyCDef.Flg.codeOf(getDummyFlg());
+        return RoyCDef.Flg.of(getDummyFlg()).orElse(null);
     }
 
     /**

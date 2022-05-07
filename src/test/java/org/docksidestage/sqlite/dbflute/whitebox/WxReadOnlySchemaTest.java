@@ -1,4 +1,4 @@
-package org.docksidestage.sqlite.dbflute.whitebox.dfprop;
+package org.docksidestage.sqlite.dbflute.whitebox;
 
 import org.dbflute.bhv.BehaviorWritable;
 import org.docksidestage.sqlite.dbflute.exbhv.MemberBhv;

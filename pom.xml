@@ -13,10 +13,10 @@
 	<inceptionYear>2014</inceptionYear>
 
 	<properties>
-		<dbflute.version>1.2.4</dbflute.version>
+		<dbflute.version>1.2.6-H-SNAPSHOT</dbflute.version>
 		<sqlite.jdbc.version>3.8.11.2</sqlite.jdbc.version>
-		<guice.version>3.0</guice.version>
-		<utflute.version>0.9.1</utflute.version>
+		<lastadi.version>0.9.0</lastadi.version>
+		<utflute.version>0.9.5</utflute.version>
 	</properties>
 
 	<licenses> 
@@ -121,7 +121,7 @@
 			<plugin>
 				<groupId>org.dbflute</groupId>
 				<artifactId>dbflute-maven-plugin</artifactId>
-				<version>1.1.0-RC1</version>
+				<version>1.1.0</version>
 				<configuration>
 					<clientProject>maihamadb</clientProject>
 				</configuration>
@@ -172,19 +172,14 @@
 	    	<scope>runtime</scope>
 	    </dependency>
 
-		<!-- guice -->
+		<!-- lasta di -->
 		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>${guice.version}</version>
+			<groupId>org.lastaflute</groupId>
+			<artifactId>lasta-di</artifactId>
+			<version>${lastadi.version}</version>
 		</dependency>
 
 		<!-- transaction -->
-		<dependency>
-			<groupId>com.atomikos</groupId>
-			<artifactId>transactions-jdbc</artifactId>
-			<version>4.0.4</version>
-		</dependency>
 		<dependency>
 			<groupId>javax.transaction</groupId>
 			<artifactId>javax.transaction-api</artifactId>
@@ -194,9 +189,9 @@
 
 		<!-- logging -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.7</version>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.11</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -205,7 +200,7 @@
 		<!--                                                                       = = = = -->
         <dependency>
             <groupId>org.dbflute.utflute</groupId>
-            <artifactId>utflute-guice</artifactId>
+            <artifactId>utflute-lasta-di</artifactId>
             <version>${utflute.version}</version>
             <scope>test</scope>
         </dependency>

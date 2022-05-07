@@ -27,17 +27,14 @@ public class MaDBCurrent {
 
     protected DBDef _currentDBDef;
     {
-        _currentDBDef = DBDef.codeOf("sqlite");
-        if (_currentDBDef == null) {
-            _currentDBDef = DBDef.Unknown;
-        }
+        _currentDBDef = DBDef.of("sqlite").orElse(DBDef.Unknown);
     }
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor.
+     * Only for singleton.
      */
     private MaDBCurrent() {
     }
@@ -46,8 +43,8 @@ public class MaDBCurrent {
     //                                                                           Singleton
     //                                                                           =========
     /**
-     * Get singleton instance.
-     * @return Singleton instance. (NotNull)
+     * Get the saved singleton instance.
+     * @return always same instance. (NotNull)
      */
     public static MaDBCurrent getInstance() {
         return _instance;

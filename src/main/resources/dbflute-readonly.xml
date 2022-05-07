@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//DBFLUTE//DTD LastaDi 1.0//EN"
+	"http://dbflute.org/meta/lastadi10.dtd">
+<components namespace="dbflute_readonly">
+	<include condition="#exists('#path')" path="my_included_dbflute.xml"/>
+	<include path="rdb.xml"/>
+
+	<!-- The components of DBFlute Runtime. -->
+	<component name="royIntroduction" class="org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyDBFluteInitializer"/>
+	<component name="royInvokerAssistant" class="org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyImplementedInvokerAssistant"/>
+	<component name="royBehaviorCommandInvoker" class="org.dbflute.bhv.core.BehaviorCommandInvoker"/>
+	<component name="royBehaviorSelector" class="org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyImplementedBehaviorSelector"/>
+	<component name="royCommonColumnAutoSetupper" class="org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyImplementedCommonColumnAutoSetupper"/>
+
+	<!-- The components of Behavior. -->
+	<component name="royMemberBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyMemberBhv"/>
+	<component name="royMemberAddressBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyMemberAddressBhv"/>
+	<component name="royMemberLoginBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyMemberLoginBhv"/>
+	<component name="royMemberSecurityBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyMemberSecurityBhv"/>
+	<component name="royMemberServiceBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyMemberServiceBhv"/>
+	<component name="royMemberStatusBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyMemberStatusBhv"/>
+	<component name="royMemberWithdrawalBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyMemberWithdrawalBhv"/>
+	<component name="royProductBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyProductBhv"/>
+	<component name="royProductCategoryBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyProductCategoryBhv"/>
+	<component name="royProductStatusBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyProductStatusBhv"/>
+	<component name="royPurchaseBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyPurchaseBhv"/>
+	<component name="royPurchasePaymentBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyPurchasePaymentBhv"/>
+	<component name="royRegionBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyRegionBhv"/>
+	<component name="royServiceRankBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyServiceRankBhv"/>
+	<component name="roySummaryProductBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoySummaryProductBhv"/>
+	<component name="royVendorCheckBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyVendorCheckBhv"/>
+	<component name="royWithdrawalReasonBhv" class="org.docksidestage.sqlite.dbflute.readonly.exbhv.RoyWithdrawalReasonBhv"/>
+</components>

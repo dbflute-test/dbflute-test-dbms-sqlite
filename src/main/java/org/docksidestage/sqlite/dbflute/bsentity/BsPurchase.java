@@ -163,7 +163,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public MaCDef.Flg getPaymentCompleteFlgAsFlg() {
-        return MaCDef.Flg.codeOf(getPaymentCompleteFlg());
+        return MaCDef.Flg.of(getPaymentCompleteFlg()).orElse(null);
     }
 
     /**

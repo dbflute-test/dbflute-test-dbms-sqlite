@@ -27,17 +27,14 @@ public class RoyDBCurrent {
 
     protected DBDef _currentDBDef;
     {
-        _currentDBDef = DBDef.codeOf("sqlite");
-        if (_currentDBDef == null) {
-            _currentDBDef = DBDef.Unknown;
-        }
+        _currentDBDef = DBDef.of("sqlite").orElse(DBDef.Unknown);
     }
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor.
+     * Only for singleton.
      */
     private RoyDBCurrent() {
     }
@@ -46,8 +43,8 @@ public class RoyDBCurrent {
     //                                                                           Singleton
     //                                                                           =========
     /**
-     * Get singleton instance.
-     * @return Singleton instance. (NotNull)
+     * Get the saved singleton instance.
+     * @return always same instance. (NotNull)
      */
     public static RoyDBCurrent getInstance() {
         return _instance;

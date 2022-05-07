@@ -167,7 +167,7 @@ public abstract class RoyBsMember extends AbstractEntity implements DomainEntity
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public RoyCDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
-        return RoyCDef.MemberStatus.codeOf(getMemberStatusCode());
+        return RoyCDef.MemberStatus.of(getMemberStatusCode()).orElse(null);
     }
 
     /**

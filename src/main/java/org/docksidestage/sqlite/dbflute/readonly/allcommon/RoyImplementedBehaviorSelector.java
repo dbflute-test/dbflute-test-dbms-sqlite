@@ -3,6 +3,7 @@ package org.docksidestage.sqlite.dbflute.readonly.allcommon;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +15,8 @@ import org.dbflute.util.DfTraceViewUtil;
 import org.dbflute.util.DfTypeUtil;
 import org.dbflute.util.Srl;
 
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+import org.lastaflute.di.core.LaContainer;
+import org.lastaflute.di.core.exception.ComponentNotFoundException;
 
 /**
  * The implementation of behavior selector.
@@ -35,8 +36,8 @@ public class RoyImplementedBehaviorSelector implements BehaviorSelector {
     /** The concurrent cache of behavior. */
     protected final Map<Class<? extends BehaviorReadable>, BehaviorReadable> _behaviorCache = newConcurrentHashMap();
 
-    /** The container of Guice. */
-    protected Injector _container;
+    /** The container of Lasta Di. */
+    protected LaContainer _container;
 
     // ===================================================================================
     //                                                                          Initialize
@@ -139,7 +140,18 @@ public class RoyImplementedBehaviorSelector implements BehaviorSelector {
     protected <COMPONENT> COMPONENT getComponent(Class<COMPONENT> componentType) { // only for behavior
         assertObjectNotNull("componentType", componentType);
         assertObjectNotNull("_container", _container);
-        return _container.getInstance(componentType);
+        try {
+            return _container.getComponent(componentType);
+        } catch (ComponentNotFoundException e) { // normally it doesn't come.
+            final COMPONENT component;
+            try {
+                component = _container.getRoot().getComponent(componentType); // retry for HotDeploy mode
+            } catch (ComponentNotFoundException ignored) {
+                throw e;
+            }
+            _container = _container.getRoot(); // change container
+            return component;
+        }
     }
 
     // ===================================================================================
@@ -205,8 +217,8 @@ public class RoyImplementedBehaviorSelector implements BehaviorSelector {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-    @Inject
-    public void setContainer(Injector container) {
+    @Resource
+    public void setContainer(LaContainer container) {
         this._container = container;
     }
 }
