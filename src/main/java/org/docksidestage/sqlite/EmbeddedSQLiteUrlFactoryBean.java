@@ -7,7 +7,7 @@ import org.dbflute.util.DfReflectionUtil;
 import org.dbflute.util.DfResourceUtil;
 
 /**
- * The bean for resolving a path to a database of H2 Database. <br />
+ * The bean for resolving a path to a database of SQLite. <br />
  * This is NOT an important class as example. So you don't need to read this.
  * @author jflute
  */
