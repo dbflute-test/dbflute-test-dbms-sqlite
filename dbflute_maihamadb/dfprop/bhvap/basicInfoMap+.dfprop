@@ -1,4 +1,8 @@
 map:{
+    # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+    # #for_now needs ApplicationBehavior test project but already unused function? by jflute (2022/05/15)
+    # _/_/_/_/_/_/_/_/_/_/
+
     # set if you generate at your application
     #; generateOutputDirectory = ../../../dbflute-example-referrerpj/dbflute-bhvap-guice-example/src/main/java
     ; packageBase = org.docksidestage.sqlite.layer.bhvap.dbflute
