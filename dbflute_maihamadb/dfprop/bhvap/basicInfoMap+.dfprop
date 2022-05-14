@@ -1,6 +1,7 @@
 map:{
-    ; generateOutputDirectory = ../../../dbflute-example-referrerpj/dbflute-bhvap-guice-example/src/main/java
-    ; packageBase = com.example.dbflute.bhvap.dbflute
+    # set if you generate at your application
+    #; generateOutputDirectory = ../../../dbflute-example-referrerpj/dbflute-bhvap-guice-example/src/main/java
+    ; packageBase = org.docksidestage.sqlite.layer.bhvap.dbflute
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o applicationBehaviorMap: (NotRequired - Default map:{})
@@ -16,7 +17,7 @@ map:{
     #
     ; applicationBehaviorMap = map:{
         ; isApplicationBehaviorProject = true
-        ; libraryProjectPackageBase = com.example.dbflute.tricky.dbflute
+        ; libraryProjectPackageBase = org.docksidestage.sqlite.dbflute
     }
     # - - - - - - - - - -/
 }
