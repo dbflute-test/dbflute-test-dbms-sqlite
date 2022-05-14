@@ -32,23 +32,23 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-#; commonColumnMap = map:{
-#    # For testing table prefix common column
-#    ; $-TABLE_NAME_REGISTER_DATETIME=TIMESTAMP ; $-TABLE_NAME_REGISTER_USER=VARCHAR ; $-TABLE_NAME_REGISTER_PROCESS=VARCHAR
-#    ; $-TABLE_NAME_UPDATE_DATETIME=TIMESTAMP   ; $-TABLE_NAME_UPDATE_USER=VARCHAR   ; $-TABLE_NAME_UPDATE_PROCESS=VARCHAR
-#}
-#; beforeInsertMap = map:{
-#    ; $-TABLE_NAME_REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
-#    ; $-TABLE_NAME_REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
-#    ; $-TABLE_NAME_REGISTER_PROCESS  = $$AccessContext$$.getAccessProcessOnThread()
-#    ; $-TABLE_NAME_UPDATE_DATETIME   = entity.getTableNameRegisterDatetime()
-#    ; $-TABLE_NAME_UPDATE_USER       = entity.getTableNameRegisterUser()
-#    ; $-TABLE_NAME_UPDATE_PROCESS    = entity.getTableNameRegisterProcess()
-#}
-#; beforeUpdateMap = map:{
-#    ; $-TABLE_NAME_UPDATE_DATETIME   = entity.getTableNameUpdateDatetime() != null ? entity.getTableNameUpdateDatetime() : $$AccessContext$$.getAccessLocalDateTimeOnThread()
-#    ; $-TABLE_NAME_UPDATE_USER       = $$AccessContext$$.getAccessUserOnThread()
-#    ; $-TABLE_NAME_UPDATE_PROCESS    = $$AccessContext$$.getAccessProcessOnThread()
-#}
+	#; commonColumnMap = map:{
+	#    # For testing table prefix common column
+	#    ; $-TABLE_NAME_REGISTER_DATETIME=TIMESTAMP ; $-TABLE_NAME_REGISTER_USER=VARCHAR ; $-TABLE_NAME_REGISTER_PROCESS=VARCHAR
+	#    ; $-TABLE_NAME_UPDATE_DATETIME=TIMESTAMP   ; $-TABLE_NAME_UPDATE_USER=VARCHAR   ; $-TABLE_NAME_UPDATE_PROCESS=VARCHAR
+	#}
+	#; beforeInsertMap = map:{
+	#    ; $-TABLE_NAME_REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
+	#    ; $-TABLE_NAME_REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
+	#    ; $-TABLE_NAME_REGISTER_PROCESS  = $$AccessContext$$.getAccessProcessOnThread()
+	#    ; $-TABLE_NAME_UPDATE_DATETIME   = entity.getTableNameRegisterDatetime()
+	#    ; $-TABLE_NAME_UPDATE_USER       = entity.getTableNameRegisterUser()
+	#    ; $-TABLE_NAME_UPDATE_PROCESS    = entity.getTableNameRegisterProcess()
+	#}
+	#; beforeUpdateMap = map:{
+	#    ; $-TABLE_NAME_UPDATE_DATETIME   = entity.getTableNameUpdateDatetime() != null ? entity.getTableNameUpdateDatetime() : $$AccessContext$$.getAccessLocalDateTimeOnThread()
+	#    ; $-TABLE_NAME_UPDATE_USER       = $$AccessContext$$.getAccessUserOnThread()
+	#    ; $-TABLE_NAME_UPDATE_PROCESS    = $$AccessContext$$.getAccessProcessOnThread()
+	#}
 }
 # ----------------/

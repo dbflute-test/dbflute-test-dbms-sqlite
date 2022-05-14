@@ -25,6 +25,9 @@ map:{
     # AutoMapping for Numeric and Decimal
     ; NUMERIC = $$AutoMapping$$ ; DECIMAL = $$AutoMapping$$
 
+    # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+    # #sqlite SQLite treats DATE type as string so needed by jflute (2022/05/07)
+    # _/_/_/_/_/_/_/_/_/_/
     ; $$DATE$$ = DATE
     ; $$DATETIME$$ = TIMESTAMP
 }
