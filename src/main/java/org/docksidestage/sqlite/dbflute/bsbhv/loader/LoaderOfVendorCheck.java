@@ -7,35 +7,7 @@ import org.docksidestage.sqlite.dbflute.exbhv.*;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
- * The referrer loader of VENDOR_CHECK as TABLE. <br>
- * <pre>
- * [primary key]
- *     VENDOR_CHECK_ID
- *
- * [column]
- *     VENDOR_CHECK_ID, TYPE_OF_TEXT, TYPE_OF_INTEGER, TYPE_OF_REAL
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of VENDOR_CHECK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorCheck {

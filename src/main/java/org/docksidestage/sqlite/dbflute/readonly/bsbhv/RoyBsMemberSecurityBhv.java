@@ -19,35 +19,7 @@ import org.docksidestage.sqlite.dbflute.readonly.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.readonly.cbean.*;
 
 /**
- * The behavior of MEMBER_SECURITY as TABLE. <br>
- * <pre>
- * [primary key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of MEMBER_SECURITY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsMemberSecurityBhv extends AbstractBehaviorReadable<RoyMemberSecurity, RoyMemberSecurityCB> {

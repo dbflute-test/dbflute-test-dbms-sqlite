@@ -13,65 +13,7 @@ import org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyCDef;
 import org.docksidestage.sqlite.dbflute.readonly.exentity.*;
 
 /**
- * The entity of MEMBER as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, MEMBER_NAME, MEMBER_ACCOUNT, MEMBER_STATUS_CODE, FORMALIZED_DATETIME, BIRTHDATE, MEMBER_REGISTER_DATETIME, MEMBER_REGISTER_USER, MEMBER_REGISTER_PROCESS, MEMBER_UPDATE_DATETIME, MEMBER_UPDATE_USER, MEMBER_UPDATE_PROCESS, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     MEMBER_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SECURITY(AsOne), MEMBER_WITHDRAWAL(AsOne)
- *
- * [referrer table]
- *     MEMBER_ADDRESS, MEMBER_LOGIN, MEMBER_SERVICE, PURCHASE, MEMBER_SECURITY, MEMBER_WITHDRAWAL
- *
- * [foreign property]
- *     memberStatus, memberAddressAsValid, memberSecurityAsOne, memberWithdrawalAsOne
- *
- * [referrer property]
- *     memberAddressList, memberLoginList, memberServiceList, purchaseList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
- * String memberAccount = entity.getMemberAccount();
- * String memberStatusCode = entity.getMemberStatusCode();
- * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
- * java.time.LocalDate birthdate = entity.getBirthdate();
- * java.time.LocalDateTime memberRegisterDatetime = entity.getMemberRegisterDatetime();
- * String memberRegisterUser = entity.getMemberRegisterUser();
- * String memberRegisterProcess = entity.getMemberRegisterProcess();
- * java.time.LocalDateTime memberUpdateDatetime = entity.getMemberUpdateDatetime();
- * String memberUpdateUser = entity.getMemberUpdateUser();
- * String memberUpdateProcess = entity.getMemberUpdateProcess();
- * Integer versionNo = entity.getVersionNo();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
- * entity.setMemberAccount(memberAccount);
- * entity.setMemberStatusCode(memberStatusCode);
- * entity.setFormalizedDatetime(formalizedDatetime);
- * entity.setBirthdate(birthdate);
- * entity.setMemberRegisterDatetime(memberRegisterDatetime);
- * entity.setMemberRegisterUser(memberRegisterUser);
- * entity.setMemberRegisterProcess(memberRegisterProcess);
- * entity.setMemberUpdateDatetime(memberUpdateDatetime);
- * entity.setMemberUpdateUser(memberUpdateUser);
- * entity.setMemberUpdateProcess(memberUpdateProcess);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of MEMBER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsMember extends AbstractEntity implements DomainEntity {

@@ -12,61 +12,7 @@ import org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyDBMetaInstanceHand
 import org.docksidestage.sqlite.dbflute.readonly.exentity.*;
 
 /**
- * The entity of MEMBER_WITHDRAWAL as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER, WITHDRAWAL_REASON
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, withdrawalReason
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String withdrawalReasonCode = entity.getWithdrawalReasonCode();
- * String withdrawalReasonInputText = entity.getWithdrawalReasonInputText();
- * java.time.LocalDateTime withdrawalDatetime = entity.getWithdrawalDatetime();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerProcess = entity.getRegisterProcess();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateProcess = entity.getUpdateProcess();
- * String updateUser = entity.getUpdateUser();
- * Integer versionNo = entity.getVersionNo();
- * entity.setMemberId(memberId);
- * entity.setWithdrawalReasonCode(withdrawalReasonCode);
- * entity.setWithdrawalReasonInputText(withdrawalReasonInputText);
- * entity.setWithdrawalDatetime(withdrawalDatetime);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterProcess(registerProcess);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateProcess(updateProcess);
- * entity.setUpdateUser(updateUser);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of MEMBER_WITHDRAWAL as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsMemberWithdrawal extends AbstractEntity implements DomainEntity {

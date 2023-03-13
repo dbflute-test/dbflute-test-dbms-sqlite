@@ -10,61 +10,7 @@ import org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyDBMetaInstanceHand
 import org.docksidestage.sqlite.dbflute.readonly.exentity.*;
 
 /**
- * The entity of PURCHASE_PAYMENT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PURCHASE_PAYMENT_ID
- *
- * [column]
- *     PURCHASE_PAYMENT_ID, PURCHASE_ID, PAYMENT_AMOUNT, PAYMENT_DATETIME, PAYMENT_METHOD_CODE, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PURCHASE_PAYMENT_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer purchasePaymentId = entity.getPurchasePaymentId();
- * Integer purchaseId = entity.getPurchaseId();
- * String paymentAmount = entity.getPaymentAmount();
- * java.time.LocalDateTime paymentDatetime = entity.getPaymentDatetime();
- * String paymentMethodCode = entity.getPaymentMethodCode();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * String registerProcess = entity.getRegisterProcess();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
- * Integer versionNo = entity.getVersionNo();
- * entity.setPurchasePaymentId(purchasePaymentId);
- * entity.setPurchaseId(purchaseId);
- * entity.setPaymentAmount(paymentAmount);
- * entity.setPaymentDatetime(paymentDatetime);
- * entity.setPaymentMethodCode(paymentMethodCode);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setRegisterProcess(registerProcess);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of PURCHASE_PAYMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsPurchasePayment extends AbstractEntity implements DomainEntity {

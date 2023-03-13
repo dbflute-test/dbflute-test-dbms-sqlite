@@ -14,67 +14,7 @@ import org.docksidestage.sqlite.dbflute.allcommon.MaCDef;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
- * The entity of PURCHASE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PURCHASE_ID
- *
- * [column]
- *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, PURCHASE_REGISTER_DATETIME, PURCHASE_REGISTER_USER, PURCHASE_REGISTER_PROCESS, PURCHASE_UPDATE_DATETIME, PURCHASE_UPDATE_USER, PURCHASE_UPDATE_PROCESS, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PURCHASE_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, product, summaryProduct
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer purchaseId = entity.getPurchaseId();
- * Integer memberId = entity.getMemberId();
- * Integer productId = entity.getProductId();
- * java.time.LocalDateTime purchaseDatetime = entity.getPurchaseDatetime();
- * Integer purchaseCount = entity.getPurchaseCount();
- * Integer purchasePrice = entity.getPurchasePrice();
- * Integer paymentCompleteFlg = entity.getPaymentCompleteFlg();
- * java.time.LocalDateTime purchaseRegisterDatetime = entity.getPurchaseRegisterDatetime();
- * String purchaseRegisterUser = entity.getPurchaseRegisterUser();
- * String purchaseRegisterProcess = entity.getPurchaseRegisterProcess();
- * java.time.LocalDateTime purchaseUpdateDatetime = entity.getPurchaseUpdateDatetime();
- * String purchaseUpdateUser = entity.getPurchaseUpdateUser();
- * String purchaseUpdateProcess = entity.getPurchaseUpdateProcess();
- * Integer versionNo = entity.getVersionNo();
- * entity.setPurchaseId(purchaseId);
- * entity.setMemberId(memberId);
- * entity.setProductId(productId);
- * entity.setPurchaseDatetime(purchaseDatetime);
- * entity.setPurchaseCount(purchaseCount);
- * entity.setPurchasePrice(purchasePrice);
- * entity.setPaymentCompleteFlg(paymentCompleteFlg);
- * entity.setPurchaseRegisterDatetime(purchaseRegisterDatetime);
- * entity.setPurchaseRegisterUser(purchaseRegisterUser);
- * entity.setPurchaseRegisterProcess(purchaseRegisterProcess);
- * entity.setPurchaseUpdateDatetime(purchaseUpdateDatetime);
- * entity.setPurchaseUpdateUser(purchaseUpdateUser);
- * entity.setPurchaseUpdateProcess(purchaseUpdateProcess);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of PURCHASE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsPurchase extends AbstractEntity implements DomainEntity, MaEntityDefinedCommonColumn {

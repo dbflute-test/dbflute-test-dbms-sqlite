@@ -10,47 +10,7 @@ import org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyDBMetaInstanceHand
 import org.docksidestage.sqlite.dbflute.readonly.exentity.*;
 
 /**
- * The entity of VENDOR_CHECK as TABLE. <br>
- * <pre>
- * [primary-key]
- *     VENDOR_CHECK_ID
- *
- * [column]
- *     VENDOR_CHECK_ID, TYPE_OF_TEXT, TYPE_OF_INTEGER, TYPE_OF_REAL
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer vendorCheckId = entity.getVendorCheckId();
- * String typeOfText = entity.getTypeOfText();
- * Integer typeOfInteger = entity.getTypeOfInteger();
- * String typeOfReal = entity.getTypeOfReal();
- * entity.setVendorCheckId(vendorCheckId);
- * entity.setTypeOfText(typeOfText);
- * entity.setTypeOfInteger(typeOfInteger);
- * entity.setTypeOfReal(typeOfReal);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of VENDOR_CHECK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsVendorCheck extends AbstractEntity implements DomainEntity {

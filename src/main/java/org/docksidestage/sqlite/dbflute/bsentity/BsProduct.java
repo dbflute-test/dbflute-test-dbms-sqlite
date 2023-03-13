@@ -12,65 +12,7 @@ import org.docksidestage.sqlite.dbflute.allcommon.MaDBMetaInstanceHandler;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
- * The entity of PRODUCT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PRODUCT_ID
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, UPDATE_PROCESS, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PRODUCT_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     PRODUCT_STATUS
- *
- * [referrer table]
- *     PURCHASE
- *
- * [foreign property]
- *     productStatus
- *
- * [referrer property]
- *     purchaseList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer productId = entity.getProductId();
- * String productName = entity.getProductName();
- * String productHandleCode = entity.getProductHandleCode();
- * String productCategoryCode = entity.getProductCategoryCode();
- * String productStatusCode = entity.getProductStatusCode();
- * Integer regularPrice = entity.getRegularPrice();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * String registerProcess = entity.getRegisterProcess();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
- * String updateProcess = entity.getUpdateProcess();
- * Integer versionNo = entity.getVersionNo();
- * entity.setProductId(productId);
- * entity.setProductName(productName);
- * entity.setProductHandleCode(productHandleCode);
- * entity.setProductCategoryCode(productCategoryCode);
- * entity.setProductStatusCode(productStatusCode);
- * entity.setRegularPrice(regularPrice);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setRegisterProcess(registerProcess);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
- * entity.setUpdateProcess(updateProcess);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of PRODUCT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProduct extends AbstractEntity implements DomainEntity {

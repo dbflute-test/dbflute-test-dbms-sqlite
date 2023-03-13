@@ -7,35 +7,7 @@ import org.docksidestage.sqlite.dbflute.readonly.exbhv.*;
 import org.docksidestage.sqlite.dbflute.readonly.exentity.*;
 
 /**
- * The referrer loader of MEMBER_SECURITY as TABLE. <br>
- * <pre>
- * [primary key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of MEMBER_SECURITY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class RoyLoaderOfMemberSecurity {

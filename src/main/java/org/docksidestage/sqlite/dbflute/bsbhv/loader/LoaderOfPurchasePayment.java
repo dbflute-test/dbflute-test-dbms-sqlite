@@ -7,35 +7,7 @@ import org.docksidestage.sqlite.dbflute.exbhv.*;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
- * The referrer loader of PURCHASE_PAYMENT as TABLE. <br>
- * <pre>
- * [primary key]
- *     PURCHASE_PAYMENT_ID
- *
- * [column]
- *     PURCHASE_PAYMENT_ID, PURCHASE_ID, PAYMENT_AMOUNT, PAYMENT_DATETIME, PAYMENT_METHOD_CODE, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PURCHASE_PAYMENT_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of PURCHASE_PAYMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfPurchasePayment {

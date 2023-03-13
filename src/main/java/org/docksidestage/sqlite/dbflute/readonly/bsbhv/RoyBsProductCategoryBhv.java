@@ -19,35 +19,7 @@ import org.docksidestage.sqlite.dbflute.readonly.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.readonly.cbean.*;
 
 /**
- * The behavior of PRODUCT_CATEGORY as TABLE. <br>
- * <pre>
- * [primary key]
- *     PRODUCT_CATEGORY_CODE
- *
- * [column]
- *     PRODUCT_CATEGORY_CODE, PRODUCT_CATEGORY_NAME, PARENT_CATEGORY_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of PRODUCT_CATEGORY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsProductCategoryBhv extends AbstractBehaviorReadable<RoyProductCategory, RoyProductCategoryCB> {

@@ -19,35 +19,7 @@ import org.docksidestage.sqlite.dbflute.readonly.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.readonly.cbean.*;
 
 /**
- * The behavior of MEMBER_WITHDRAWAL as TABLE. <br>
- * <pre>
- * [primary key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER, WITHDRAWAL_REASON
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, withdrawalReason
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of MEMBER_WITHDRAWAL as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsMemberWithdrawalBhv extends AbstractBehaviorReadable<RoyMemberWithdrawal, RoyMemberWithdrawalCB> {

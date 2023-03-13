@@ -10,45 +10,7 @@ import org.docksidestage.sqlite.dbflute.allcommon.MaDBMetaInstanceHandler;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
- * The entity of PRODUCT_CATEGORY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PRODUCT_CATEGORY_CODE
- *
- * [column]
- *     PRODUCT_CATEGORY_CODE, PRODUCT_CATEGORY_NAME, PARENT_CATEGORY_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String productCategoryCode = entity.getProductCategoryCode();
- * String productCategoryName = entity.getProductCategoryName();
- * String parentCategoryCode = entity.getParentCategoryCode();
- * entity.setProductCategoryCode(productCategoryCode);
- * entity.setProductCategoryName(productCategoryName);
- * entity.setParentCategoryCode(parentCategoryCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of PRODUCT_CATEGORY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProductCategory extends AbstractEntity implements DomainEntity {

@@ -20,35 +20,7 @@ import org.docksidestage.sqlite.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.cbean.*;
 
 /**
- * The behavior of PURCHASE as TABLE. <br>
- * <pre>
- * [primary key]
- *     PURCHASE_ID
- *
- * [column]
- *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, PURCHASE_REGISTER_DATETIME, PURCHASE_REGISTER_USER, PURCHASE_REGISTER_PROCESS, PURCHASE_UPDATE_DATETIME, PURCHASE_UPDATE_USER, PURCHASE_UPDATE_PROCESS, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PURCHASE_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, product, summaryProduct
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of PURCHASE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, PurchaseCB> {
@@ -868,7 +840,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">queryDelete</span>(purchase, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

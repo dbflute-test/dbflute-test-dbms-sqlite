@@ -19,35 +19,7 @@ import org.docksidestage.sqlite.dbflute.readonly.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.readonly.cbean.*;
 
 /**
- * The behavior of MEMBER as TABLE. <br>
- * <pre>
- * [primary key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, MEMBER_NAME, MEMBER_ACCOUNT, MEMBER_STATUS_CODE, FORMALIZED_DATETIME, BIRTHDATE, MEMBER_REGISTER_DATETIME, MEMBER_REGISTER_USER, MEMBER_REGISTER_PROCESS, MEMBER_UPDATE_DATETIME, MEMBER_UPDATE_USER, MEMBER_UPDATE_PROCESS, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     MEMBER_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SECURITY(AsOne), MEMBER_WITHDRAWAL(AsOne)
- *
- * [referrer table]
- *     MEMBER_ADDRESS, MEMBER_LOGIN, MEMBER_SERVICE, PURCHASE, MEMBER_SECURITY, MEMBER_WITHDRAWAL
- *
- * [foreign property]
- *     memberStatus, memberAddressAsValid, memberSecurityAsOne, memberWithdrawalAsOne
- *
- * [referrer property]
- *     memberAddressList, memberLoginList, memberServiceList, purchaseList
- * </pre>
+ * The behavior of MEMBER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsMemberBhv extends AbstractBehaviorReadable<RoyMember, RoyMemberCB> {

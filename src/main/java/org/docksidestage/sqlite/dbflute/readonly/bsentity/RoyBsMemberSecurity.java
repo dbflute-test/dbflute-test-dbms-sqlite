@@ -12,63 +12,7 @@ import org.docksidestage.sqlite.dbflute.readonly.allcommon.RoyDBMetaInstanceHand
 import org.docksidestage.sqlite.dbflute.readonly.exentity.*;
 
 /**
- * The entity of MEMBER_SECURITY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String loginPassword = entity.getLoginPassword();
- * String reminderQuestion = entity.getReminderQuestion();
- * String reminderAnswer = entity.getReminderAnswer();
- * Integer reminderUseCount = entity.getReminderUseCount();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerProcess = entity.getRegisterProcess();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateProcess = entity.getUpdateProcess();
- * String updateUser = entity.getUpdateUser();
- * Integer versionNo = entity.getVersionNo();
- * entity.setMemberId(memberId);
- * entity.setLoginPassword(loginPassword);
- * entity.setReminderQuestion(reminderQuestion);
- * entity.setReminderAnswer(reminderAnswer);
- * entity.setReminderUseCount(reminderUseCount);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterProcess(registerProcess);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateProcess(updateProcess);
- * entity.setUpdateUser(updateUser);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of MEMBER_SECURITY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsMemberSecurity extends AbstractEntity implements DomainEntity {

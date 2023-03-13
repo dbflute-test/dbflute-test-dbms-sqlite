@@ -20,35 +20,7 @@ import org.docksidestage.sqlite.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.cbean.*;
 
 /**
- * The behavior of VENDOR_CHECK as TABLE. <br>
- * <pre>
- * [primary key]
- *     VENDOR_CHECK_ID
- *
- * [column]
- *     VENDOR_CHECK_ID, TYPE_OF_TEXT, TYPE_OF_INTEGER, TYPE_OF_REAL
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of VENDOR_CHECK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCheck, VendorCheckCB> {
@@ -749,7 +721,7 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorCheck, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -11,47 +11,7 @@ import org.docksidestage.sqlite.dbflute.allcommon.MaCDef;
 import org.docksidestage.sqlite.dbflute.exentity.*;
 
 /**
- * The entity of MEMBER_STATUS as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MEMBER_STATUS_CODE
- *
- * [column]
- *     MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, DESCRIPTION, DISPLAY_ORDER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     MEMBER, MEMBER_LOGIN
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberList, memberLoginList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String memberStatusCode = entity.getMemberStatusCode();
- * String memberStatusName = entity.getMemberStatusName();
- * String description = entity.getDescription();
- * Integer displayOrder = entity.getDisplayOrder();
- * entity.setMemberStatusCode(memberStatusCode);
- * entity.setMemberStatusName(memberStatusName);
- * entity.setDescription(description);
- * entity.setDisplayOrder(displayOrder);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of MEMBER_STATUS as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberStatus extends AbstractEntity implements DomainEntity {

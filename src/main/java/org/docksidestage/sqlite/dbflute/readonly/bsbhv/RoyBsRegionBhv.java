@@ -19,35 +19,7 @@ import org.docksidestage.sqlite.dbflute.readonly.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.readonly.cbean.*;
 
 /**
- * The behavior of REGION as TABLE. <br>
- * <pre>
- * [primary key]
- *     REGION_ID
- *
- * [column]
- *     REGION_ID, REGION_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     MEMBER_ADDRESS
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberAddressList
- * </pre>
+ * The behavior of REGION as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsRegionBhv extends AbstractBehaviorReadable<RoyRegion, RoyRegionCB> {

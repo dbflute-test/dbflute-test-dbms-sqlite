@@ -19,35 +19,7 @@ import org.docksidestage.sqlite.dbflute.readonly.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.readonly.cbean.*;
 
 /**
- * The behavior of SUMMARY_PRODUCT as VIEW. <br>
- * <pre>
- * [primary key]
- *     PRODUCT_ID
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     PRODUCT_STATUS
- *
- * [referrer table]
- *     PURCHASE
- *
- * [foreign property]
- *     productStatus
- *
- * [referrer property]
- *     purchaseList
- * </pre>
+ * The behavior of SUMMARY_PRODUCT as VIEW.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsSummaryProductBhv extends AbstractBehaviorReadable<RoySummaryProduct, RoySummaryProductCB> {

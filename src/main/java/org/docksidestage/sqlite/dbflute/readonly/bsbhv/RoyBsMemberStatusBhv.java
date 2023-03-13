@@ -19,35 +19,7 @@ import org.docksidestage.sqlite.dbflute.readonly.bsentity.dbmeta.*;
 import org.docksidestage.sqlite.dbflute.readonly.cbean.*;
 
 /**
- * The behavior of MEMBER_STATUS as TABLE. <br>
- * <pre>
- * [primary key]
- *     MEMBER_STATUS_CODE
- *
- * [column]
- *     MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, DESCRIPTION, DISPLAY_ORDER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     MEMBER, MEMBER_LOGIN
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberList, memberLoginList
- * </pre>
+ * The behavior of MEMBER_STATUS as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class RoyBsMemberStatusBhv extends AbstractBehaviorReadable<RoyMemberStatus, RoyMemberStatusCB> {

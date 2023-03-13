@@ -7,35 +7,7 @@ import org.docksidestage.sqlite.dbflute.readonly.exbhv.*;
 import org.docksidestage.sqlite.dbflute.readonly.exentity.*;
 
 /**
- * The referrer loader of PRODUCT_CATEGORY as TABLE. <br>
- * <pre>
- * [primary key]
- *     PRODUCT_CATEGORY_CODE
- *
- * [column]
- *     PRODUCT_CATEGORY_CODE, PRODUCT_CATEGORY_NAME, PARENT_CATEGORY_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of PRODUCT_CATEGORY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class RoyLoaderOfProductCategory {
