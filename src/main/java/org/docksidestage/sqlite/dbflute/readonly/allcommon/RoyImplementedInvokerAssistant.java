@@ -444,11 +444,12 @@ public class RoyImplementedInvokerAssistant implements InvokerAssistant {
     protected ResourceParameter createResourceParameter() {
         ResourceParameter parameter = newResourceParameter();
         parameter.setOutsideSqlPackage(RoyDBFluteConfig.getInstance().getOutsideSqlPackage());
-        parameter.setMappingDateTimeZoneProvider(RoyDBFluteConfig.getInstance().getMappingDateTimeZoneProvider());
+        parameter.setMappingDateTimeZoneProvider(RoyDBFluteConfig.getInstance().getMappingDateTimeZoneProvider()); // since 1.1.0
         parameter.setLogDatePattern(RoyDBFluteConfig.getInstance().getLogDatePattern());
         parameter.setLogTimestampPattern(RoyDBFluteConfig.getInstance().getLogTimestampPattern());
         parameter.setLogTimePattern(RoyDBFluteConfig.getInstance().getLogTimePattern());
         parameter.setLogTimeZoneProvider(RoyDBFluteConfig.getInstance().getLogTimeZoneProvider());
+        parameter.setErrorLogMaskProvider(RoyDBFluteConfig.getInstance().getErrorLogMaskProvider()); // since 1.2.7
         parameter.setInternalDebug(RoyDBFluteConfig.getInstance().isInternalDebug());
         return parameter;
     }

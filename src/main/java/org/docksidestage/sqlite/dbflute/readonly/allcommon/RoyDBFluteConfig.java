@@ -8,7 +8,9 @@ import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.dbflute.FunCustodial;
 import org.dbflute.bhv.core.context.mapping.MappingDateTimeZoneProvider;
+import org.dbflute.bhv.core.context.logmask.ErrorLogMaskProvider;
 import org.dbflute.bhv.core.supplement.SequenceCacheKeyGenerator;
 import org.dbflute.cbean.garnish.SpecifyColumnRequiredExceptDeterminer;
 import org.dbflute.cbean.cipher.GearedCipherManager;
@@ -56,15 +58,19 @@ public class RoyDBFluteConfig {
     protected boolean _pagingCountLater = true;
     protected boolean _pagingCountLeastJoin = true;
     protected boolean _innerJoinAutoDetect = true;
+    protected boolean _orScopeQueryPurposeCheckWarningOnly = false; // since 1.2.7
     protected boolean _thatsBadTimingDetect = true;
+    protected boolean _thatsBadTimingWarningOnly = false;
     protected boolean _nullOrEmptyQueryAllowed = false;
     protected boolean _emptyStringQueryAllowed = false;
     protected boolean _emptyStringParameterAllowed = false;
     protected boolean _overridingQueryAllowed = false;
+    protected boolean _invalidQueryAllowedWarning = false; // since 1.2.7
     protected boolean _nonSpecifiedColumnAccessAllowed = false;
-    protected boolean _specifyColumnRequired = false;
-    protected SpecifyColumnRequiredExceptDeterminer _specifyColumnRequiredExceptDeterminer;
-    protected boolean _specifyColumnRequiredWarningOnly = false;
+    protected boolean _nonSpecifiedColumnAccessWarningOnly = false; // since 1.2.7
+    protected boolean _specifyColumnRequired = false; // since 1.1.2
+    protected SpecifyColumnRequiredExceptDeterminer _specifyColumnRequiredExceptDeterminer; // since 1.1.7
+    protected boolean _specifyColumnRequiredWarningOnly = false; // since 1.2.0
     protected boolean _columnNullObjectAllowed = false;
     protected boolean _columnNullObjectGearedToSpecify = false;
     protected boolean _datetimePrecisionTruncationOfCondition = false;
@@ -78,6 +84,7 @@ public class RoyDBFluteConfig {
     protected String _logTimestampPattern;
     protected String _logTimePattern;
     protected BoundDateDisplayTimeZoneProvider _logTimeZoneProvider;
+    protected ErrorLogMaskProvider _errorLogMaskProvider; // since 1.2.7
 
     // environment
     protected StatementConfig _defaultStatementConfig;
@@ -89,7 +96,7 @@ public class RoyDBFluteConfig {
     protected PhysicalConnectionDigger _physicalConnectionDigger;
     protected SQLExceptionDigger _sqlExceptionDigger;
     protected String _outsideSqlPackage = null;
-    protected MappingDateTimeZoneProvider _mappingDateTimeZoneProvider;
+    protected MappingDateTimeZoneProvider _mappingDateTimeZoneProvider; // since 1.1.0
 
     // extension
     protected SequenceCacheKeyGenerator _sequenceCacheKeyGenerator;
@@ -119,6 +126,12 @@ public class RoyDBFluteConfig {
     private RoyDBFluteConfig() { // adjusts default settings
         _physicalConnectionDigger = new ImplementedPhysicalConnectionDigger();
         _sqlExceptionDigger = new ImplementedSQLExceptionDigger();
+
+        if (_nonSpecifiedColumnAccessWarningOnly) { // since 1.2.7
+            FunCustodial.unlock();
+            FunCustodial.setNonSpecifiedColumnAccessWarningOnly(true);
+            FunCustodial.lock();
+        }
     }
 
     // ===================================================================================
@@ -175,6 +188,21 @@ public class RoyDBFluteConfig {
     }
 
     // ===================================================================================
+    //                                                                    CB Purpose Check
+    //                                                                    ================
+    public boolean isOrScopeQueryPurposeCheckWarningOnly() { // since 1.2.7
+        return _orScopeQueryPurposeCheckWarningOnly;
+    }
+
+    public void setOrScopeQueryPurposeCheckWarningOnly(boolean orScopeQueryPurposeCheckWarningOnly) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting orScopeQueryPurposeCheckWarningOnly: " + orScopeQueryPurposeCheckWarningOnly);
+        }
+        _orScopeQueryPurposeCheckWarningOnly = orScopeQueryPurposeCheckWarningOnly;
+    }
+
+    // ===================================================================================
     //                                                            That's-Bad-Timing Detect
     //                                                            ========================
     public boolean isThatsBadTimingDetect() {
@@ -187,6 +215,18 @@ public class RoyDBFluteConfig {
             _log.info("...Setting thatsBadTimingDetect: " + thatsBadTimingDetect);
         }
         _thatsBadTimingDetect = thatsBadTimingDetect;
+    }
+
+    public boolean isThatsBadTimingWarningOnly() { // since 1.2.7
+        return _thatsBadTimingWarningOnly;
+    }
+
+    public void setThatsBadTimingWarningOnly(boolean thatsBadTimingWarningOnly) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting thatsBadTimingWarningOnly: " + thatsBadTimingWarningOnly);
+        }
+        _thatsBadTimingWarningOnly = thatsBadTimingWarningOnly;
     }
 
     // ===================================================================================
@@ -260,6 +300,23 @@ public class RoyDBFluteConfig {
         _overridingQueryAllowed = overridingQueryAllowed;
     }
 
+    public boolean isInvalidQueryAllowedWarning() {
+        return _invalidQueryAllowedWarning;
+    }
+
+    /**
+     * Set whether it shows warning log or not when invalid query is allowed. <br>
+     * This configuration is only for ConditionBean.
+     * @param invalidQueryAllowedWarning The determination, true or false.
+     */
+    public void setInvalidQueryAllowedWarning(boolean invalidQueryAllowedWarning) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting invalidQueryAllowedWarning: " + invalidQueryAllowedWarning);
+        }
+        _invalidQueryAllowedWarning = invalidQueryAllowedWarning;
+    }
+
     // ===================================================================================
     //                                                                Non-Specified Access
     //                                                                ====================
@@ -280,10 +337,15 @@ public class RoyDBFluteConfig {
         _nonSpecifiedColumnAccessAllowed = nonSpecifiedColumnAccessAllowed;
     }
 
+    public boolean isNonSpecifiedColumnAccessWarningOnly() { // since 1.2.7
+        return _nonSpecifiedColumnAccessWarningOnly;
+    }
+    // no setter because the option is complete in initialization process
+
     // ===================================================================================
     //                                                              SpecifyColumn Required
     //                                                              ======================
-    public boolean isSpecifyColumnRequired() {
+    public boolean isSpecifyColumnRequired() { // since 1.1.2
         return _specifyColumnRequired;
     }
 
@@ -295,7 +357,7 @@ public class RoyDBFluteConfig {
         _specifyColumnRequired = specifyColumnRequired;
     }
 
-    public SpecifyColumnRequiredExceptDeterminer getSpecifyColumnRequiredExceptDeterminer() {
+    public SpecifyColumnRequiredExceptDeterminer getSpecifyColumnRequiredExceptDeterminer() { // since 1.1.7
         return _specifyColumnRequiredExceptDeterminer;
     }
 
@@ -307,7 +369,7 @@ public class RoyDBFluteConfig {
         _specifyColumnRequiredExceptDeterminer = specifyColumnRequiredExceptDeterminer;
     }
 
-    public boolean isSpecifyColumnRequiredWarningOnly() {
+    public boolean isSpecifyColumnRequiredWarningOnly() { // since 1.2.0
         return _specifyColumnRequiredWarningOnly;
     }
 
@@ -484,6 +546,21 @@ public class RoyDBFluteConfig {
     }
 
     // ===================================================================================
+    //                                                                      Error Log Mask
+    //                                                                      ==============
+    public ErrorLogMaskProvider getErrorLogMaskProvider() { // since 1.2.7
+        return _errorLogMaskProvider;
+    }
+
+    public void setErrorLogMaskProvider(ErrorLogMaskProvider errorLogMaskProvider) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting errorLogMaskProvider: " + errorLogMaskProvider);
+        }
+        _errorLogMaskProvider = errorLogMaskProvider;
+    }
+
+    // ===================================================================================
     //                                                             Default StatementConfig
     //                                                             =======================
     public StatementConfig getDefaultStatementConfig() {
@@ -652,7 +729,7 @@ public class RoyDBFluteConfig {
     // ===================================================================================
     //                                                               Mapping Date TimeZone
     //                                                               =====================
-    public MappingDateTimeZoneProvider getMappingDateTimeZoneProvider() {
+    public MappingDateTimeZoneProvider getMappingDateTimeZoneProvider() { // since 1.1.0
         return _mappingDateTimeZoneProvider;
     }
 

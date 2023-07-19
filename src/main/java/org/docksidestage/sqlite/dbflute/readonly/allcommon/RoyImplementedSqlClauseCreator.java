@@ -144,6 +144,7 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
         doSetupSqlClauseNullOrEmptyQuery(sqlClause);
         doSetupSqlClauseEmptyStringQuery(sqlClause);
         doSetupSqlClauseOverridingQuery(sqlClause);
+        doSetupSqlClauseInvalidQueryAllowedWarning(sqlClause);
         doSetupSqlClauseColumnNullObject(sqlClause);
         doSetupSqlClauseColumnNullObjectGearedToSpecify(sqlClause);
         doSetupSqlClauseTruncateConditionDatetimePrecision(sqlClause);
@@ -159,6 +160,12 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
     protected void doSetupSqlClauseThatsBadTimingDetect(SqlClause sqlClause) {
         if (isThatsBadTimingDetect()) {
             sqlClause.enableThatsBadTimingDetect();
+        }
+        if (isThatsBadTimingWarningOnly()) {
+            sqlClause.enableThatsBadTimingWarningOnly();
+        }
+        if (isOrScopeQueryPurposeCheckWarningOnly()) {
+            sqlClause.enableOrScopeQueryPurposeCheckWarningOnly();
         }
     }
 
@@ -181,6 +188,14 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
             sqlClause.enableOverridingQuery();
         } else { // default for 1.1
             sqlClause.disableOverridingQuery();
+        }
+    }
+
+    protected void doSetupSqlClauseInvalidQueryAllowedWarning(SqlClause sqlClause) { // since 1.2.7
+        if (isInvalidQueryAllowedWarning()) {
+            sqlClause.enableInvalidQueryAllowedWarning();
+        } else {
+            sqlClause.disableInvalidQueryAllowedWarning();
         }
     }
 
@@ -229,6 +244,14 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
         return RoyDBFluteConfig.getInstance().isThatsBadTimingDetect();
     }
 
+    protected boolean isThatsBadTimingWarningOnly() {
+        return RoyDBFluteConfig.getInstance().isThatsBadTimingWarningOnly();
+    }
+
+    protected boolean isOrScopeQueryPurposeCheckWarningOnly() {
+        return RoyDBFluteConfig.getInstance().isOrScopeQueryPurposeCheckWarningOnly();
+    }
+
     protected boolean isNullOrEmptyQueryAllowed() {
         return RoyDBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
     }
@@ -239,6 +262,10 @@ public class RoyImplementedSqlClauseCreator implements SqlClauseCreator {
 
     protected boolean isOverridingQueryAllowed() {
         return RoyDBFluteConfig.getInstance().isOverridingQueryAllowed();
+    }
+
+    protected boolean isInvalidQueryAllowedWarning() {
+        return RoyDBFluteConfig.getInstance().isInvalidQueryAllowedWarning();
     }
 
     protected boolean isColumnNullObjectAllowed() {

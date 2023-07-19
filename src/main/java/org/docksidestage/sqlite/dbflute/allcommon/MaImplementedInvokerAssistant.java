@@ -444,11 +444,12 @@ public class MaImplementedInvokerAssistant implements InvokerAssistant {
     protected ResourceParameter createResourceParameter() {
         ResourceParameter parameter = newResourceParameter();
         parameter.setOutsideSqlPackage(MaDBFluteConfig.getInstance().getOutsideSqlPackage());
-        parameter.setMappingDateTimeZoneProvider(MaDBFluteConfig.getInstance().getMappingDateTimeZoneProvider());
+        parameter.setMappingDateTimeZoneProvider(MaDBFluteConfig.getInstance().getMappingDateTimeZoneProvider()); // since 1.1.0
         parameter.setLogDatePattern(MaDBFluteConfig.getInstance().getLogDatePattern());
         parameter.setLogTimestampPattern(MaDBFluteConfig.getInstance().getLogTimestampPattern());
         parameter.setLogTimePattern(MaDBFluteConfig.getInstance().getLogTimePattern());
         parameter.setLogTimeZoneProvider(MaDBFluteConfig.getInstance().getLogTimeZoneProvider());
+        parameter.setErrorLogMaskProvider(MaDBFluteConfig.getInstance().getErrorLogMaskProvider()); // since 1.2.7
         parameter.setInternalDebug(MaDBFluteConfig.getInstance().isInternalDebug());
         return parameter;
     }

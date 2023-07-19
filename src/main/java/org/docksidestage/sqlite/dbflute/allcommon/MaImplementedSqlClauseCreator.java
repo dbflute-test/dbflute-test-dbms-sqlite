@@ -144,6 +144,7 @@ public class MaImplementedSqlClauseCreator implements SqlClauseCreator {
         doSetupSqlClauseNullOrEmptyQuery(sqlClause);
         doSetupSqlClauseEmptyStringQuery(sqlClause);
         doSetupSqlClauseOverridingQuery(sqlClause);
+        doSetupSqlClauseInvalidQueryAllowedWarning(sqlClause);
         doSetupSqlClauseColumnNullObject(sqlClause);
         doSetupSqlClauseColumnNullObjectGearedToSpecify(sqlClause);
         doSetupSqlClauseTruncateConditionDatetimePrecision(sqlClause);
@@ -159,6 +160,12 @@ public class MaImplementedSqlClauseCreator implements SqlClauseCreator {
     protected void doSetupSqlClauseThatsBadTimingDetect(SqlClause sqlClause) {
         if (isThatsBadTimingDetect()) {
             sqlClause.enableThatsBadTimingDetect();
+        }
+        if (isThatsBadTimingWarningOnly()) {
+            sqlClause.enableThatsBadTimingWarningOnly();
+        }
+        if (isOrScopeQueryPurposeCheckWarningOnly()) {
+            sqlClause.enableOrScopeQueryPurposeCheckWarningOnly();
         }
     }
 
@@ -181,6 +188,14 @@ public class MaImplementedSqlClauseCreator implements SqlClauseCreator {
             sqlClause.enableOverridingQuery();
         } else { // default for 1.1
             sqlClause.disableOverridingQuery();
+        }
+    }
+
+    protected void doSetupSqlClauseInvalidQueryAllowedWarning(SqlClause sqlClause) { // since 1.2.7
+        if (isInvalidQueryAllowedWarning()) {
+            sqlClause.enableInvalidQueryAllowedWarning();
+        } else {
+            sqlClause.disableInvalidQueryAllowedWarning();
         }
     }
 
@@ -229,6 +244,14 @@ public class MaImplementedSqlClauseCreator implements SqlClauseCreator {
         return MaDBFluteConfig.getInstance().isThatsBadTimingDetect();
     }
 
+    protected boolean isThatsBadTimingWarningOnly() {
+        return MaDBFluteConfig.getInstance().isThatsBadTimingWarningOnly();
+    }
+
+    protected boolean isOrScopeQueryPurposeCheckWarningOnly() {
+        return MaDBFluteConfig.getInstance().isOrScopeQueryPurposeCheckWarningOnly();
+    }
+
     protected boolean isNullOrEmptyQueryAllowed() {
         return MaDBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
     }
@@ -239,6 +262,10 @@ public class MaImplementedSqlClauseCreator implements SqlClauseCreator {
 
     protected boolean isOverridingQueryAllowed() {
         return MaDBFluteConfig.getInstance().isOverridingQueryAllowed();
+    }
+
+    protected boolean isInvalidQueryAllowedWarning() {
+        return MaDBFluteConfig.getInstance().isInvalidQueryAllowedWarning();
     }
 
     protected boolean isColumnNullObjectAllowed() {
