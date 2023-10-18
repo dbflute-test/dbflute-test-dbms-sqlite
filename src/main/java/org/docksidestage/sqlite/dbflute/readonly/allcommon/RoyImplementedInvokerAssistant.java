@@ -449,7 +449,7 @@ public class RoyImplementedInvokerAssistant implements InvokerAssistant {
         parameter.setLogTimestampPattern(RoyDBFluteConfig.getInstance().getLogTimestampPattern());
         parameter.setLogTimePattern(RoyDBFluteConfig.getInstance().getLogTimePattern());
         parameter.setLogTimeZoneProvider(RoyDBFluteConfig.getInstance().getLogTimeZoneProvider());
-        parameter.setErrorLogMaskProvider(RoyDBFluteConfig.getInstance().getErrorLogMaskProvider()); // since 1.2.7
+        parameter.setBehaviorLogMaskProvider(RoyDBFluteConfig.getInstance().getBehaviorLogMaskProvider()); // since 1.2.7
         parameter.setInternalDebug(RoyDBFluteConfig.getInstance().isInternalDebug());
         return parameter;
     }

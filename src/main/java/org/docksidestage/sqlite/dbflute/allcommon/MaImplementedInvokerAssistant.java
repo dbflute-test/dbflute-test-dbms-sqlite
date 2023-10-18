@@ -449,7 +449,7 @@ public class MaImplementedInvokerAssistant implements InvokerAssistant {
         parameter.setLogTimestampPattern(MaDBFluteConfig.getInstance().getLogTimestampPattern());
         parameter.setLogTimePattern(MaDBFluteConfig.getInstance().getLogTimePattern());
         parameter.setLogTimeZoneProvider(MaDBFluteConfig.getInstance().getLogTimeZoneProvider());
-        parameter.setErrorLogMaskProvider(MaDBFluteConfig.getInstance().getErrorLogMaskProvider()); // since 1.2.7
+        parameter.setBehaviorLogMaskProvider(MaDBFluteConfig.getInstance().getBehaviorLogMaskProvider()); // since 1.2.7
         parameter.setInternalDebug(MaDBFluteConfig.getInstance().isInternalDebug());
         return parameter;
     }
